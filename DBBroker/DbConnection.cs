@@ -1,9 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Protocols;
 using System;
 using System.Configuration;
 
-//Zahvaljujem se kolegi Dusanu B. na pomoći :)
 namespace DBBroker
 {
     public class DbConnection
@@ -23,17 +24,17 @@ namespace DBBroker
 
         public void CloseConnection()
         {
-            connection?.Close();
+            if (connection != null && connection.State != ConnectionState.Closed)
+                connection?.Close();
         }
 
         public void BeginTransaction()
         {
             transaction = connection.BeginTransaction();
-        } 
+        }
         public void Commit()
         {
-            if(connection != null)
-                transaction?.Commit();
+            transaction?.Commit();
         }
         public void Rollback()
         {

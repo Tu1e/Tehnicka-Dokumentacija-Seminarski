@@ -13,17 +13,17 @@ namespace DBBroker
         private DbConnection connection;
         public Broker()
         {
-            //connection = new DbConnection();
+            connection = new DbConnection();
         }
 
         public void Rollback()
         {
-           // connection.Rollback();
+            connection.Rollback();
         }
 
         public void Commit()
         {
-            //connection.Commit();
+            connection.Commit();
         }
 
         public void BeginTransaction()
@@ -33,12 +33,12 @@ namespace DBBroker
 
         public void CloseConnection()
         {
-           // connection.CloseConnection();
+           connection.CloseConnection();
         }
 
         public void OpenConnection()
         {
-           // connection.OpenConnection();
+           connection.OpenConnection();
         }
 
 
