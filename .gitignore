@@ -1,0 +1,128 @@
+############################
+# OS / Editor šum
+############################
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Linux
+*~
+
+# VS Code / Rider
+.vscode/
+.idea/
+*.sln.iml
+
+############################
+# Visual Studio user-spec
+############################
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+
+############################
+# Visual Studio / .NET build
+############################
+bin/
+obj/
+out/
+artifacts/
+Debug/
+Release/
+x64/
+x86/
+[Aa]ppx/
+
+# VS privremeni fajlovi
+.vs/
+*.cache
+*.ilk
+*.iobj
+*.ipdb
+*.pdb
+*.opendb
+*.log
+*.tlog
+
+############################
+# Visual Studio workspace indexes / Copilot
+############################
+*.vsidx
+*.db
+*.db-shm
+*.db-wal
+.vscode/
+.vs/
+.idea/
+
+############################
+# Paket menadžeri / NuGet
+############################
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+*.snupkg
+packages.lock.json
+
+############################
+# Testovi / Pokrivenost
+############################
+TestResults/
+*.coverage
+*.coveragexml
+.coverage
+.coveragexml
+
+############################
+# Publish / deploy izlazi
+############################
+publish/
+*.Publish.xml
+*.pubxml.user
+*.pubxml
+# ClickOnce
+publish/
+# Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+############################
+# Baze podataka (lokalne kopije)
+############################
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.bkp
+*.trn
+*.dacpac
+*.bacpac
+*.dbmdl
+
+############################
+# Konfiguracije / tajne
+############################
+*.env
+.env
+.env.*
+appsettings.*.local.json
+secrets.json
+
+############################
+# Ostalo
+############################
+*.ipr
+*.iws
+node_modules/
+
+############################
+# Moj seminarski rad
+############################
+Seminarski/
