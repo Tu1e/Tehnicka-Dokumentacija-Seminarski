@@ -48,6 +48,31 @@ namespace Common.Communication
             return podaci == null ? null : JsonSerializer.Deserialize<T>((JsonElement)podaci);
         }
 
+        public T ToObject<T>(object value)
+        {
+            if (value is null) return default!;
+
+            // Ako je već traženi tip
+            if (value is T already) return already;
+
+            // JsonElement (najčešći slučaj kad je polje tipa object)
+            if (value is JsonElement je)
+            {
+                if (je.ValueKind == JsonValueKind.Null) return default!;
+                return je.Deserialize<T>()!;
+            }
+
+            // Raw JSON string
+            if (value is string json)
+            {
+                if (string.IsNullOrWhiteSpace(json)) return default!;
+                return JsonSerializer.Deserialize<T>(json)!;
+            }
+
+            // Fallback: pokušaj preko ToString()
+            return JsonSerializer.Deserialize<T>(value.ToString()!)!;
+        }
+
         public void Close()
         {
             stream.Close();

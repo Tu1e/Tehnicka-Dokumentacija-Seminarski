@@ -1,4 +1,5 @@
 ﻿using Common.Communication;
+using Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,8 +31,8 @@ namespace Serverr
                 while (true)
                 {
                     Request req = serializer.Receive<Request>();
-                    Response r;// = ProcessRequest(req);
-                    //serializer.Send(r);
+                    Response r = ProcessRequest(req);
+                    serializer.Send(r);
                 }
             }
             catch (SocketException)
@@ -52,7 +53,7 @@ namespace Serverr
             }
         }
 
-       /* private Response ProcessRequest(Request req)
+        private Response ProcessRequest(Request req)
         {
             Response r = new Response();
             try
@@ -60,13 +61,11 @@ namespace Serverr
                 switch (req.Operation)
                 {
                     case Operation.CreateKlijent:
-                        Controller.Instance.AddPerson(serializer.ReadType<Klijent>(req.Argument));
                         break;
                     case Operation.Login:
-                        r.Result = Controller.Instance.Login(serializer.ReadType<Zaposleni>(req.Argument));
+                        r.Result = Controller.Instance.Login(serializer.ReadType<Inzenjer>(req.Argument));
                         break;
                     case Operation.GetAllMesto:
-                        r.Result = Controller.Instance.GetAllCity();
                         break;
                 }
             }
@@ -77,7 +76,7 @@ namespace Serverr
                 r.ExceptionMessage = ex.Message;
             }
             return r;
-        }*/
+        }
 
         internal void CloseSocket()
         {

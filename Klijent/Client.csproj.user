@@ -7,5 +7,29 @@
     <Compile Update="FrmKlijentLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Paneli\InzenjerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\KlijentPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\MestoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\OProgramu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\PodesavanjaSistema.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\TehnickaDokumentacija.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\TipInzenjeraPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Paneli\ZadatakPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

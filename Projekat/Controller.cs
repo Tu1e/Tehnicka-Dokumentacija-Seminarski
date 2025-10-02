@@ -27,16 +27,21 @@ namespace Serverr
             }
         }
 
-        private Controller()
-        {
-
-        }
+        private Controller() { }
 
         public Inzenjer? Login(Inzenjer inz)
         {
             Inzenjer? inzenjer = null;
+            try
+            {
+                broker.OpenConnection();
+                inzenjer = broker.GetInzenjerByKorisnickoIme(inz.Username, inz.Password);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
 
-            inzenjer = broker.GetInzenjerByKorisnickoIme(inz.Username, inz.Password);
             return inzenjer;
         }
 

@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace Client.Paneli
 {
-    public partial class FrmKlijentMain : Form
+    public partial class OProgramu : UserControl
     {
-        public FrmKlijentMain()
+        public OProgramu()
         {
             InitializeComponent();
-
-            pnlMain.Dock = DockStyle.Fill;
         }
     }
 }

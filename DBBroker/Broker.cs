@@ -45,30 +45,37 @@ namespace DBBroker
 
         public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
-            using var cmd = connection.CreateCommand();
-            cmd.CommandText = @"
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = @"
                 SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca
                 FROM Inzenjer
                 WHERE KorisnickoIme = @u;";
 
-            cmd.Parameters.Add("@u", SqlDbType.NVarChar, 30).Value = username;
+                command.Parameters.Add("@u", SqlDbType.NVarChar, 30).Value = username;
 
-            using var rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
-            if (!rdr.Read()) return null;
-
-            if(rdr.GetString(4) == password) 
-            {
-                return new Inzenjer
+                using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow))
                 {
-                    IdInzenjer = rdr.GetInt32(0),
-                    Ime = rdr.GetString(1),
-                    Prezime = rdr.GetString(2),
-                    Username = rdr.GetString(3),
-                    Password = rdr.GetString(4),
-                    Licenca = rdr.IsDBNull(5) ? null : rdr.GetString(5)
-                };
+                    if (!reader.Read())
+                        return null;
+
+                    // poređenje lozinke (napomena: u praksi koristi hash + salt)
+                    if ((string)reader["Sifra"] != password)
+                        return null;
+
+                    Inzenjer inzenjer = new Inzenjer
+                    {
+                        IdInzenjer = (int)reader["IdInzenjer"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Username = (string)reader["KorisnickoIme"],
+                        Password = (string)reader["Sifra"],
+                        Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
+                    };
+
+                    return inzenjer;
+                }
             }
-            return null;
         }
     }
 }

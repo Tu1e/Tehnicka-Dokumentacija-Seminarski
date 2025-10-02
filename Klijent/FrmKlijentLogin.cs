@@ -31,11 +31,12 @@ namespace Klijent
                     if (response.ExceptionMessage == null)
                     {
                         FrmKlijentMain frmKlijentMain = new FrmKlijentMain();
+                        //dodaj da se sakrije login 
                         frmKlijentMain.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Ovaj korisnik ne postoji!");
+                        MessageBox.Show("Pogresno ste uneli korisnicko ime i/ili sifru!");
                     }
                 }
                 catch (SocketException ex)

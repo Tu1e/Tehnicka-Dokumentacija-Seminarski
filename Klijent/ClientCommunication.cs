@@ -49,12 +49,15 @@ namespace Client
             serializer.Send(req);
             Response response = serializer.Receive<Response>();
 
-            //if (response.ExceptionMessage != null)
-            //{
-            //    throw new Exception(response.ExceptionMessage);
-            //}
-
             response.Result = serializer.ReadType<Inzenjer>(response.Result); // deserijalizujemo result u user-a
+            if (response.ExceptionMessage == null)
+            {
+                if ((Inzenjer)response.Result == null)
+                {
+                    response.ExceptionMessage = "Kojisnik sa ovim korisnickim imenom i sifrom nije pornadjen";
+                }
+            }
+
             return response;
         }
 
