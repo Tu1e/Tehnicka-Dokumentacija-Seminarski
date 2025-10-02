@@ -30,18 +30,18 @@
         {
             menuStrip1 = new MenuStrip();
             opcijeToolStripMenuItem = new ToolStripMenuItem();
-            dokumenitToolStripMenuItem = new ToolStripMenuItem();
-            tehničkaDokumentacijaToolStripMenuItem = new ToolStripMenuItem();
+            dokumenitTSMItem = new ToolStripMenuItem();
+            tehnickaDokumentacijaTSMItem = new ToolStripMenuItem();
             pružalacUslugeToolStripMenuItem = new ToolStripMenuItem();
+            inzenjerTSMItem = new ToolStripMenuItem();
             primalacUslugeToolStripMenuItem = new ToolStripMenuItem();
+            klijentTSMItem = new ToolStripMenuItem();
             šifarniciToolStripMenuItem = new ToolStripMenuItem();
-            mestoToolStripMenuItem = new ToolStripMenuItem();
-            zadatakToolStripMenuItem = new ToolStripMenuItem();
-            tipInženjeraToolStripMenuItem = new ToolStripMenuItem();
-            podešavanjaSistemaToolStripMenuItem = new ToolStripMenuItem();
-            oProgramuToolStripMenuItem = new ToolStripMenuItem();
-            inženjerToolStripMenuItem = new ToolStripMenuItem();
-            klijentToolStripMenuItem = new ToolStripMenuItem();
+            mestoTSMItem = new ToolStripMenuItem();
+            zadatakTSMItem = new ToolStripMenuItem();
+            tipInzenjeraTSMItem = new ToolStripMenuItem();
+            podešavanjaSistemaTSMItem = new ToolStripMenuItem();
+            oProgramuTSMItem = new ToolStripMenuItem();
             pnlMain = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -57,86 +57,94 @@
             // 
             // opcijeToolStripMenuItem
             // 
-            opcijeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dokumenitToolStripMenuItem, pružalacUslugeToolStripMenuItem, primalacUslugeToolStripMenuItem, šifarniciToolStripMenuItem, podešavanjaSistemaToolStripMenuItem, oProgramuToolStripMenuItem });
+            opcijeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dokumenitTSMItem, pružalacUslugeToolStripMenuItem, primalacUslugeToolStripMenuItem, šifarniciToolStripMenuItem, podešavanjaSistemaTSMItem, oProgramuTSMItem });
             opcijeToolStripMenuItem.Name = "opcijeToolStripMenuItem";
             opcijeToolStripMenuItem.Size = new Size(53, 20);
             opcijeToolStripMenuItem.Text = "Opcije";
             // 
-            // dokumenitToolStripMenuItem
+            // dokumenitTSMItem
             // 
-            dokumenitToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tehničkaDokumentacijaToolStripMenuItem });
-            dokumenitToolStripMenuItem.Name = "dokumenitToolStripMenuItem";
-            dokumenitToolStripMenuItem.Size = new Size(183, 22);
-            dokumenitToolStripMenuItem.Text = "Dokumeniti";
+            dokumenitTSMItem.DropDownItems.AddRange(new ToolStripItem[] { tehnickaDokumentacijaTSMItem });
+            dokumenitTSMItem.Name = "dokumenitTSMItem";
+            dokumenitTSMItem.Size = new Size(183, 22);
+            dokumenitTSMItem.Text = "Dokumeniti";
             // 
-            // tehničkaDokumentacijaToolStripMenuItem
+            // tehnickaDokumentacijaTSMItem
             // 
-            tehničkaDokumentacijaToolStripMenuItem.Name = "tehničkaDokumentacijaToolStripMenuItem";
-            tehničkaDokumentacijaToolStripMenuItem.Size = new Size(202, 22);
-            tehničkaDokumentacijaToolStripMenuItem.Text = "Tehnička dokumentacija";
+            tehnickaDokumentacijaTSMItem.Name = "tehnickaDokumentacijaTSMItem";
+            tehnickaDokumentacijaTSMItem.Size = new Size(202, 22);
+            tehnickaDokumentacijaTSMItem.Text = "Tehnička dokumentacija";
+            tehnickaDokumentacijaTSMItem.Click += tehnickaDokumentacijaTSMItem_Click;
             // 
             // pružalacUslugeToolStripMenuItem
             // 
-            pružalacUslugeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inženjerToolStripMenuItem });
+            pružalacUslugeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inzenjerTSMItem });
             pružalacUslugeToolStripMenuItem.Name = "pružalacUslugeToolStripMenuItem";
             pružalacUslugeToolStripMenuItem.Size = new Size(183, 22);
             pružalacUslugeToolStripMenuItem.Text = "Pružalac usluge";
             // 
+            // inzenjerTSMItem
+            // 
+            inzenjerTSMItem.Name = "inzenjerTSMItem";
+            inzenjerTSMItem.Size = new Size(180, 22);
+            inzenjerTSMItem.Text = "Inženjer";
+            inzenjerTSMItem.Click += inzenjerTSMItem_Click;
+            // 
             // primalacUslugeToolStripMenuItem
             // 
-            primalacUslugeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { klijentToolStripMenuItem });
+            primalacUslugeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { klijentTSMItem });
             primalacUslugeToolStripMenuItem.Name = "primalacUslugeToolStripMenuItem";
             primalacUslugeToolStripMenuItem.Size = new Size(183, 22);
             primalacUslugeToolStripMenuItem.Text = "Primalac usluge";
             // 
+            // klijentTSMItem
+            // 
+            klijentTSMItem.Name = "klijentTSMItem";
+            klijentTSMItem.Size = new Size(180, 22);
+            klijentTSMItem.Text = "Klijent";
+            klijentTSMItem.Click += klijentTSMItem_Click;
+            // 
             // šifarniciToolStripMenuItem
             // 
-            šifarniciToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mestoToolStripMenuItem, zadatakToolStripMenuItem, tipInženjeraToolStripMenuItem });
+            šifarniciToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mestoTSMItem, zadatakTSMItem, tipInzenjeraTSMItem });
             šifarniciToolStripMenuItem.Name = "šifarniciToolStripMenuItem";
             šifarniciToolStripMenuItem.Size = new Size(183, 22);
             šifarniciToolStripMenuItem.Text = "Šifarnici";
             // 
-            // mestoToolStripMenuItem
+            // mestoTSMItem
             // 
-            mestoToolStripMenuItem.Name = "mestoToolStripMenuItem";
-            mestoToolStripMenuItem.Size = new Size(180, 22);
-            mestoToolStripMenuItem.Text = "Mesto";
+            mestoTSMItem.Name = "mestoTSMItem";
+            mestoTSMItem.Size = new Size(180, 22);
+            mestoTSMItem.Text = "Mesto";
+            mestoTSMItem.Click += mestoTSMItem_Click;
             // 
-            // zadatakToolStripMenuItem
+            // zadatakTSMItem
             // 
-            zadatakToolStripMenuItem.Name = "zadatakToolStripMenuItem";
-            zadatakToolStripMenuItem.Size = new Size(180, 22);
-            zadatakToolStripMenuItem.Text = "Zadatak";
+            zadatakTSMItem.Name = "zadatakTSMItem";
+            zadatakTSMItem.Size = new Size(180, 22);
+            zadatakTSMItem.Text = "Zadatak";
+            zadatakTSMItem.Click += zadatakTSMItem_Click;
             // 
-            // tipInženjeraToolStripMenuItem
+            // tipInzenjeraTSMItem
             // 
-            tipInženjeraToolStripMenuItem.Name = "tipInženjeraToolStripMenuItem";
-            tipInženjeraToolStripMenuItem.Size = new Size(180, 22);
-            tipInženjeraToolStripMenuItem.Text = "Tip inženjera";
+            tipInzenjeraTSMItem.Name = "tipInzenjeraTSMItem";
+            tipInzenjeraTSMItem.Size = new Size(180, 22);
+            tipInzenjeraTSMItem.Text = "Tip inženjera";
+            tipInzenjeraTSMItem.Click += tipInzenjeraTSMItem_Click;
             // 
-            // podešavanjaSistemaToolStripMenuItem
+            // podešavanjaSistemaTSMItem
             // 
-            podešavanjaSistemaToolStripMenuItem.Name = "podešavanjaSistemaToolStripMenuItem";
-            podešavanjaSistemaToolStripMenuItem.Size = new Size(183, 22);
-            podešavanjaSistemaToolStripMenuItem.Text = "Podešavanja sistema";
+            podešavanjaSistemaTSMItem.Name = "podešavanjaSistemaTSMItem";
+            podešavanjaSistemaTSMItem.Size = new Size(183, 22);
+            podešavanjaSistemaTSMItem.Text = "Podešavanja sistema";
+            podešavanjaSistemaTSMItem.Click += podešavanjaSistemaTSMItem_Click;
             // 
-            // oProgramuToolStripMenuItem
+            // oProgramuTSMItem
             // 
-            oProgramuToolStripMenuItem.Name = "oProgramuToolStripMenuItem";
-            oProgramuToolStripMenuItem.Size = new Size(183, 22);
-            oProgramuToolStripMenuItem.Text = "O programu";
-            // 
-            // inženjerToolStripMenuItem
-            // 
-            inženjerToolStripMenuItem.Name = "inženjerToolStripMenuItem";
-            inženjerToolStripMenuItem.Size = new Size(180, 22);
-            inženjerToolStripMenuItem.Text = "Inženjer";
-            // 
-            // klijentToolStripMenuItem
-            // 
-            klijentToolStripMenuItem.Name = "klijentToolStripMenuItem";
-            klijentToolStripMenuItem.Size = new Size(180, 22);
-            klijentToolStripMenuItem.Text = "Klijent";
+            oProgramuTSMItem.Name = "oProgramuTSMItem";
+            oProgramuTSMItem.Size = new Size(183, 22);
+            oProgramuTSMItem.Text = "O programu";
+            oProgramuTSMItem.Click += oProgramuTSMItem_Click;
             // 
             // pnlMain
             // 
@@ -166,18 +174,18 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem opcijeToolStripMenuItem;
-        private ToolStripMenuItem dokumenitToolStripMenuItem;
-        private ToolStripMenuItem tehničkaDokumentacijaToolStripMenuItem;
+        private ToolStripMenuItem dokumenitTSMItem;
+        private ToolStripMenuItem tehnickaDokumentacijaTSMItem;
         private ToolStripMenuItem pružalacUslugeToolStripMenuItem;
-        private ToolStripMenuItem inženjerToolStripMenuItem;
+        private ToolStripMenuItem inzenjerTSMItem;
         private ToolStripMenuItem primalacUslugeToolStripMenuItem;
-        private ToolStripMenuItem klijentToolStripMenuItem;
+        private ToolStripMenuItem klijentTSMItem;
         private ToolStripMenuItem šifarniciToolStripMenuItem;
-        private ToolStripMenuItem mestoToolStripMenuItem;
-        private ToolStripMenuItem zadatakToolStripMenuItem;
-        private ToolStripMenuItem tipInženjeraToolStripMenuItem;
-        private ToolStripMenuItem podešavanjaSistemaToolStripMenuItem;
-        private ToolStripMenuItem oProgramuToolStripMenuItem;
+        private ToolStripMenuItem mestoTSMItem;
+        private ToolStripMenuItem zadatakTSMItem;
+        private ToolStripMenuItem tipInzenjeraTSMItem;
+        private ToolStripMenuItem podešavanjaSistemaTSMItem;
+        private ToolStripMenuItem oProgramuTSMItem;
         private Panel pnlMain;
     }
 }
