@@ -6,13 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Domain;
+using DBBroker;
 
-namespace Server
+namespace Serverr
 {
     public class Controller
     {
         private static Controller instance;
-
+        private Broker broker = new Broker();
         public static Controller Instance
         {
             get
@@ -31,25 +32,15 @@ namespace Server
 
         }
 
-        private Inzenjer userRepository = new UserRepository();
-        public User currentUser { get; private set; }
-        public User Login(User u)
+        public Inzenjer? Login(Inzenjer inz)
         {
-            List<User> users = userRepository.GetUsers();
+            Inzenjer? inzenjer = null;
 
-            foreach (User user in users)
-            {
-
-                if (user.Username == u.Username && user.Password == u.Password)
-                {
-                    currentUser = user;
-                    return user;
-                }
-            }
-            return null;
+            inzenjer = broker.GetInzenjerByKorisnickoIme(inz.Username, inz.Password);
+            return inzenjer;
         }
 
-        private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();
+        /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();
         public List<Manufacturer> GetAllManufacturers()
         {
             return manufacturerRepository.GetManufacturers();
@@ -74,6 +65,6 @@ namespace Server
         public void AddProducts(List<Product> products)
         {
             productRepository.AddAllProducts(products);
-        }
+        }*/
     }
 }

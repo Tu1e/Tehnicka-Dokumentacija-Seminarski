@@ -11,10 +11,9 @@ namespace DBBroker
     {
         private SqlConnection connection;
         private SqlTransaction transaction;
-        private string dbName = "TehDocDB_Dev";
         public DbConnection()
         {
-            connection = new SqlConnection($@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog={dbName};Integrated Security=True;");
+            connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TehDocDB_Dev;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         public void OpenConnection()

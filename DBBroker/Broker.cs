@@ -43,27 +43,32 @@ namespace DBBroker
            connection.OpenConnection();
         }
 
-        public Inzenjer? GetInzenjerByKorisnickoIme(string korisnickoIme)
+        public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
             using var cmd = connection.CreateCommand();
             cmd.CommandText = @"
-                SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Licenca
+                SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca
                 FROM Inzenjer
                 WHERE KorisnickoIme = @u;";
 
-            cmd.Parameters.Add("@u", SqlDbType.NVarChar, 30).Value = korisnickoIme;
+            cmd.Parameters.Add("@u", SqlDbType.NVarChar, 30).Value = username;
 
             using var rdr = cmd.ExecuteReader(CommandBehavior.SingleRow);
             if (!rdr.Read()) return null;
 
-            return new Inzenjer
+            if(rdr.GetString(4) == password) 
             {
-                IdInzenjer = rdr.GetInt32(0),
-                Ime = rdr.GetString(1),
-                Prezime = rdr.GetString(2),
-                Username = rdr.GetString(3),
-                Licenca = rdr.IsDBNull(4) ? null : rdr.GetString(4)
-            };
+                return new Inzenjer
+                {
+                    IdInzenjer = rdr.GetInt32(0),
+                    Ime = rdr.GetString(1),
+                    Prezime = rdr.GetString(2),
+                    Username = rdr.GetString(3),
+                    Password = rdr.GetString(4),
+                    Licenca = rdr.IsDBNull(5) ? null : rdr.GetString(5)
+                };
+            }
+            return null;
         }
     }
 }
