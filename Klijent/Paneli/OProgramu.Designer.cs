@@ -28,10 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            label1 = new Label();
+            label2 = new Label();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AllowDrop = true;
+            label1.AutoSize = true;
+            label1.Location = new Point(136, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(381, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Softver kreirao Vukan Radošević, 2025. godine.\n Softver je kreiran kao seminarski rad iz predmeta Projektovanje softvera";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(59, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 15);
+            label2.TabIndex = 1;
+            label2.Text = "O softveru:";
+            // 
+            // OProgramu
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "OProgramu";
+            Size = new Size(551, 365);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Label label2;
     }
 }

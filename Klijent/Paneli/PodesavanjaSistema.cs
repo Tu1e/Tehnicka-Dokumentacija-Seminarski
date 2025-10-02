@@ -16,5 +16,10 @@ namespace Client.Paneli
         {
             InitializeComponent();
         }
+
+        private void PodesavanjaSistema_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace Client
             Response response = serializer.Receive<Response>();
 
             response.Result = serializer.ReadType<Inzenjer>(response.Result); // deserijalizujemo result u user-a
+            
             if (response.ExceptionMessage == null)
             {
                 if ((Inzenjer)response.Result == null)
