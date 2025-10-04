@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Common;
 
 namespace Client.Paneli
 {
@@ -19,6 +20,7 @@ namespace Client.Paneli
 
         private void btnKreiraj_Click(object sender, EventArgs e)
         {
+            ClientCommunication.Instance.GetNextFreeId(TableName.TehnickaDokumentacija);
 
         }
 
@@ -34,6 +36,7 @@ namespace Client.Paneli
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
+            //Provere polja
 
         }
 

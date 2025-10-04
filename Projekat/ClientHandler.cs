@@ -1,4 +1,5 @@
-﻿using Common.Communication;
+﻿using Common;
+using Common.Communication;
 using Common.Domain;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,10 @@ namespace Serverr
                     case Operation.Login:
                         r.Result = Controller.Instance.Login(serializer.ReadType<Inzenjer>(req.Argument));
                         break;
-                    case Operation.GetAllMesto:
+                    case Operation.GetTableData:
+                        break;
+                    case Operation.GetNextFreeId:
+                        r.Result = Controller.Instance.GetNextFreeId((TableName)req.Argument);
                         break;
                 }
             }

@@ -77,5 +77,38 @@ namespace DBBroker
                 }
             }
         }
+
+        public int GetNextId(TableName tableName)
+        {
+            string idColumn = GetTeableIdColumn(tableName);
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = $"SELECT ISNULL(MAX({idColumn}), 0) + 1 FROM {tableName.ToString()}";
+                object result = command.ExecuteScalar();
+                return Convert.ToInt32(result);
+            }
+        }
+
+        private string GetTeableIdColumn(TableName tN)
+        {
+            switch (tN)
+            {
+                case TableName.Inzenjer:
+                    return TableIdColumnName.IdInzenjer.ToString();
+                case TableName.TipInzenjera:
+                    return TableIdColumnName.IdStrucnaSprema.ToString();
+                case TableName.Mesto:
+                    return TableIdColumnName.IdMesto.ToString();
+                case TableName.Zadatak:
+                    return TableIdColumnName.IdZadatak.ToString();
+                case TableName.Klijent:
+                    return TableIdColumnName.IdKlijent.ToString();
+                case TableName.TehnickaDokumentacija:
+                    return TableIdColumnName.IdTD.ToString();
+            }
+
+            throw new Exception("Uneta tabela za koju generisanje novog IDa nije potrebno!");
+            return TableIdColumnName.None.ToString();
+        }
     }
 }

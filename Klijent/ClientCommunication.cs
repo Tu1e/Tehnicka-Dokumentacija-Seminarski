@@ -62,5 +62,36 @@ namespace Client
             return response;
         }
 
+        public Response GetTableData(TableName tableName)
+        {
+            Request req = new Request
+            {
+                Argument = tableName,
+                Operation = Operation.GetTableData
+            };
+
+            Response response = serializer.Receive<Response>();
+            response.Result = serializer.ReadType<Inzenjer>(response.Result);
+
+            return response;
+
+        }
+
+        public int GetNextFreeId(TableName tableName)
+        {
+            Request req = new Request
+            {
+                Argument = tableName,
+                Operation = Operation.GetNextFreeId
+            };
+
+            Response response = serializer.Receive<Response>();
+            response.Result = serializer.ReadType<Inzenjer>(response.Result);
+            int nextId = (int)response.Result;
+
+            return nextId;
+
+        }
+
     }
 }

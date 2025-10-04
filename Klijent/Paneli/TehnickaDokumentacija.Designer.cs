@@ -36,7 +36,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvDokumentacija = new DataGridView();
             dtpDatumPotpisivanja = new DateTimePicker();
             dtpDatumZavrsetka = new DateTimePicker();
             cmbInzenjer = new ComboBox();
@@ -46,7 +46,7 @@
             btnIzmeni = new Button();
             btnSacuvaj = new Button();
             btnObtisi = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDokumentacija).BeginInit();
             SuspendLayout();
             // 
             // txtIdDokumentacije
@@ -118,13 +118,13 @@
             label6.TabIndex = 11;
             label6.Text = "Klijent:";
             // 
-            // dataGridView1
+            // dgvDokumentacija
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(386, 13);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 191);
-            dataGridView1.TabIndex = 12;
+            dgvDokumentacija.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDokumentacija.Location = new Point(386, 13);
+            dgvDokumentacija.Name = "dgvDokumentacija";
+            dgvDokumentacija.Size = new Size(240, 191);
+            dgvDokumentacija.TabIndex = 12;
             // 
             // dtpDatumPotpisivanja
             // 
@@ -219,7 +219,7 @@
             Controls.Add(cmbInzenjer);
             Controls.Add(dtpDatumZavrsetka);
             Controls.Add(dtpDatumPotpisivanja);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvDokumentacija);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -230,7 +230,7 @@
             Controls.Add(txtIdDokumentacije);
             Name = "TehnickaDokumentacija";
             Size = new Size(649, 379);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDokumentacija).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,7 +247,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDokumentacija;
         private DateTimePicker dtpDatumPotpisivanja;
         private DateTimePicker dtpDatumZavrsetka;
         private ComboBox cmbInzenjer;

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Domain;
 using DBBroker;
+using Common;
 
 namespace Serverr
 {
@@ -43,6 +44,22 @@ namespace Serverr
             }
 
             return inzenjer;
+        }
+
+        public int GetNextFreeId(TableName tableName)
+        {
+            int nextId = 0;
+            try
+            {
+                broker.OpenConnection();
+                nextId = broker.GetNextId(tableName);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+
+            return nextId;
         }
 
         /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();

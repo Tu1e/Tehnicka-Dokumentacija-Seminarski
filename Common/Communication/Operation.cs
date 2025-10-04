@@ -4,6 +4,7 @@
     {//adapt!
         CreateKlijent,
         Login,
-        GetAllMesto
+        GetTableData,
+        GetNextFreeId
     }
 }
