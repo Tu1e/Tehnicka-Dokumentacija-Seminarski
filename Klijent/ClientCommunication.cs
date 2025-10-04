@@ -3,6 +3,7 @@ using Common.Communication;
 using Common.Domain;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -62,20 +63,6 @@ namespace Client
             return response;
         }
 
-        public Response GetTableData(TableName tableName)
-        {
-            Request req = new Request
-            {
-                Argument = tableName,
-                Operation = Operation.GetTableData
-            };
-
-            Response response = serializer.Receive<Response>();
-            response.Result = serializer.ReadType<Inzenjer>(response.Result);
-
-            return response;
-
-        }
 
         public int GetNextFreeId(TableName tableName)
         {
@@ -84,14 +71,43 @@ namespace Client
                 Argument = tableName,
                 Operation = Operation.GetNextFreeId
             };
+            serializer.Send(req);
 
             Response response = serializer.Receive<Response>();
-            response.Result = serializer.ReadType<Inzenjer>(response.Result);
+            response.Result = serializer.ReadType<int>(response.Result);
             int nextId = (int)response.Result;
 
             return nextId;
-
         }
 
+        public TehDokCmbData LoadOtherTableData(TableName tableName)
+        {
+            Request req = new Request
+            {
+                Argument = tableName,
+                Operation = Operation.GetTableSupportData,
+            };
+            serializer.Send(req);
+            Response response = serializer.Receive<Response>();
+            response.Result = serializer.ReadType<TehDokCmbData>(response.Result);
+
+            TehDokCmbData tdcd = (TehDokCmbData)response.Result;
+            return tdcd;
+        }
+        public Response GetTableData(TableName tableName)
+        {
+            Request req = new Request
+            {
+                Argument = tableName,
+                Operation = Operation.GetTableData
+            };
+            serializer.Send(req);
+
+            Response response = serializer.Receive<Response>();
+            response.Result = serializer.ReadType<TehDokCmbData>(response.Result);
+
+            return response;
+
+        }
     }
 }

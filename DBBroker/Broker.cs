@@ -88,6 +88,92 @@ namespace DBBroker
                 return Convert.ToInt32(result);
             }
         }
+        public TehDokCmbData GetTableSupportData(TableName tableName)
+        {
+            TehDokCmbData data = new TehDokCmbData();
+
+            List<TableName> supportTables = GetSupportTableNames(tableName);
+
+            foreach (var tbl in supportTables)
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    switch (tbl)
+                    {
+                        case TableName.Inzenjer:
+                            command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca FROM Inzenjer";
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    data.Inzenjeri.Add(new Inzenjer
+                                    {
+                                        IdInzenjer = (int)reader["IdInzenjer"],
+                                        Ime = (string)reader["Ime"],
+                                        Prezime = (string)reader["Prezime"],
+                                        Username = (string)reader["KorisnickoIme"],
+                                        Password = (string)reader["Sifra"],
+                                        Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
+                                    });
+                                }
+                            }
+                            break;
+
+                        case TableName.Klijent:
+                            command.CommandText = "SELECT IdKlijent, Ime, Prezime, Stranac, IdMesto FROM Klijent";
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    data.Klijenti.Add(new Klijent
+                                    {
+                                        IdKlijent = (int)reader["IdKlijent"],
+                                        Ime = (string)reader["Ime"],
+                                        Prezime = (string)reader["Prezime"],
+                                        Stranac = (bool)reader["Stranac"],
+                                        IdMesto = (int)reader["IdMesto"]
+                                    });
+                                }
+                            }
+                            break;
+
+                        case TableName.Mesto:
+                            command.CommandText = "SELECT IdMesto, NazivMesta, NazivDrzave FROM Mesto";
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    data.Mesta.Add(new Mesto
+                                    {
+                                        IdMesto = (int)reader["IdMesto"],
+                                        NazivMesta = (string)reader["NazivMesta"],
+                                        NazivDrzave = (string)reader["NazivDrzave"]
+                                    });
+                                }
+                            }
+                            break;
+
+                        case TableName.TipInzenjera:
+                            command.CommandText = "SELECT IdStrucnaSprema, Naziv FROM TipInzenjera";
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    data.TipoviI.Add(new TipInzenjera
+                                    {
+                                        IdStrucnaSprema = (int)reader["IdStrucnaSprema"],
+                                        Naziv = (string)reader["Naziv"]
+                                    });
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+
+            return data;
+        }
+
 
         private string GetTeableIdColumn(TableName tN)
         {
@@ -110,5 +196,27 @@ namespace DBBroker
             throw new Exception("Uneta tabela za koju generisanje novog IDa nije potrebno!");
             return TableIdColumnName.None.ToString();
         }
+
+        private List<TableName> GetSupportTableNames(TableName tN)
+        {
+            switch (tN)
+            {
+                case TableName.TehnickaDokumentacija:
+                    return new List<TableName> { TableName.Inzenjer, TableName.Klijent };
+
+                case TableName.Inzenjer:
+                    return new List<TableName> { TableName.TipInzenjera };
+
+                case TableName.Klijent:
+                    return new List<TableName> { TableName.Mesto };
+
+                case TableName.Zadatak:
+                    return new List<TableName>();
+
+                default:
+                    return new List<TableName>();
+            }
+        }
+
     }
 }

@@ -9,5 +9,6 @@
         public string Password { get; set; }
         public string Licenca { get; set; }
 
+        public string ImePrezime => $"{Ime} {Prezime}";
     }
 }

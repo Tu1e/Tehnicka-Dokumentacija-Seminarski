@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Common.Domain;
 using DBBroker;
 using Common;
+using System.Diagnostics;
 
 namespace Serverr
 {
@@ -60,6 +61,23 @@ namespace Serverr
             }
 
             return nextId;
+        }
+
+        public TehDokCmbData GetTableSupportData(TableName tableName)
+        {
+            TehDokCmbData tehDokCmbData = null!;
+            try
+            {
+                Debug.WriteLine("TRY HARDER");
+                broker.OpenConnection();
+                tehDokCmbData = broker.GetTableSupportData(tableName);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+
+            return tehDokCmbData;
         }
 
         /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();

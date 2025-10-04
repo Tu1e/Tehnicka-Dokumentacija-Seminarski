@@ -14,5 +14,6 @@ namespace Common.Domain
         public bool Stranac { get; set; }
         public int IdMesto { get; set; }
 
+        public string ImePrezime => $"{Ime} {Prezime}";
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Client.Paneli;
+using Klijent;
 
 namespace Client
 {
@@ -67,6 +68,5 @@ namespace Client
         {
             LoadUserControl(new OProgramu());
         }
-
     }
 }

@@ -38,14 +38,9 @@ namespace Common.Communication
             return JsonSerializer.Deserialize<T>(json);
         }
 
-        public T ReadType<T>(object podaci) where T : class
+        public T ReadType<T>(object podaci)
         {
-            //if (podaci == null)
-            //{
-            //    return null;
-            //}
-            //return JsonSerializer.Deserialize<T>((JsonElement)podaci);
-            return podaci == null ? null : JsonSerializer.Deserialize<T>((JsonElement)podaci);
+            return podaci == null ? default : JsonSerializer.Deserialize<T>((JsonElement)podaci);
         }
 
         public T ToObject<T>(object value)

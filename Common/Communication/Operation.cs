@@ -5,6 +5,7 @@
         CreateKlijent,
         Login,
         GetTableData,
-        GetNextFreeId
+        GetTableSupportData,
+        GetNextFreeId,
     }
 }

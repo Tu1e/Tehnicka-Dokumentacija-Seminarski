@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DBBroker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c56abc887873934b283adecc9edc4d113e310b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1927e8935a28ff212e6425dad205b9ec8ad177ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("DBBroker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DBBroker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

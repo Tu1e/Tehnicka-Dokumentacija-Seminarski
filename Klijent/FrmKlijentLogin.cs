@@ -30,9 +30,14 @@ namespace Klijent
                     Response response = ClientCommunication.Instance.Login(txtUsername.Text, txtPassword.Text);
                     if (response.ExceptionMessage == null)
                     {
-                        FrmKlijentMain frmKlijentMain = new FrmKlijentMain();
-                        //dodaj da se sakrije login 
-                        frmKlijentMain.ShowDialog();
+                        this.Hide();
+
+                        using (FrmKlijentMain frmKlijentMain = new FrmKlijentMain())
+                        {
+                            frmKlijentMain.ShowDialog();
+                        }
+
+                        this.Show();
                     }
                     else
                     {

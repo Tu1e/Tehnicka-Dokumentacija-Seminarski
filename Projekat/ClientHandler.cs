@@ -68,8 +68,11 @@ namespace Serverr
                         break;
                     case Operation.GetTableData:
                         break;
+                    case Operation.GetTableSupportData:
+                        r.Result = Controller.Instance.GetTableSupportData(serializer.ReadType<TableName>(req.Argument));
+                        break;
                     case Operation.GetNextFreeId:
-                        r.Result = Controller.Instance.GetNextFreeId((TableName)req.Argument);
+                        r.Result = Controller.Instance.GetNextFreeId(serializer.ReadType<TableName>(req.Argument));
                         break;
                 }
             }
