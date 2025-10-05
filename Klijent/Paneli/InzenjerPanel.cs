@@ -44,6 +44,7 @@ namespace Client.Paneli
             txtUsername.Enabled = action;
             txtPassword.Enabled = action;
             txtLicenca.Enabled = action;
+            btnSacuvaj.Enabled = action;
         }
 
         private void btnKreiraj_Click(object sender, EventArgs e)

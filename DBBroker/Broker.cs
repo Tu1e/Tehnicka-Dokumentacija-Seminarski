@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Security.Principal;
 using System.Transactions;
 
@@ -259,7 +260,6 @@ namespace DBBroker
             }
 
             throw new Exception("Uneta tabela za koju generisanje novog IDa nije potrebno!");
-            return TableIdColumnName.None.ToString();
         }
 
         private List<TableName> GetSupportTableNames(TableName tN)
@@ -281,6 +281,147 @@ namespace DBBroker
                 default:
                     return new List<TableName>();
             }
+        }
+
+        public TableDataBundle AddTableMember(TableDataMember tdm)
+        {
+            TableDataBundle updatedBundle = new TableDataBundle();
+
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    switch (tdm.TableName)
+                    {
+                        case TableName.Inzenjer:
+                            command.CommandText = @"INSERT INTO Inzenjer (IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca)
+                                        VALUES (@id, @ime, @prezime, @korisnickoIme, @sifra, @licenca)";
+                            command.Parameters.AddWithValue("@id", tdm.Inzenjer.IdInzenjer);
+                            command.Parameters.AddWithValue("@ime", tdm.Inzenjer.Ime);
+                            command.Parameters.AddWithValue("@prezime", tdm.Inzenjer.Prezime);
+                            command.Parameters.AddWithValue("@korisnickoIme", tdm.Inzenjer.Username);
+                            command.Parameters.AddWithValue("@sifra", tdm.Inzenjer.Password);
+                            command.Parameters.AddWithValue("@licenca", (object?)tdm.Inzenjer.Licenca ?? DBNull.Value);
+                            break;
+
+                        case TableName.Klijent:
+                            command.CommandText = @"INSERT INTO Klijent (IdKlijent, Ime, Prezime, Stranac, IdMesto)
+                                        VALUES (@id, @ime, @prezime, @stranac, @idMesto)";
+                            command.Parameters.AddWithValue("@id", tdm.Klijent.IdKlijent);
+                            command.Parameters.AddWithValue("@ime", tdm.Klijent.Ime);
+                            command.Parameters.AddWithValue("@prezime", tdm.Klijent.Prezime);
+                            command.Parameters.AddWithValue("@stranac", tdm.Klijent.Stranac);
+                            command.Parameters.AddWithValue("@idMesto", tdm.Klijent.IdMesto);
+                            break;
+
+                        case TableName.Mesto:
+                            command.CommandText = @"INSERT INTO Mesto (IdMesto, NazivMesta, NazivDrzave)
+                                        VALUES (@id, @nazivMesta, @nazivDrzave)";
+                            command.Parameters.AddWithValue("@id", tdm.Mesto.IdMesto);
+                            command.Parameters.AddWithValue("@nazivMesta", tdm.Mesto.NazivMesta);
+                            command.Parameters.AddWithValue("@nazivDrzave", tdm.Mesto.NazivDrzave);
+                            break;
+
+                        case TableName.Zadatak:
+                            command.CommandText = @"INSERT INTO Zadatak (IdZadatak, Naziv, Trajanje, Cena)
+                                        VALUES (@id, @naziv, @trajanje, @cena)";
+                            command.Parameters.AddWithValue("@id", tdm.Zadatak.IdZadatak);
+                            command.Parameters.AddWithValue("@naziv", tdm.Zadatak.Naziv);
+                            command.Parameters.AddWithValue("@trajanje", tdm.Zadatak.Trajanje);
+                            command.Parameters.AddWithValue("@cena", tdm.Zadatak.Cena);
+                            break;
+
+                        case TableName.TipInzenjera:
+                            command.CommandText = @"INSERT INTO TipInzenjera (IdStrucnaSprema, Naziv)
+                                        VALUES (@id, @naziv)";
+                            command.Parameters.AddWithValue("@id", tdm.TipInzenjera.IdStrucnaSprema);
+                            command.Parameters.AddWithValue("@naziv", tdm.TipInzenjera.Naziv);
+                            break;
+
+                        case TableName.TehnickaDokumentacija:
+                            command.CommandText = @"INSERT INTO TehnickaDokumentacija 
+                                        (IdTD, DatumPotpisivanja, DatumZavrsetka, UkupanIznos, IdInzenjer, IdKlijent)
+                                        VALUES (@id, @datumP, @datumZ, @iznos, @idInz, @idKl)";
+                            command.Parameters.AddWithValue("@id", tdm.TehnickaDokumentacija.IdTehnickaDokumentacija);
+                            command.Parameters.AddWithValue("@datumP", tdm.TehnickaDokumentacija.DatumPotpisivanja);
+                            command.Parameters.AddWithValue("@datumZ", tdm.TehnickaDokumentacija.DatumZavrsetka);
+                            command.Parameters.AddWithValue("@iznos", tdm.TehnickaDokumentacija.UkupanIznos);
+                            command.Parameters.AddWithValue("@idInz", tdm.TehnickaDokumentacija.IdInzenjer);
+                            command.Parameters.AddWithValue("@idKl", tdm.TehnickaDokumentacija.IdKlijent);
+                            break;
+                    }
+
+                    Debug.WriteLine($">>> SQL: {command.CommandText}");
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(">>> ERROR u Broker.AddTableMember: " + ex.Message);
+                    throw;
+                }
+
+            }
+
+            updatedBundle = GetTableData(tdm.TableName);
+            return updatedBundle;
+        }
+
+        public TableDataBundle DeleteTableMember(TableDataMember tdm)
+        {
+            TableDataBundle updatedBundle = new TableDataBundle();
+
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    switch (tdm.TableName)
+                    {
+                        case TableName.Inzenjer:
+                            command.CommandText = "DELETE FROM Inzenjer WHERE IdInzenjer = @id";
+                            command.Parameters.AddWithValue("@id", tdm.Inzenjer.IdInzenjer);
+                            break;
+
+                        case TableName.Klijent:
+                            command.CommandText = "DELETE FROM Klijent WHERE IdKlijent = @id";
+                            command.Parameters.AddWithValue("@id", tdm.Klijent.IdKlijent);
+                            break;
+
+                        case TableName.Mesto:
+                            command.CommandText = "DELETE FROM Mesto WHERE IdMesto = @id";
+                            command.Parameters.AddWithValue("@id", tdm.Mesto.IdMesto);
+                            break;
+
+                        case TableName.Zadatak:
+                            command.CommandText = "DELETE FROM Zadatak WHERE IdZadatak = @id";
+                            command.Parameters.AddWithValue("@id", tdm.Zadatak.IdZadatak);
+                            break;
+
+                        case TableName.TipInzenjera:
+                            command.CommandText = "DELETE FROM TipInzenjera WHERE IdStrucnaSprema = @id";
+                            command.Parameters.AddWithValue("@id", tdm.TipInzenjera.IdStrucnaSprema);
+                            break;
+
+                        case TableName.TehnickaDokumentacija:
+                            command.CommandText = "DELETE FROM TehnickaDokumentacija WHERE IdTD = @id";
+                            command.Parameters.AddWithValue("@id", tdm.TehnickaDokumentacija.IdTehnickaDokumentacija);
+                            break;
+
+                        default:
+                            throw new Exception("Nepoznata tabela za brisanje: " + tdm.TableName);
+                    }
+
+                    Debug.WriteLine($">>> SQL DELETE: {command.CommandText}");
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(">>> Greška prilikom brisanja u Broker.DeleteTableMember: " + ex.Message);
+                    throw;
+                }
+            }
+
+            updatedBundle = GetTableData(tdm.TableName);
+            return updatedBundle;
         }
 
     }

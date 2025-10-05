@@ -95,6 +95,43 @@ namespace Serverr
             return tdb;
         }
 
+        public TableDataBundle AddTableMember(TableDataMember tdm)
+        {
+            TableDataBundle tdb = null!;
+            try
+            {
+                broker.OpenConnection();
+                tdb = broker.AddTableMember(tdm);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+
+            return tdb;
+        }
+
+        public object DeleteTableMember(TableDataMember tdm)
+        {
+            TableDataBundle tdb = null!;
+            try
+            {
+                broker.OpenConnection();
+                tdb = broker.DeleteTableMember(tdm);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+
+            return tdb;
+        }
+
+        public object ChangeTableMember(TableName tableName)
+        {
+            throw new NotImplementedException();
+        }
+
         /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();
         public List<Manufacturer> GetAllManufacturers()
         {

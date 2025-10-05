@@ -34,6 +34,7 @@ namespace Client.Paneli
             txtPrezime.Enabled = action;
             txtMesto.Enabled = action;
             chbStranac.Enabled = action;
+            btnSacuvaj.Enabled = action;
         }
 
         private void btnKreiraj_Click(object sender, EventArgs e)

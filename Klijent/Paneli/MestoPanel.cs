@@ -31,10 +31,5 @@ namespace Client.Paneli
         {
 
         }
-
-        private void btnPretrazi_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

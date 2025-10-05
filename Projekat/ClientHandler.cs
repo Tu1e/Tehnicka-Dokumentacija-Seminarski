@@ -61,8 +61,6 @@ namespace Serverr
             {
                 switch (req.Operation)
                 {
-                    case Operation.CreateKlijent:
-                        break;
                     case Operation.Login:
                         r.Result = Controller.Instance.Login(serializer.ReadType<Inzenjer>(req.Argument));
                         break;
@@ -74,6 +72,15 @@ namespace Serverr
                         break;
                     case Operation.GetNextFreeId:
                         r.Result = Controller.Instance.GetNextFreeId(serializer.ReadType<TableName>(req.Argument));
+                        break;
+                    case Operation.AddTableMember:
+                        r.Result = Controller.Instance.AddTableMember(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMember:
+                        r.Result = Controller.Instance.DeleteTableMember(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.ChangeTableMember:
+                        r.Result = Controller.Instance.ChangeTableMember(serializer.ReadType<TableName>(req.Argument));
                         break;
                 }
             }

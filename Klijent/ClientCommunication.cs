@@ -152,5 +152,33 @@ namespace Client
 
             return serializer.ReadType<TableDataBundle>(response.Result);
         }
+
+        public TableDataBundle AddTableMember(TableDataMember tdm)
+        {
+            Request req = new Request
+            {
+                Argument = tdm,
+                Operation = Operation.AddTableMember
+            };
+            serializer.Send(req);
+
+            Response response = serializer.Receive<Response>();
+
+            return serializer.ReadType<TableDataBundle>(response.Result);
+        }
+
+        public TableDataBundle DeleteTableMember(TableDataMember tdm)
+        {
+            Request req = new Request
+            {
+                Argument = tdm,
+                Operation = Operation.DeleteTableMember
+            };
+            serializer.Send(req);
+
+            Response response = serializer.Receive<Response>();
+
+            return serializer.ReadType<TableDataBundle>(response.Result);
+        }
     }
 }
