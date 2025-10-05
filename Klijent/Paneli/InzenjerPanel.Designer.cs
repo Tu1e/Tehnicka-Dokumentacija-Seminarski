@@ -48,6 +48,10 @@
             label7 = new Label();
             cmbTipInzenjera = new ComboBox();
             dgvInzenjer = new DataGridView();
+            txtOpis = new TextBox();
+            txtGodIskustva = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvInzenjer).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +59,7 @@
             // 
             btnObtisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnObtisi.AutoSize = true;
-            btnObtisi.Location = new Point(595, 102);
+            btnObtisi.Location = new Point(586, 124);
             btnObtisi.Name = "btnObtisi";
             btnObtisi.Size = new Size(57, 25);
             btnObtisi.TabIndex = 32;
@@ -67,7 +71,7 @@
             // 
             btnSacuvaj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSacuvaj.AutoSize = true;
-            btnSacuvaj.Location = new Point(525, 102);
+            btnSacuvaj.Location = new Point(516, 124);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(57, 25);
             btnSacuvaj.TabIndex = 31;
@@ -79,7 +83,7 @@
             // 
             btnIzmeni.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnIzmeni.AutoSize = true;
-            btnIzmeni.Location = new Point(455, 102);
+            btnIzmeni.Location = new Point(446, 124);
             btnIzmeni.Name = "btnIzmeni";
             btnIzmeni.Size = new Size(57, 25);
             btnIzmeni.TabIndex = 30;
@@ -91,7 +95,7 @@
             // 
             btnPretrazi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnPretrazi.AutoSize = true;
-            btnPretrazi.Location = new Point(385, 102);
+            btnPretrazi.Location = new Point(376, 124);
             btnPretrazi.Name = "btnPretrazi";
             btnPretrazi.Size = new Size(57, 25);
             btnPretrazi.TabIndex = 29;
@@ -103,7 +107,7 @@
             // 
             btnKreiraj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnKreiraj.AutoSize = true;
-            btnKreiraj.Location = new Point(315, 102);
+            btnKreiraj.Location = new Point(306, 124);
             btnKreiraj.Name = "btnKreiraj";
             btnKreiraj.Size = new Size(57, 25);
             btnKreiraj.TabIndex = 28;
@@ -115,7 +119,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(304, 42);
+            label6.Location = new Point(304, 13);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 27;
@@ -125,7 +129,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(304, 13);
+            label5.Location = new Point(15, 129);
             label5.Name = "label5";
             label5.Size = new Size(33, 15);
             label5.TabIndex = 26;
@@ -207,7 +211,7 @@
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.Location = new Point(426, 10);
+            txtPassword.Location = new Point(137, 126);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(128, 23);
             txtPassword.TabIndex = 37;
@@ -215,7 +219,7 @@
             // txtLicenca
             // 
             txtLicenca.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtLicenca.Location = new Point(426, 39);
+            txtLicenca.Location = new Point(426, 10);
             txtLicenca.Name = "txtLicenca";
             txtLicenca.Size = new Size(128, 23);
             txtLicenca.TabIndex = 38;
@@ -224,7 +228,7 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(304, 71);
+            label7.Location = new Point(304, 42);
             label7.Name = "label7";
             label7.Size = new Size(76, 15);
             label7.TabIndex = 39;
@@ -234,7 +238,7 @@
             // 
             cmbTipInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbTipInzenjera.FormattingEnabled = true;
-            cmbTipInzenjera.Location = new Point(426, 68);
+            cmbTipInzenjera.Location = new Point(426, 39);
             cmbTipInzenjera.Name = "cmbTipInzenjera";
             cmbTipInzenjera.Size = new Size(128, 23);
             cmbTipInzenjera.TabIndex = 40;
@@ -243,15 +247,55 @@
             // 
             dgvInzenjer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvInzenjer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInzenjer.Location = new Point(19, 145);
+            dgvInzenjer.Location = new Point(19, 155);
             dgvInzenjer.Name = "dgvInzenjer";
-            dgvInzenjer.Size = new Size(642, 219);
+            dgvInzenjer.Size = new Size(642, 209);
             dgvInzenjer.TabIndex = 41;
+            // 
+            // txtOpis
+            // 
+            txtOpis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtOpis.Location = new Point(426, 68);
+            txtOpis.Name = "txtOpis";
+            txtOpis.Size = new Size(128, 23);
+            txtOpis.TabIndex = 45;
+            // 
+            // txtGodIskustva
+            // 
+            txtGodIskustva.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtGodIskustva.Location = new Point(426, 97);
+            txtGodIskustva.Name = "txtGodIskustva";
+            txtGodIskustva.Size = new Size(128, 23);
+            txtGodIskustva.TabIndex = 44;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new Point(304, 100);
+            label8.Name = "label8";
+            label8.Size = new Size(93, 15);
+            label8.TabIndex = 43;
+            label8.Text = "Godine iskustva:";
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Location = new Point(304, 71);
+            label9.Name = "label9";
+            label9.Size = new Size(34, 15);
+            label9.TabIndex = 42;
+            label9.Text = "Opis:";
             // 
             // InzenjerPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtOpis);
+            Controls.Add(txtGodIskustva);
+            Controls.Add(label8);
+            Controls.Add(label9);
             Controls.Add(dgvInzenjer);
             Controls.Add(cmbTipInzenjera);
             Controls.Add(label7);
@@ -301,5 +345,9 @@
         private Label label7;
         private ComboBox cmbTipInzenjera;
         private DataGridView dgvInzenjer;
+        private TextBox txtOpis;
+        private TextBox txtGodIskustva;
+        private Label label8;
+        private Label label9;
     }
 }

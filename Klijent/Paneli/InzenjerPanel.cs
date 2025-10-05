@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +37,8 @@ namespace Client.Paneli
             txtUsername.Text = "";
             txtPassword.Text = "";
             txtLicenca.Text = "";
+            txtOpis.Text = "";
+            txtGodIskustva.Text = "";
 
             cmbTipInzenjera.SelectedIndex = -1;
 
@@ -44,22 +48,13 @@ namespace Client.Paneli
             txtUsername.Enabled = action;
             txtPassword.Enabled = action;
             txtLicenca.Enabled = action;
+            txtOpis.Enabled = action;
+            txtGodIskustva.Enabled = action;
             btnSacuvaj.Enabled = action;
         }
 
-        private void btnKreiraj_Click(object sender, EventArgs e)
+        private void LoadTable(TableDataBundle tdcb)
         {
-            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
-            txtIdInzenjera.Text = id.ToString();
-
-            EnableDisableFields(true);
-        }
-
-        private void btnPretrazi_Click(object sender, EventArgs e)
-        {
-
-            dgvInzenjer.Columns.Clear();
-            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(currentPanel);
             dgvInzenjer.AutoGenerateColumns = false;
             dgvInzenjer.DataSource = tdcb.Inzenjeri;
             dgvInzenjer.Columns.Clear();
@@ -92,6 +87,20 @@ namespace Client.Paneli
             dgvInzenjer.ReadOnly = true;
         }
 
+        private void btnKreiraj_Click(object sender, EventArgs e)
+        {
+            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
+            txtIdInzenjera.Text = id.ToString();
+
+            EnableDisableFields(true);
+        }
+
+        private void btnPretrazi_Click(object sender, EventArgs e)
+        {
+            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(currentPanel);
+            LoadTable(tdcb);
+        }
+
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
 
@@ -99,7 +108,71 @@ namespace Client.Paneli
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtIme.Text))
+            {
+                MessageBox.Show("Polje 'Ime' je obavezno.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (string.IsNullOrWhiteSpace(txtPrezime.Text))
+            {
+                MessageBox.Show("Polje 'Prezime' je obavezno.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Polje 'Korisničko ime' je obavezno.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text) || txtPassword.Text.Length < 2)
+            {
+                MessageBox.Show("Šifra mora imati najmanje 3 karaktera.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbTipInzenjera.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati tip inženjera.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(int.Parse(txtGodIskustva.Text) >= 1)
+            {
+                MessageBox.Show("Godine iskustva moraju biti broj veći od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            TableDataMember tdm = new TableDataMember();
+
+            Debug.WriteLine($">>> cmbInzenjer:{cmbTipInzenjera.TabIndex}");
+            Inzenjer inzenjer = new Inzenjer
+            {
+                IdInzenjer = int.Parse(txtIdInzenjera.Text),
+                Ime = txtIme.Text,
+                Prezime = txtPrezime.Text,
+                Username = txtUsername.Text,
+                Password = txtPassword.Text,
+                Licenca = txtLicenca.Text,
+            };
+
+            TipInzenjera izabraniTip = (TipInzenjera)cmbTipInzenjera.SelectedItem;
+
+            InzenjerTip inzenjerTip = new InzenjerTip
+            {
+                IdInzenjer = int.Parse(txtIdInzenjera.Text),
+                IdStrucnaSprema = izabraniTip.IdStrucnaSprema,
+                Opis = txtOpis.Text,
+                GodineIskustva = int.Parse(txtGodIskustva.Text),
+            };
+
+            tdm.Inzenjer = inzenjer;
+            tdm.InzenjerTip = inzenjerTip;
+            tdm.TableName = currentPanel;
+
+            TableDataBundle tdcb = ClientCommunication.Instance.AddTableMember(tdm);
+            LoadTable(tdcb);
         }
 
         private void btnObtisi_Click(object sender, EventArgs e)

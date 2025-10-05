@@ -295,13 +295,28 @@ namespace DBBroker
                     {
                         case TableName.Inzenjer:
                             command.CommandText = @"INSERT INTO Inzenjer (IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca)
-                                        VALUES (@id, @ime, @prezime, @korisnickoIme, @sifra, @licenca)";
+                                                    VALUES (@id, @ime, @prezime, @korisnickoIme, @sifra, @licenca)";
                             command.Parameters.AddWithValue("@id", tdm.Inzenjer.IdInzenjer);
                             command.Parameters.AddWithValue("@ime", tdm.Inzenjer.Ime);
                             command.Parameters.AddWithValue("@prezime", tdm.Inzenjer.Prezime);
                             command.Parameters.AddWithValue("@korisnickoIme", tdm.Inzenjer.Username);
                             command.Parameters.AddWithValue("@sifra", tdm.Inzenjer.Password);
                             command.Parameters.AddWithValue("@licenca", (object?)tdm.Inzenjer.Licenca ?? DBNull.Value);
+                            command.ExecuteNonQuery();
+
+                            if (tdm.InzenjerTip != null)
+                            {
+                                using (SqlCommand cmdVeza = connection.CreateCommand())
+                                {
+                                    cmdVeza.CommandText = @"INSERT INTO InzenjerTip (IdInzenjer, IdStrucnaSprema, Opis, GodineIskustva)
+                                                            VALUES (@idInz, @idStr, @opis, @godine)";
+                                    cmdVeza.Parameters.AddWithValue("@idInz", tdm.InzenjerTip.IdInzenjer);
+                                    cmdVeza.Parameters.AddWithValue("@idStr", tdm.InzenjerTip.IdStrucnaSprema);
+                                    cmdVeza.Parameters.AddWithValue("@opis", (object?)tdm.InzenjerTip.Opis ?? DBNull.Value);
+                                    cmdVeza.Parameters.AddWithValue("@godine", tdm.InzenjerTip.GodineIskustva);
+                                    cmdVeza.ExecuteNonQuery();
+                                }
+                            }
                             break;
 
                         case TableName.Klijent:

@@ -101,8 +101,8 @@ namespace Client.Paneli
                 MessageBox.Show("Morate izabrati klijenta.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            TableDataMember tdm = new TableDataMember();
 
+            TableDataMember tdm = new TableDataMember();
 
             Debug.WriteLine($">>> cmbInzenjer:{cmbInzenjer.TabIndex}, cmbKlijent:{cmbKlijent.TabIndex}");
             DomainTD tehnickaDokumentacija = new DomainTD
