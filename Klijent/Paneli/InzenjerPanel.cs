@@ -21,10 +21,7 @@ namespace Client.Paneli
         {
             InitializeComponent();
             TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(currentPanel);
-            cmbTipInzenjera.DataSource = tdcb.TipoviI;
-
-            cmbTipInzenjera.DisplayMember = "Naziv";
-            cmbTipInzenjera.ValueMember = "IdStrucnaSprema";
+            LoadCmb(tdcb);
 
             EnableDisableFields(false);
             dgvInzenjer.AutoGenerateColumns = false;
@@ -53,8 +50,17 @@ namespace Client.Paneli
             btnSacuvaj.Enabled = action;
         }
 
+        private void LoadCmb(TableDataBundle tdcb)
+        {
+            cmbTipInzenjera.DataSource = tdcb.TipoviI;
+
+            cmbTipInzenjera.DisplayMember = "Naziv";
+            cmbTipInzenjera.ValueMember = "IdStrucnaSprema";
+        }
+
         private void LoadTable(TableDataBundle tdcb)
         {
+            dgvInzenjer.DataSource = null;
             dgvInzenjer.AutoGenerateColumns = false;
             dgvInzenjer.DataSource = tdcb.Inzenjeri;
             dgvInzenjer.Columns.Clear();
@@ -138,7 +144,7 @@ namespace Client.Paneli
                 return;
             }
 
-            if(int.Parse(txtGodIskustva.Text) >= 1)
+            if(!int.TryParse(txtGodIskustva.Text, out int godine) || godine < 1)
             {
                 MessageBox.Show("Godine iskustva moraju biti broj veći od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

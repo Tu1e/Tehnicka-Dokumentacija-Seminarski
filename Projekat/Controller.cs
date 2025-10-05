@@ -107,7 +107,7 @@ namespace Serverr
             {
                 broker.CloseConnection();
             }
-
+            Debug.WriteLine("[SERVER] Ulazak u Controller.AddTableMember");
             return tdb;
         }
 

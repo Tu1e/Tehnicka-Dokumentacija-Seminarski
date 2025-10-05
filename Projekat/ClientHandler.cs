@@ -74,6 +74,7 @@ namespace Serverr
                         r.Result = Controller.Instance.GetNextFreeId(serializer.ReadType<TableName>(req.Argument));
                         break;
                     case Operation.AddTableMember:
+                        Debug.WriteLine("[SERVER] Ulazak u Controller.AddTableMember");
                         r.Result = Controller.Instance.AddTableMember(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
                     case Operation.DeleteTableMember:

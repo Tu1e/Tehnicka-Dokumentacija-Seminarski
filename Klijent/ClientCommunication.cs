@@ -58,7 +58,6 @@ namespace Client
                 Connect();
         }
 
-
         public Response Login(string username, string password)
         {
             Inzenjer inzenjer = new Inzenjer{ Username = username, Password = password};
@@ -163,7 +162,7 @@ namespace Client
             serializer.Send(req);
 
             Response response = serializer.Receive<Response>();
-
+            Debug.WriteLine("[CLIENT] Primljen Response.Result: " + (response.Result == null ? "NULL" : "OK"));
             return serializer.ReadType<TableDataBundle>(response.Result);
         }
 

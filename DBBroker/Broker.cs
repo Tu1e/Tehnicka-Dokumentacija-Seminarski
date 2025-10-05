@@ -99,7 +99,12 @@ namespace DBBroker
                 switch (tableName)
                 {
                     case TableName.Inzenjer:
-                        command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Licenca FROM Inzenjer";
+                        command.CommandText = @"SELECT i.IdInzenjer, i.Ime, i.Prezime, i.KorisnickoIme, i.Licenca,
+                                               t.IdStrucnaSprema, t.Naziv AS NazivTipa, it.Opis, it.GodineIskustva
+                                               FROM Inzenjer i
+                                               LEFT JOIN InzenjerTip it ON i.IdInzenjer = it.IdInzenjer
+                                               LEFT JOIN TipInzenjera t ON it.IdStrucnaSprema = t.IdStrucnaSprema";
+
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -112,6 +117,14 @@ namespace DBBroker
                                     Username = (string)reader["KorisnickoIme"],
                                     Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
                                 });
+
+                                /*data.ITipovi.Add(new InzenjerTip
+                                {
+                                    IdInzenjer = (int)reader["IdInzenjer"],
+                                    IdStrucnaSprema = reader["IdStrucnaSprema"] == DBNull.Value ? 0 : (int)reader["IdStrucnaSprema"],
+                                    Opis = reader["Opis"] == DBNull.Value ? null : (string)reader["Opis"],
+                                    GodineIskustva = reader["GodineIskustva"] == DBNull.Value ? 0 : (int)reader["GodineIskustva"]
+                                });*/
                             }
                         }
                         break;
@@ -239,8 +252,6 @@ namespace DBBroker
             return combinedData;
         }
 
-
-
         private string GetTeableIdColumn(TableName tN)
         {
             switch (tN)
@@ -327,6 +338,7 @@ namespace DBBroker
                             command.Parameters.AddWithValue("@prezime", tdm.Klijent.Prezime);
                             command.Parameters.AddWithValue("@stranac", tdm.Klijent.Stranac);
                             command.Parameters.AddWithValue("@idMesto", tdm.Klijent.IdMesto);
+                            command.ExecuteNonQuery();
                             break;
 
                         case TableName.Mesto:
@@ -335,6 +347,7 @@ namespace DBBroker
                             command.Parameters.AddWithValue("@id", tdm.Mesto.IdMesto);
                             command.Parameters.AddWithValue("@nazivMesta", tdm.Mesto.NazivMesta);
                             command.Parameters.AddWithValue("@nazivDrzave", tdm.Mesto.NazivDrzave);
+                            command.ExecuteNonQuery();
                             break;
 
                         case TableName.Zadatak:
@@ -344,6 +357,7 @@ namespace DBBroker
                             command.Parameters.AddWithValue("@naziv", tdm.Zadatak.Naziv);
                             command.Parameters.AddWithValue("@trajanje", tdm.Zadatak.Trajanje);
                             command.Parameters.AddWithValue("@cena", tdm.Zadatak.Cena);
+                            command.ExecuteNonQuery();
                             break;
 
                         case TableName.TipInzenjera:
@@ -351,6 +365,7 @@ namespace DBBroker
                                         VALUES (@id, @naziv)";
                             command.Parameters.AddWithValue("@id", tdm.TipInzenjera.IdStrucnaSprema);
                             command.Parameters.AddWithValue("@naziv", tdm.TipInzenjera.Naziv);
+                            command.ExecuteNonQuery();
                             break;
 
                         case TableName.TehnickaDokumentacija:
@@ -363,11 +378,11 @@ namespace DBBroker
                             command.Parameters.AddWithValue("@iznos", tdm.TehnickaDokumentacija.UkupanIznos);
                             command.Parameters.AddWithValue("@idInz", tdm.TehnickaDokumentacija.IdInzenjer);
                             command.Parameters.AddWithValue("@idKl", tdm.TehnickaDokumentacija.IdKlijent);
+                            command.ExecuteNonQuery();
                             break;
                     }
 
                     Debug.WriteLine($">>> SQL: {command.CommandText}");
-                    command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -376,7 +391,7 @@ namespace DBBroker
                 }
 
             }
-
+            Debug.WriteLine("[SERVER] Vraćam bundle sa brojem inženjera: " + updatedBundle.Inzenjeri.Count);
             updatedBundle = GetTableData(tdm.TableName);
             return updatedBundle;
         }

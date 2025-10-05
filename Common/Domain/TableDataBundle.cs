@@ -14,6 +14,7 @@ namespace Common.Domain
         public List<Zadatak> Zadaci { get; set; } = new();
         public List<TipInzenjera> TipoviI { get; set; } = new();
         public List<TehnickaDokumentacija> TehnickeDokumentacije { get; set; } = new();
+        public List<InzenjerTip> ITipovi { get; set; } = new();
 
     }
 }
