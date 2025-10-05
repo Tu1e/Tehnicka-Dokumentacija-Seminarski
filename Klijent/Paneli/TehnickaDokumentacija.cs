@@ -57,12 +57,17 @@ namespace Client.Paneli
             dgvDokumentacija.ReadOnly = true;
         }
 
-        private void btnKreiraj_Click(object sender, EventArgs e)
+        private void Kreiraj()
         {
             int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
             txtIdDokumentacije.Text = id.ToString();
 
             EnableDisableFields(true);
+        }
+
+        private void btnKreiraj_Click(object sender, EventArgs e)
+        {
+            Kreiraj();
         }
 
         private void btnPretrazi_Click(object sender, EventArgs e)
@@ -120,27 +125,20 @@ namespace Client.Paneli
 
             TableDataBundle tdcb = ClientCommunication.Instance.AddTableMember(tdm);
             LoadTable(tdcb);
+            Kreiraj();
         }
 
         private void btnObtisi_Click(object sender, EventArgs e)
         {
             if (dgvDokumentacija.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Morate selektovati dokumentaciju koju želite da obrišete.",
+                MessageBox.Show("Morate selektovati bar jednu dokumentaciju za brisanje.",
                                 "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DomainTD selektovana = dgvDokumentacija.SelectedRows[0].DataBoundItem as DomainTD;
-            if (selektovana == null)
-            {
-                MessageBox.Show("Došlo je do greške pri selekciji reda.",
-                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             DialogResult result = MessageBox.Show(
-                $"Da li ste sigurni da želite da obrišete dokumentaciju sa ID = {selektovana.IdTehnickaDokumentacija}?",
+                $"Da li ste sigurni da želite da obrišete {dgvDokumentacija.SelectedRows.Count} dokumentacija?",
                 "Potvrda brisanja",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -149,17 +147,24 @@ namespace Client.Paneli
 
             try
             {
-                TableDataMember tdm = new TableDataMember
+                foreach (DataGridViewRow row in dgvDokumentacija.SelectedRows)
                 {
-                    TehnickaDokumentacija = selektovana,
-                    TableName = TableName.TehnickaDokumentacija
-                };
+                    DomainTD selektovana = row.DataBoundItem as DomainTD;
+                    if (selektovana == null) continue;
 
-                TableDataBundle updated = ClientCommunication.Instance.DeleteTableMember(tdm);
+                    TableDataMember tdm = new TableDataMember
+                    {
+                        TehnickaDokumentacija = selektovana,
+                        TableName = currentPanel
+                    };
 
+                    ClientCommunication.Instance.DeleteTableMember(tdm);
+                }
+
+                TableDataBundle updated = ClientCommunication.Instance.GetTableData(currentPanel);
                 LoadTable(updated);
 
-                MessageBox.Show("Dokumentacija je uspešno obrisana.",
+                MessageBox.Show("Selektovane dokumentacije su uspešno obrisane.",
                                 "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -167,6 +172,7 @@ namespace Client.Paneli
                 MessageBox.Show("Došlo je do greške prilikom brisanja: " + ex.Message,
                                 "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Kreiraj();
         }
     }
 }

@@ -50,6 +50,14 @@ namespace Client.Paneli
             btnSacuvaj.Enabled = action;
         }
 
+        private void Kreiraj()
+        {
+            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
+            txtIdInzenjera.Text = id.ToString();
+
+            EnableDisableFields(true);
+        }
+
         private void LoadCmb(TableDataBundle tdcb)
         {
             cmbTipInzenjera.DataSource = tdcb.TipoviI;
@@ -93,13 +101,7 @@ namespace Client.Paneli
             dgvInzenjer.ReadOnly = true;
         }
 
-        private void btnKreiraj_Click(object sender, EventArgs e)
-        {
-            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
-            txtIdInzenjera.Text = id.ToString();
-
-            EnableDisableFields(true);
-        }
+        private void btnKreiraj_Click(object sender, EventArgs e) => Kreiraj();
 
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
@@ -179,11 +181,55 @@ namespace Client.Paneli
 
             TableDataBundle tdcb = ClientCommunication.Instance.AddTableMember(tdm);
             LoadTable(tdcb);
+            Kreiraj();
         }
 
         private void btnObtisi_Click(object sender, EventArgs e)
         {
+            if (dgvInzenjer.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Morate selektovati bar jednog inženjera za brisanje.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            DialogResult result = MessageBox.Show(
+                $"Da li ste sigurni da želite da obrišete {dgvInzenjer.SelectedRows.Count} inženjera?",
+                "Potvrda brisanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No) return;
+
+            try
+            {
+                foreach (DataGridViewRow row in dgvInzenjer.SelectedRows)
+                {
+                    Inzenjer selektovani = row.DataBoundItem as Inzenjer;
+                    if (selektovani == null) continue;
+
+                    TableDataMember tdm = new TableDataMember
+                    {
+                        Inzenjer = selektovani,
+                        TableName = currentPanel
+                    };
+
+                    ClientCommunication.Instance.DeleteTableMember(tdm);
+                }
+
+                TableDataBundle updated = ClientCommunication.Instance.GetTableData(currentPanel);
+                LoadTable(updated);
+
+                MessageBox.Show("Selektovani inženjeri su uspešno obrisani.",
+                                "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške prilikom brisanja: " + ex.Message,
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Kreiraj();
         }
+
     }
 }

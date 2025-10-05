@@ -407,6 +407,13 @@ namespace DBBroker
                     switch (tdm.TableName)
                     {
                         case TableName.Inzenjer:
+                            using (SqlCommand cmdTip = connection.CreateCommand())
+                            {
+                                cmdTip.CommandText = "DELETE FROM InzenjerTip WHERE IdInzenjer = @id";
+                                cmdTip.Parameters.AddWithValue("@id", tdm.Inzenjer.IdInzenjer);
+                                cmdTip.ExecuteNonQuery();
+                            }
+
                             command.CommandText = "DELETE FROM Inzenjer WHERE IdInzenjer = @id";
                             command.Parameters.AddWithValue("@id", tdm.Inzenjer.IdInzenjer);
                             break;
