@@ -94,7 +94,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FrmKlijentLogin";
-            Text = "Form1";
+            Text = "Log in";
             ResumeLayout(false);
             PerformLayout();
         }

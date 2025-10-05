@@ -67,7 +67,7 @@ namespace Serverr
                         r.Result = Controller.Instance.Login(serializer.ReadType<Inzenjer>(req.Argument));
                         break;
                     case Operation.GetTableData:
-                        r.Result = Controller.Instance.GetTableSupportData(serializer.ReadType<TableName>(req.Argument));
+                        r.Result = Controller.Instance.GetTableData(serializer.ReadType<TableName>(req.Argument));
                         break;
                     case Operation.GetTableSupportData:
                         r.Result = Controller.Instance.GetTableSupportData(serializer.ReadType<TableName>(req.Argument));

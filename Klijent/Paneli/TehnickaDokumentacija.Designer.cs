@@ -121,9 +121,9 @@
             // dgvDokumentacija
             // 
             dgvDokumentacija.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDokumentacija.Location = new Point(386, 13);
+            dgvDokumentacija.Location = new Point(21, 187);
             dgvDokumentacija.Name = "dgvDokumentacija";
-            dgvDokumentacija.Size = new Size(240, 191);
+            dgvDokumentacija.Size = new Size(529, 174);
             dgvDokumentacija.TabIndex = 12;
             // 
             // dtpDatumPotpisivanja
@@ -158,7 +158,7 @@
             // 
             // btnKreiraj
             // 
-            btnKreiraj.Location = new Point(21, 203);
+            btnKreiraj.Location = new Point(475, 28);
             btnKreiraj.Name = "btnKreiraj";
             btnKreiraj.Size = new Size(75, 23);
             btnKreiraj.TabIndex = 17;
@@ -168,7 +168,7 @@
             // 
             // btnPretrazi
             // 
-            btnPretrazi.Location = new Point(21, 232);
+            btnPretrazi.Location = new Point(475, 57);
             btnPretrazi.Name = "btnPretrazi";
             btnPretrazi.Size = new Size(75, 23);
             btnPretrazi.TabIndex = 18;
@@ -178,7 +178,7 @@
             // 
             // btnIzmeni
             // 
-            btnIzmeni.Location = new Point(21, 261);
+            btnIzmeni.Location = new Point(475, 86);
             btnIzmeni.Name = "btnIzmeni";
             btnIzmeni.Size = new Size(75, 23);
             btnIzmeni.TabIndex = 19;
@@ -188,7 +188,7 @@
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location = new Point(21, 290);
+            btnSacuvaj.Location = new Point(475, 115);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(75, 23);
             btnSacuvaj.TabIndex = 20;
@@ -198,7 +198,7 @@
             // 
             // btnObtisi
             // 
-            btnObtisi.Location = new Point(21, 319);
+            btnObtisi.Location = new Point(475, 144);
             btnObtisi.Name = "btnObtisi";
             btnObtisi.Size = new Size(75, 23);
             btnObtisi.TabIndex = 21;

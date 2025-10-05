@@ -85,7 +85,7 @@ namespace Serverr
             try
             {
                 broker.OpenConnection();
-                tdb = broker.GetTableSupportData(tableName);
+                tdb = broker.GetTableData(tableName);
             }
             finally
             {

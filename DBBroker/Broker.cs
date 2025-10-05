@@ -166,17 +166,17 @@ namespace DBBroker
                         break;
 
                     case TableName.TehnickaDokumentacija:
-                        command.CommandText = "SELECT IdTehnickaDokumentacija, DatumPotpisivanja, DatumZavrsetka, UkupanIznos, IdInzenjer, IdKlijent FROM TehnickaDokumentacija";
+                        command.CommandText = "SELECT IdTD, DatumPotpisivanja, DatumZavrsetka, UkupanIznos, IdInzenjer, IdKlijent FROM TehnickaDokumentacija";
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 data.TehnickeDokumentacije.Add(new TehnickaDokumentacija
                                 {
-                                    IdTehnickaDokumentacija = (int)reader["IdTehnickaDokumentacija"],
+                                    IdTehnickaDokumentacija = (int)reader["IdTD"],
                                     DatumPotpisivanja = (DateTime)reader["DatumPotpisivanja"],
                                     DatumZavrsetka = (DateTime)reader["DatumZavrsetka"],
-                                    UkupanIznos = (double)reader["UkupanIznos"],
+                                    UkupanIznos = (decimal)reader["UkupanIznos"],
                                     IdInzenjer = (int)reader["IdInzenjer"],
                                     IdKlijent = (int)reader["IdKlijent"]
                                 });

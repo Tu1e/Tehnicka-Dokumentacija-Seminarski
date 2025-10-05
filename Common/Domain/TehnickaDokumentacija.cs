@@ -19,7 +19,7 @@ namespace Common.Domain
         public DateTime DatumZavrsetka { get; set; }
 
         [DisplayName("Ukupan iznos")]
-        public double UkupanIznos { get; set; }
+        public decimal UkupanIznos { get; set; }
 
         [DisplayName("Inženjer")]
         public int IdInzenjer { get; set; }
