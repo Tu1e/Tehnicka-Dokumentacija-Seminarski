@@ -23,6 +23,7 @@ namespace Klijent
                 catch (SocketException ex)
                 {
                     MessageBox.Show("GRESKA PRI POVEZIVANJU SA SERVEROM");
+                    return;
                 }
 
                 try

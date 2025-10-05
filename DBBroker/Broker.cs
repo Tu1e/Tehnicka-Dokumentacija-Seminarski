@@ -88,91 +88,157 @@ namespace DBBroker
                 return Convert.ToInt32(result);
             }
         }
-        public TehDokCmbData GetTableSupportData(TableName tableName)
+
+        public TableDataBundle GetTableData(TableName tableName)
         {
-            TehDokCmbData data = new TehDokCmbData();
+            TableDataBundle data = new TableDataBundle();
 
-            List<TableName> supportTables = GetSupportTableNames(tableName);
-
-            foreach (var tbl in supportTables)
+            using (SqlCommand command = connection.CreateCommand())
             {
-                using (SqlCommand command = connection.CreateCommand())
+                switch (tableName)
                 {
-                    switch (tbl)
-                    {
-                        case TableName.Inzenjer:
-                            command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca FROM Inzenjer";
-                            using (SqlDataReader reader = command.ExecuteReader())
+                    case TableName.Inzenjer:
+                        command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca FROM Inzenjer";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
                             {
-                                while (reader.Read())
+                                data.Inzenjeri.Add(new Inzenjer
                                 {
-                                    data.Inzenjeri.Add(new Inzenjer
-                                    {
-                                        IdInzenjer = (int)reader["IdInzenjer"],
-                                        Ime = (string)reader["Ime"],
-                                        Prezime = (string)reader["Prezime"],
-                                        Username = (string)reader["KorisnickoIme"],
-                                        Password = (string)reader["Sifra"],
-                                        Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
-                                    });
-                                }
+                                    IdInzenjer = (int)reader["IdInzenjer"],
+                                    Ime = (string)reader["Ime"],
+                                    Prezime = (string)reader["Prezime"],
+                                    Username = (string)reader["KorisnickoIme"],
+                                    Password = (string)reader["Sifra"],
+                                    Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
+                                });
                             }
-                            break;
+                        }
+                        break;
 
-                        case TableName.Klijent:
-                            command.CommandText = "SELECT IdKlijent, Ime, Prezime, Stranac, IdMesto FROM Klijent";
-                            using (SqlDataReader reader = command.ExecuteReader())
+                    case TableName.Klijent:
+                        command.CommandText = "SELECT IdKlijent, Ime, Prezime, Stranac, IdMesto FROM Klijent";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
                             {
-                                while (reader.Read())
+                                data.Klijenti.Add(new Klijent
                                 {
-                                    data.Klijenti.Add(new Klijent
-                                    {
-                                        IdKlijent = (int)reader["IdKlijent"],
-                                        Ime = (string)reader["Ime"],
-                                        Prezime = (string)reader["Prezime"],
-                                        Stranac = (bool)reader["Stranac"],
-                                        IdMesto = (int)reader["IdMesto"]
-                                    });
-                                }
+                                    IdKlijent = (int)reader["IdKlijent"],
+                                    Ime = (string)reader["Ime"],
+                                    Prezime = (string)reader["Prezime"],
+                                    Stranac = (bool)reader["Stranac"],
+                                    IdMesto = (int)reader["IdMesto"]
+                                });
                             }
-                            break;
+                        }
+                        break;
 
-                        case TableName.Mesto:
-                            command.CommandText = "SELECT IdMesto, NazivMesta, NazivDrzave FROM Mesto";
-                            using (SqlDataReader reader = command.ExecuteReader())
+                    case TableName.Mesto:
+                        command.CommandText = "SELECT IdMesto, NazivMesta, NazivDrzave FROM Mesto";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
                             {
-                                while (reader.Read())
+                                data.Mesta.Add(new Mesto
                                 {
-                                    data.Mesta.Add(new Mesto
-                                    {
-                                        IdMesto = (int)reader["IdMesto"],
-                                        NazivMesta = (string)reader["NazivMesta"],
-                                        NazivDrzave = (string)reader["NazivDrzave"]
-                                    });
-                                }
+                                    IdMesto = (int)reader["IdMesto"],
+                                    NazivMesta = (string)reader["NazivMesta"],
+                                    NazivDrzave = (string)reader["NazivDrzave"]
+                                });
                             }
-                            break;
+                        }
+                        break;
 
-                        case TableName.TipInzenjera:
-                            command.CommandText = "SELECT IdStrucnaSprema, Naziv FROM TipInzenjera";
-                            using (SqlDataReader reader = command.ExecuteReader())
+                    case TableName.TipInzenjera:
+                        command.CommandText = "SELECT IdStrucnaSprema, Naziv FROM TipInzenjera";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
                             {
-                                while (reader.Read())
+                                data.TipoviI.Add(new TipInzenjera
                                 {
-                                    data.TipoviI.Add(new TipInzenjera
-                                    {
-                                        IdStrucnaSprema = (int)reader["IdStrucnaSprema"],
-                                        Naziv = (string)reader["Naziv"]
-                                    });
-                                }
+                                    IdStrucnaSprema = (int)reader["IdStrucnaSprema"],
+                                    Naziv = (string)reader["Naziv"]
+                                });
                             }
-                            break;
-                    }
+                        }
+                        break;
+
+                    case TableName.TehnickaDokumentacija:
+                        command.CommandText = "SELECT IdTehnickaDokumentacija, DatumPotpisivanja, DatumZavrsetka, UkupanIznos, IdInzenjer, IdKlijent FROM TehnickaDokumentacija";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                data.TehnickeDokumentacije.Add(new TehnickaDokumentacija
+                                {
+                                    IdTehnickaDokumentacija = (int)reader["IdTehnickaDokumentacija"],
+                                    DatumPotpisivanja = (DateTime)reader["DatumPotpisivanja"],
+                                    DatumZavrsetka = (DateTime)reader["DatumZavrsetka"],
+                                    UkupanIznos = (double)reader["UkupanIznos"],
+                                    IdInzenjer = (int)reader["IdInzenjer"],
+                                    IdKlijent = (int)reader["IdKlijent"]
+                                });
+                            }
+                        }
+                        break;
+
+                    case TableName.Zadatak:
+                        command.CommandText = "SELECT IdZadatak, Naziv, Trajanje, Cena FROM Zadatak";
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                data.Zadaci.Add(new Zadatak
+                                {
+                                    IdZadatak = (int)reader["IdZadatak"],
+                                    Naziv = (string)reader["Naziv"],
+                                    Trajanje = (int)reader["Trajanje"],
+                                    Cena = (decimal)reader["Cena"]
+                                });
+                            }
+                        }
+                        break;
                 }
             }
 
             return data;
         }
+
+
+        public TableDataBundle GetTableSupportData(TableName tableName)
+        {
+            TableDataBundle combinedData = new TableDataBundle();
+
+            List<TableName> supportTables = GetSupportTableNames(tableName);
+
+            foreach (var tbl in supportTables)
+            {
+                TableDataBundle singleTable = GetTableData(tbl);
+
+                if (singleTable.Inzenjeri.Count > 0)
+                    combinedData.Inzenjeri.AddRange(singleTable.Inzenjeri);
+
+                if (singleTable.Klijenti.Count > 0)
+                    combinedData.Klijenti.AddRange(singleTable.Klijenti);
+
+                if (singleTable.Mesta.Count > 0)
+                    combinedData.Mesta.AddRange(singleTable.Mesta);
+
+                if (singleTable.TipoviI.Count > 0)
+                    combinedData.TipoviI.AddRange(singleTable.TipoviI);
+
+                if (singleTable.TehnickeDokumentacije.Count > 0)
+                    combinedData.TehnickeDokumentacije.AddRange(singleTable.TehnickeDokumentacije);
+
+                if (singleTable.Zadaci.Count > 0)
+                    combinedData.Zadaci.AddRange(singleTable.Zadaci);
+            }
+
+            return combinedData;
+        }
+
 
 
         private string GetTeableIdColumn(TableName tN)

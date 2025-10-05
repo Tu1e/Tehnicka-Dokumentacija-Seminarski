@@ -63,12 +63,11 @@ namespace Serverr
             return nextId;
         }
 
-        public TehDokCmbData GetTableSupportData(TableName tableName)
+        public TableDataBundle GetTableSupportData(TableName tableName)
         {
-            TehDokCmbData tehDokCmbData = null!;
+            TableDataBundle tehDokCmbData = null!;
             try
             {
-                Debug.WriteLine("TRY HARDER");
                 broker.OpenConnection();
                 tehDokCmbData = broker.GetTableSupportData(tableName);
             }
@@ -78,6 +77,22 @@ namespace Serverr
             }
 
             return tehDokCmbData;
+        }
+
+        public TableDataBundle GetTableData(TableName tableName)
+        {
+            TableDataBundle tdb = null!;
+            try
+            {
+                broker.OpenConnection();
+                tdb = broker.GetTableSupportData(tableName);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+
+            return tdb;
         }
 
         /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();

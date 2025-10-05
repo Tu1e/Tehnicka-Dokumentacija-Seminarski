@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Client
@@ -31,13 +32,32 @@ namespace Client
         private JsonNetworkSerializer serializer;
         public void Connect()
         {
-            if (socket == null)
+            if (socket == null || !socket.Connected)
             {
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Connect(IPAddress.Parse("127.0.0.1"), 9999);
                 serializer = new JsonNetworkSerializer(socket);
             }
         }
+
+        private bool IsConnected()
+        {
+            try
+            {
+                return socket != null && socket.Connected;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void EnsureConnectedOrConnect()
+        {
+            if (!IsConnected() || serializer == null)
+                Connect();
+        }
+
 
         public Response Login(string username, string password)
         {
@@ -47,17 +67,42 @@ namespace Client
                 Argument = inzenjer,
                 Operation = Operation.Login
             };
-            serializer.Send(req);
-            Response response = serializer.Receive<Response>();
-
-            response.Result = serializer.ReadType<Inzenjer>(response.Result); // deserijalizujemo result u user-a
-            
-            if (response.ExceptionMessage == null)
+            Response response = new Response();
+            try
             {
-                if ((Inzenjer)response.Result == null)
-                {
-                    response.ExceptionMessage = "Kojisnik sa ovim korisnickim imenom i sifrom nije pornadjen";
-                }
+                EnsureConnectedOrConnect();
+                serializer.Send(req);
+                response = serializer.Receive<Response>();
+
+                if (response.Result is JsonElement)
+                    response.Result = serializer.ReadType<Inzenjer>(response.Result);
+
+                if (response.ExceptionMessage == null && response.Result == null)
+                    response.ExceptionMessage = "Korisnik sa ovim korisničkim imenom i šifrom nije pronađen.";
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.WriteLine(">>>" + ex.Message);
+                response.ExceptionMessage = ex.Message;
+                return response;
+            }
+            catch (InvalidOperationException ex)
+            {
+                Debug.WriteLine(">>>"+ex.Message);
+                response.ExceptionMessage = ex.Message;
+                return response;
+            }
+            catch (SocketException ex)
+            {
+                Debug.WriteLine(">>>"+ex.Message);
+                response.ExceptionMessage = ex.Message;
+                return response;
+            }
+            catch (IOException ex)
+            {
+                Debug.WriteLine(">>>"+ex.Message);
+                response.ExceptionMessage = ex.Message;
+                return response;
             }
 
             return response;
@@ -80,7 +125,7 @@ namespace Client
             return nextId;
         }
 
-        public TehDokCmbData LoadOtherTableData(TableName tableName)
+        public TableDataBundle LoadOtherTableData(TableName tableName)
         {
             Request req = new Request
             {
@@ -89,12 +134,12 @@ namespace Client
             };
             serializer.Send(req);
             Response response = serializer.Receive<Response>();
-            response.Result = serializer.ReadType<TehDokCmbData>(response.Result);
+            response.Result = serializer.ReadType<TableDataBundle>(response.Result);
 
-            TehDokCmbData tdcd = (TehDokCmbData)response.Result;
+            TableDataBundle tdcd = (TableDataBundle)response.Result;
             return tdcd;
         }
-        public Response GetTableData(TableName tableName)
+        public TableDataBundle GetTableData(TableName tableName)
         {
             Request req = new Request
             {
@@ -104,10 +149,8 @@ namespace Client
             serializer.Send(req);
 
             Response response = serializer.Receive<Response>();
-            response.Result = serializer.ReadType<TehDokCmbData>(response.Result);
 
-            return response;
-
+            return serializer.ReadType<TableDataBundle>(response.Result);
         }
     }
 }

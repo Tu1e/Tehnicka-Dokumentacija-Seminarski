@@ -18,7 +18,7 @@ namespace Client.Paneli
         public TehnickaDokumentacija()
         {
             InitializeComponent();
-            TehDokCmbData tdcb = ClientCommunication.Instance.LoadOtherTableData(TableName.TehnickaDokumentacija);
+            TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(TableName.TehnickaDokumentacija);
             cmbInzenjer.DataSource = tdcb.Inzenjeri;
             cmbKlijent.DataSource = tdcb.Klijenti;
 
@@ -53,6 +53,8 @@ namespace Client.Paneli
 
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
+            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(TableName.TehnickaDokumentacija);
+            dgvDokumentacija.DataSource = tdcb.TehnickeDokumentacije;
 
         }
 
