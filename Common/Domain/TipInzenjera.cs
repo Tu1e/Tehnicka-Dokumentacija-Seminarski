@@ -10,6 +10,5 @@ namespace Common.Domain
     {
         public int IdStrucnaSprema { get; set; }
         public string Naziv { get; set; } = null!;
-        public List<InzenjerTip> InzenjerTipovi { get; set; } = new List<InzenjerTip>();
     }
 }

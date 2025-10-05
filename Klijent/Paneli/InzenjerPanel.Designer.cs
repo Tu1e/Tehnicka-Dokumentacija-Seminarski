@@ -155,6 +155,7 @@
             // 
             // txtIdInzenjera
             // 
+            txtIdInzenjera.Enabled = false;
             txtIdInzenjera.Location = new Point(141, 10);
             txtIdInzenjera.Name = "txtIdInzenjera";
             txtIdInzenjera.Size = new Size(137, 23);
