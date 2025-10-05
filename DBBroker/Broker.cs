@@ -98,7 +98,7 @@ namespace DBBroker
                 switch (tableName)
                 {
                     case TableName.Inzenjer:
-                        command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Sifra, Licenca FROM Inzenjer";
+                        command.CommandText = "SELECT IdInzenjer, Ime, Prezime, KorisnickoIme, Licenca FROM Inzenjer";
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -109,7 +109,6 @@ namespace DBBroker
                                     Ime = (string)reader["Ime"],
                                     Prezime = (string)reader["Prezime"],
                                     Username = (string)reader["KorisnickoIme"],
-                                    Password = (string)reader["Sifra"],
                                     Licenca = reader["Licenca"] == DBNull.Value ? null : (string)reader["Licenca"]
                                 });
                             }

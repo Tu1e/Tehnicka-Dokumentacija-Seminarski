@@ -15,10 +15,12 @@ namespace Client.Paneli
 {
     public partial class TehnickaDokumentacija : UserControl
     {
+        TableName currentPanel = TableName.TehnickaDokumentacija;
+
         public TehnickaDokumentacija()
         {
             InitializeComponent();
-            TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(TableName.TehnickaDokumentacija);
+            TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(currentPanel);
             cmbInzenjer.DataSource = tdcb.Inzenjeri;
             cmbKlijent.DataSource = tdcb.Klijenti;
 
@@ -29,14 +31,6 @@ namespace Client.Paneli
             cmbKlijent.ValueMember = "IdKlijent";
 
             EnableDisableFields(false);
-        }
-
-        private void btnKreiraj_Click(object sender, EventArgs e)
-        {
-            int id = ClientCommunication.Instance.GetNextFreeId(TableName.TehnickaDokumentacija);
-            txtIdDokumentacije.Text = id.ToString();
-
-            EnableDisableFields(true);
         }
 
         private void EnableDisableFields(bool action)
@@ -51,11 +45,22 @@ namespace Client.Paneli
             cmbKlijent.Enabled = action;
         }
 
+        private void btnKreiraj_Click(object sender, EventArgs e)
+        {
+            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
+            txtIdDokumentacije.Text = id.ToString();
+
+            EnableDisableFields(true);
+        }
+
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
-            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(TableName.TehnickaDokumentacija);
+            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(currentPanel);
             dgvDokumentacija.DataSource = tdcb.TehnickeDokumentacije;
 
+            dgvDokumentacija.AllowUserToAddRows = false;
+            dgvDokumentacija.AllowUserToDeleteRows = false;
+            dgvDokumentacija.ReadOnly = true;
         }
 
         private void btnIzmeni_Click(object sender, EventArgs e)

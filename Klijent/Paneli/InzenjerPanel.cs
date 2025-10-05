@@ -14,16 +14,18 @@ namespace Client.Paneli
 {
     public partial class InzenjerPanel : UserControl
     {
+        TableName currentPanel = TableName.Inzenjer;
         public InzenjerPanel()
         {
             InitializeComponent();
-            TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(TableName.Inzenjer);
+            TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(currentPanel);
             cmbTipInzenjera.DataSource = tdcb.TipoviI;
 
             cmbTipInzenjera.DisplayMember = "Naziv";
             cmbTipInzenjera.ValueMember = "IdStrucnaSprema";
 
             EnableDisableFields(false);
+            dgvInzenjer.AutoGenerateColumns = false;
         }
 
         private void EnableDisableFields(bool action)
@@ -46,7 +48,7 @@ namespace Client.Paneli
 
         private void btnKreiraj_Click(object sender, EventArgs e)
         {
-            int id = ClientCommunication.Instance.GetNextFreeId(TableName.Inzenjer);
+            int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
             txtIdInzenjera.Text = id.ToString();
 
             EnableDisableFields(true);
@@ -55,6 +57,38 @@ namespace Client.Paneli
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
 
+            dgvInzenjer.Columns.Clear();
+            TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(currentPanel);
+            dgvInzenjer.AutoGenerateColumns = false;
+            dgvInzenjer.DataSource = tdcb.Inzenjeri;
+            dgvInzenjer.Columns.Clear();
+
+            foreach (var prop in typeof(Inzenjer).GetProperties())
+            {
+                if (prop.Name.Equals("Password", StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                string header = prop.Name;
+
+                var displayAttr = prop.GetCustomAttributes(typeof(DisplayNameAttribute), true)
+                                      .FirstOrDefault() as DisplayNameAttribute;
+
+                if (displayAttr != null)
+                    header = displayAttr.DisplayName;
+
+                dgvInzenjer.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = prop.Name,
+                    HeaderText = header,
+                    ReadOnly = true,
+                });
+            }
+
+            dgvInzenjer.DataSource = tdcb.Inzenjeri;
+
+            dgvInzenjer.AllowUserToAddRows = false;
+            dgvInzenjer.AllowUserToDeleteRows = false;
+            dgvInzenjer.ReadOnly = true;
         }
 
         private void btnIzmeni_Click(object sender, EventArgs e)

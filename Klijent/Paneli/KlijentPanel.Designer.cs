@@ -43,6 +43,8 @@
             label2 = new Label();
             label1 = new Label();
             chbStranac = new CheckBox();
+            dgvKlijent = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvKlijent).BeginInit();
             SuspendLayout();
             // 
             // txtMesto
@@ -68,6 +70,7 @@
             // 
             // txtIdKlijenta
             // 
+            txtIdKlijenta.Enabled = false;
             txtIdKlijenta.Location = new Point(139, 14);
             txtIdKlijenta.Name = "txtIdKlijenta";
             txtIdKlijenta.Size = new Size(137, 23);
@@ -75,7 +78,7 @@
             // 
             // btnObtisi
             // 
-            btnObtisi.Location = new Point(459, 331);
+            btnObtisi.Location = new Point(450, 75);
             btnObtisi.Name = "btnObtisi";
             btnObtisi.Size = new Size(75, 23);
             btnObtisi.TabIndex = 51;
@@ -85,7 +88,7 @@
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location = new Point(378, 331);
+            btnSacuvaj.Location = new Point(369, 75);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(75, 23);
             btnSacuvaj.TabIndex = 50;
@@ -95,7 +98,7 @@
             // 
             // btnIzmeni
             // 
-            btnIzmeni.Location = new Point(297, 331);
+            btnIzmeni.Location = new Point(531, 46);
             btnIzmeni.Name = "btnIzmeni";
             btnIzmeni.Size = new Size(75, 23);
             btnIzmeni.TabIndex = 49;
@@ -105,7 +108,7 @@
             // 
             // btnPretrazi
             // 
-            btnPretrazi.Location = new Point(216, 331);
+            btnPretrazi.Location = new Point(450, 46);
             btnPretrazi.Name = "btnPretrazi";
             btnPretrazi.Size = new Size(75, 23);
             btnPretrazi.TabIndex = 48;
@@ -115,7 +118,7 @@
             // 
             // btnKreiraj
             // 
-            btnKreiraj.Location = new Point(135, 331);
+            btnKreiraj.Location = new Point(369, 46);
             btnKreiraj.Name = "btnKreiraj";
             btnKreiraj.Size = new Size(75, 23);
             btnKreiraj.TabIndex = 47;
@@ -177,10 +180,19 @@
             chbStranac.TabIndex = 57;
             chbStranac.UseVisualStyleBackColor = true;
             // 
+            // dgvKlijent
+            // 
+            dgvKlijent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvKlijent.Location = new Point(17, 175);
+            dgvKlijent.Name = "dgvKlijent";
+            dgvKlijent.Size = new Size(640, 207);
+            dgvKlijent.TabIndex = 58;
+            // 
             // KlijentPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dgvKlijent);
             Controls.Add(chbStranac);
             Controls.Add(txtMesto);
             Controls.Add(txtPrezime);
@@ -198,6 +210,7 @@
             Controls.Add(label1);
             Name = "KlijentPanel";
             Size = new Size(677, 397);
+            ((System.ComponentModel.ISupportInitialize)dgvKlijent).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -218,5 +231,6 @@
         private Label label2;
         private Label label1;
         private CheckBox chbStranac;
+        private DataGridView dgvKlijent;
     }
 }

@@ -47,13 +47,17 @@
             txtLicenca = new TextBox();
             label7 = new Label();
             cmbTipInzenjera = new ComboBox();
+            dgvInzenjer = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvInzenjer).BeginInit();
             SuspendLayout();
             // 
             // btnObtisi
             // 
-            btnObtisi.Location = new Point(461, 327);
+            btnObtisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnObtisi.AutoSize = true;
+            btnObtisi.Location = new Point(595, 102);
             btnObtisi.Name = "btnObtisi";
-            btnObtisi.Size = new Size(75, 23);
+            btnObtisi.Size = new Size(57, 25);
             btnObtisi.TabIndex = 32;
             btnObtisi.Text = "Obriši";
             btnObtisi.UseVisualStyleBackColor = true;
@@ -61,9 +65,11 @@
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location = new Point(380, 327);
+            btnSacuvaj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnSacuvaj.AutoSize = true;
+            btnSacuvaj.Location = new Point(525, 102);
             btnSacuvaj.Name = "btnSacuvaj";
-            btnSacuvaj.Size = new Size(75, 23);
+            btnSacuvaj.Size = new Size(57, 25);
             btnSacuvaj.TabIndex = 31;
             btnSacuvaj.Text = "Sačuvaj";
             btnSacuvaj.UseVisualStyleBackColor = true;
@@ -71,9 +77,11 @@
             // 
             // btnIzmeni
             // 
-            btnIzmeni.Location = new Point(299, 327);
+            btnIzmeni.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnIzmeni.AutoSize = true;
+            btnIzmeni.Location = new Point(455, 102);
             btnIzmeni.Name = "btnIzmeni";
-            btnIzmeni.Size = new Size(75, 23);
+            btnIzmeni.Size = new Size(57, 25);
             btnIzmeni.TabIndex = 30;
             btnIzmeni.Text = "Izmeni";
             btnIzmeni.UseVisualStyleBackColor = true;
@@ -81,9 +89,11 @@
             // 
             // btnPretrazi
             // 
-            btnPretrazi.Location = new Point(218, 327);
+            btnPretrazi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnPretrazi.AutoSize = true;
+            btnPretrazi.Location = new Point(385, 102);
             btnPretrazi.Name = "btnPretrazi";
-            btnPretrazi.Size = new Size(75, 23);
+            btnPretrazi.Size = new Size(57, 25);
             btnPretrazi.TabIndex = 29;
             btnPretrazi.Text = "Pretraži";
             btnPretrazi.UseVisualStyleBackColor = true;
@@ -91,9 +101,11 @@
             // 
             // btnKreiraj
             // 
-            btnKreiraj.Location = new Point(137, 327);
+            btnKreiraj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnKreiraj.AutoSize = true;
+            btnKreiraj.Location = new Point(315, 102);
             btnKreiraj.Name = "btnKreiraj";
-            btnKreiraj.Size = new Size(75, 23);
+            btnKreiraj.Size = new Size(57, 25);
             btnKreiraj.TabIndex = 28;
             btnKreiraj.Text = "Kreiraj";
             btnKreiraj.UseVisualStyleBackColor = true;
@@ -101,8 +113,9 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(19, 158);
+            label6.Location = new Point(304, 42);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 27;
@@ -110,8 +123,9 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(19, 129);
+            label5.Location = new Point(304, 13);
             label5.Name = "label5";
             label5.Size = new Size(33, 15);
             label5.TabIndex = 26;
@@ -119,8 +133,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(19, 71);
+            label4.Location = new Point(15, 71);
             label4.Name = "label4";
             label4.Size = new Size(52, 15);
             label4.TabIndex = 25;
@@ -128,8 +143,9 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(19, 42);
+            label3.Location = new Point(15, 42);
             label3.Name = "label3";
             label3.Size = new Size(30, 15);
             label3.TabIndex = 24;
@@ -137,8 +153,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(19, 13);
+            label2.Location = new Point(15, 13);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 23;
@@ -146,8 +163,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(19, 100);
+            label1.Location = new Point(15, 100);
             label1.Name = "label1";
             label1.Size = new Size(88, 15);
             label1.TabIndex = 22;
@@ -155,51 +173,58 @@
             // 
             // txtIdInzenjera
             // 
+            txtIdInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtIdInzenjera.Enabled = false;
-            txtIdInzenjera.Location = new Point(141, 10);
+            txtIdInzenjera.Location = new Point(137, 10);
             txtIdInzenjera.Name = "txtIdInzenjera";
-            txtIdInzenjera.Size = new Size(137, 23);
+            txtIdInzenjera.Size = new Size(128, 23);
             txtIdInzenjera.TabIndex = 33;
             // 
             // txtIme
             // 
-            txtIme.Location = new Point(141, 39);
+            txtIme.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtIme.Location = new Point(137, 39);
             txtIme.Name = "txtIme";
-            txtIme.Size = new Size(137, 23);
+            txtIme.Size = new Size(128, 23);
             txtIme.TabIndex = 34;
             // 
             // txtPrezime
             // 
-            txtPrezime.Location = new Point(141, 68);
+            txtPrezime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPrezime.Location = new Point(137, 68);
             txtPrezime.Name = "txtPrezime";
-            txtPrezime.Size = new Size(137, 23);
+            txtPrezime.Size = new Size(128, 23);
             txtPrezime.TabIndex = 35;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(141, 97);
+            txtUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtUsername.Location = new Point(137, 97);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(137, 23);
+            txtUsername.Size = new Size(128, 23);
             txtUsername.TabIndex = 36;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(141, 126);
+            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPassword.Location = new Point(426, 10);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(137, 23);
+            txtPassword.Size = new Size(128, 23);
             txtPassword.TabIndex = 37;
             // 
             // txtLicenca
             // 
-            txtLicenca.Location = new Point(141, 155);
+            txtLicenca.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtLicenca.Location = new Point(426, 39);
             txtLicenca.Name = "txtLicenca";
-            txtLicenca.Size = new Size(137, 23);
+            txtLicenca.Size = new Size(128, 23);
             txtLicenca.TabIndex = 38;
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(360, 13);
+            label7.Location = new Point(304, 71);
             label7.Name = "label7";
             label7.Size = new Size(76, 15);
             label7.TabIndex = 39;
@@ -207,16 +232,27 @@
             // 
             // cmbTipInzenjera
             // 
+            cmbTipInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbTipInzenjera.FormattingEnabled = true;
-            cmbTipInzenjera.Location = new Point(442, 10);
+            cmbTipInzenjera.Location = new Point(426, 68);
             cmbTipInzenjera.Name = "cmbTipInzenjera";
-            cmbTipInzenjera.Size = new Size(137, 23);
+            cmbTipInzenjera.Size = new Size(128, 23);
             cmbTipInzenjera.TabIndex = 40;
+            // 
+            // dgvInzenjer
+            // 
+            dgvInzenjer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvInzenjer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInzenjer.Location = new Point(19, 145);
+            dgvInzenjer.Name = "dgvInzenjer";
+            dgvInzenjer.Size = new Size(642, 219);
+            dgvInzenjer.TabIndex = 41;
             // 
             // InzenjerPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dgvInzenjer);
             Controls.Add(cmbTipInzenjera);
             Controls.Add(label7);
             Controls.Add(txtLicenca);
@@ -237,7 +273,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "InzenjerPanel";
-            Size = new Size(683, 382);
+            Size = new Size(680, 382);
+            ((System.ComponentModel.ISupportInitialize)dgvInzenjer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,5 +300,6 @@
         private TextBox txtLicenca;
         private Label label7;
         private ComboBox cmbTipInzenjera;
+        private DataGridView dgvInzenjer;
     }
 }
