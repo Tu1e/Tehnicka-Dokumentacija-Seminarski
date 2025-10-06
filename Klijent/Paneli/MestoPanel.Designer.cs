@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtPrezime = new TextBox();
+            txtDrzava = new TextBox();
             txtNazivMesta = new TextBox();
             txtIdMesta = new TextBox();
             btnObtisi = new Button();
@@ -39,12 +39,12 @@
             label2 = new Label();
             SuspendLayout();
             // 
-            // txtPrezime
+            // txtDrzava
             // 
-            txtPrezime.Location = new Point(149, 96);
-            txtPrezime.Name = "txtPrezime";
-            txtPrezime.Size = new Size(137, 23);
-            txtPrezime.TabIndex = 70;
+            txtDrzava.Location = new Point(149, 96);
+            txtDrzava.Name = "txtDrzava";
+            txtDrzava.Size = new Size(137, 23);
+            txtDrzava.TabIndex = 70;
             // 
             // txtNazivMesta
             // 
@@ -121,7 +121,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(txtPrezime);
+            Controls.Add(txtDrzava);
             Controls.Add(txtNazivMesta);
             Controls.Add(txtIdMesta);
             Controls.Add(btnObtisi);
@@ -138,7 +138,7 @@
 
         #endregion
 
-        private TextBox txtPrezime;
+        private TextBox txtDrzava;
         private TextBox txtNazivMesta;
         private TextBox txtIdMesta;
         private Button btnObtisi;

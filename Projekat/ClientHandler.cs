@@ -95,6 +95,7 @@ namespace Serverr
 
         internal void CloseSocket()
         {
+            socket.Shutdown(SocketShutdown.Both);
             socket.Close();
         }
     }
