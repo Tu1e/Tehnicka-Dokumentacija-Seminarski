@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtMesto = new TextBox();
             txtPrezime = new TextBox();
             txtIme = new TextBox();
             txtIdKlijenta = new TextBox();
@@ -44,15 +43,9 @@
             label1 = new Label();
             chbStranac = new CheckBox();
             dgvKlijent = new DataGridView();
+            cmbMesto = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvKlijent).BeginInit();
             SuspendLayout();
-            // 
-            // txtMesto
-            // 
-            txtMesto.Location = new Point(139, 101);
-            txtMesto.Name = "txtMesto";
-            txtMesto.Size = new Size(137, 23);
-            txtMesto.TabIndex = 56;
             // 
             // txtPrezime
             // 
@@ -188,13 +181,22 @@
             dgvKlijent.Size = new Size(640, 207);
             dgvKlijent.TabIndex = 58;
             // 
+            // cmbMesto
+            // 
+            cmbMesto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbMesto.FormattingEnabled = true;
+            cmbMesto.Location = new Point(139, 101);
+            cmbMesto.Name = "cmbMesto";
+            cmbMesto.Size = new Size(137, 23);
+            cmbMesto.TabIndex = 60;
+            // 
             // KlijentPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(cmbMesto);
             Controls.Add(dgvKlijent);
             Controls.Add(chbStranac);
-            Controls.Add(txtMesto);
             Controls.Add(txtPrezime);
             Controls.Add(txtIme);
             Controls.Add(txtIdKlijenta);
@@ -216,7 +218,6 @@
         }
 
         #endregion
-        private TextBox txtMesto;
         private TextBox txtPrezime;
         private TextBox txtIme;
         private TextBox txtIdKlijenta;
@@ -232,5 +233,6 @@
         private Label label1;
         private CheckBox chbStranac;
         private DataGridView dgvKlijent;
+        private ComboBox cmbMesto;
     }
 }

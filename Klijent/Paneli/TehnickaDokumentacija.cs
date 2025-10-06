@@ -65,10 +65,7 @@ namespace Client.Paneli
             EnableDisableFields(true);
         }
 
-        private void btnKreiraj_Click(object sender, EventArgs e)
-        {
-            Kreiraj();
-        }
+        private void btnKreiraj_Click(object sender, EventArgs e) => Kreiraj();
 
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
