@@ -22,6 +22,13 @@ namespace Client.Paneli
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtIdMesta.Text))
+            {
+                MessageBox.Show("Polje 'ID mesta' je obavezno.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtNazivMesta.Text))
             {
                 MessageBox.Show("Polje 'Naziv mesta' je obavezno.",
@@ -98,7 +105,7 @@ namespace Client.Paneli
 
                 if (tdb.OperationSucceeded)
                 {
-                    MessageBox.Show("Selektovane dokumentacije su uspešno obrisane.", 
+                    MessageBox.Show("Izabrano mesto je uspešno obrisan.", 
                                     "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

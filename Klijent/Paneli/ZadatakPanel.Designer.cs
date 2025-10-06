@@ -33,7 +33,6 @@
             txtIdZadatka = new TextBox();
             btnObtisi = new Button();
             btnIzmeni = new Button();
-            btnPretrazi = new Button();
             btnDodaj = new Button();
             label4 = new Label();
             label3 = new Label();
@@ -82,16 +81,6 @@
             btnIzmeni.Text = "Izmeni";
             btnIzmeni.UseVisualStyleBackColor = true;
             btnIzmeni.Click += btnIzmeni_Click;
-            // 
-            // btnPretrazi
-            // 
-            btnPretrazi.Location = new Point(377, 340);
-            btnPretrazi.Name = "btnPretrazi";
-            btnPretrazi.Size = new Size(75, 23);
-            btnPretrazi.TabIndex = 75;
-            btnPretrazi.Text = "Pretraži";
-            btnPretrazi.UseVisualStyleBackColor = true;
-            btnPretrazi.Click += btnPretrazi_Click;
             // 
             // btnDodaj
             // 
@@ -157,7 +146,6 @@
             Controls.Add(txtIdZadatka);
             Controls.Add(btnObtisi);
             Controls.Add(btnIzmeni);
-            Controls.Add(btnPretrazi);
             Controls.Add(btnDodaj);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -175,7 +163,6 @@
         private TextBox txtIdZadatka;
         private Button btnObtisi;
         private Button btnIzmeni;
-        private Button btnPretrazi;
         private Button btnDodaj;
         private Label label4;
         private Label label3;
