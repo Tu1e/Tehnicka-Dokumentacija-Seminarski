@@ -51,6 +51,7 @@
             // 
             // txtIdDokumentacije
             // 
+            txtIdDokumentacije.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtIdDokumentacije.Location = new Point(155, 13);
             txtIdDokumentacije.Name = "txtIdDokumentacije";
             txtIdDokumentacije.ReadOnly = true;
@@ -59,6 +60,7 @@
             // 
             // txtUkupanIznos
             // 
+            txtUkupanIznos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtUkupanIznos.Location = new Point(155, 100);
             txtUkupanIznos.Name = "txtUkupanIznos";
             txtUkupanIznos.Size = new Size(200, 23);
@@ -66,6 +68,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Location = new Point(21, 103);
             label1.Name = "label1";
@@ -75,6 +78,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
             label2.Location = new Point(21, 16);
             label2.Name = "label2";
@@ -84,6 +88,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
             label3.Location = new Point(21, 45);
             label3.Name = "label3";
@@ -93,6 +98,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
             label4.Location = new Point(21, 74);
             label4.Name = "label4";
@@ -102,6 +108,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
             label5.Location = new Point(21, 132);
             label5.Name = "label5";
@@ -111,6 +118,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
             label6.Location = new Point(21, 161);
             label6.Name = "label6";
@@ -120,14 +128,18 @@
             // 
             // dgvDokumentacija
             // 
+            dgvDokumentacija.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDokumentacija.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDokumentacija.Location = new Point(21, 192);
+            dgvDokumentacija.Location = new Point(25, 187);
+            dgvDokumentacija.MaximumSize = new Size(1800, 540);
+            dgvDokumentacija.MinimumSize = new Size(300, 90);
             dgvDokumentacija.Name = "dgvDokumentacija";
-            dgvDokumentacija.Size = new Size(601, 174);
+            dgvDokumentacija.Size = new Size(600, 180);
             dgvDokumentacija.TabIndex = 12;
             // 
             // dtpDatumPotpisivanja
             // 
+            dtpDatumPotpisivanja.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dtpDatumPotpisivanja.Location = new Point(155, 42);
             dtpDatumPotpisivanja.Name = "dtpDatumPotpisivanja";
             dtpDatumPotpisivanja.Size = new Size(200, 23);
@@ -135,6 +147,7 @@
             // 
             // dtpDatumZavrsetka
             // 
+            dtpDatumZavrsetka.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dtpDatumZavrsetka.Location = new Point(155, 71);
             dtpDatumZavrsetka.Name = "dtpDatumZavrsetka";
             dtpDatumZavrsetka.Size = new Size(200, 23);
@@ -142,6 +155,7 @@
             // 
             // cmbInzenjer
             // 
+            cmbInzenjer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             cmbInzenjer.FormattingEnabled = true;
             cmbInzenjer.Location = new Point(155, 129);
             cmbInzenjer.Name = "cmbInzenjer";
@@ -150,6 +164,7 @@
             // 
             // cmbKlijent
             // 
+            cmbKlijent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             cmbKlijent.FormattingEnabled = true;
             cmbKlijent.Location = new Point(155, 158);
             cmbKlijent.Name = "cmbKlijent";
@@ -158,9 +173,15 @@
             // 
             // btnKreiraj
             // 
-            btnKreiraj.Location = new Point(547, 16);
+            btnKreiraj.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnKreiraj.AutoSize = true;
+            btnKreiraj.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnKreiraj.Location = new Point(544, 16);
+            btnKreiraj.MaximumSize = new Size(160, 50);
+            btnKreiraj.MinimumSize = new Size(40, 12);
             btnKreiraj.Name = "btnKreiraj";
-            btnKreiraj.Size = new Size(75, 23);
+            btnKreiraj.Padding = new Padding(15, 0, 15, 0);
+            btnKreiraj.Size = new Size(80, 25);
             btnKreiraj.TabIndex = 17;
             btnKreiraj.Text = "Kreiraj";
             btnKreiraj.UseVisualStyleBackColor = true;
@@ -168,9 +189,15 @@
             // 
             // btnPretrazi
             // 
-            btnPretrazi.Location = new Point(547, 45);
+            btnPretrazi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPretrazi.AutoSize = true;
+            btnPretrazi.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnPretrazi.Location = new Point(544, 45);
+            btnPretrazi.MaximumSize = new Size(160, 50);
+            btnPretrazi.MinimumSize = new Size(40, 12);
             btnPretrazi.Name = "btnPretrazi";
-            btnPretrazi.Size = new Size(75, 23);
+            btnPretrazi.Padding = new Padding(12, 0, 12, 0);
+            btnPretrazi.Size = new Size(80, 25);
             btnPretrazi.TabIndex = 18;
             btnPretrazi.Text = "Pretraži";
             btnPretrazi.UseVisualStyleBackColor = true;
@@ -178,9 +205,15 @@
             // 
             // btnIzmeni
             // 
-            btnIzmeni.Location = new Point(547, 74);
+            btnIzmeni.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnIzmeni.AutoSize = true;
+            btnIzmeni.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnIzmeni.Location = new Point(544, 74);
+            btnIzmeni.MaximumSize = new Size(160, 50);
+            btnIzmeni.MinimumSize = new Size(40, 12);
             btnIzmeni.Name = "btnIzmeni";
-            btnIzmeni.Size = new Size(75, 23);
+            btnIzmeni.Padding = new Padding(14, 0, 14, 0);
+            btnIzmeni.Size = new Size(80, 25);
             btnIzmeni.TabIndex = 19;
             btnIzmeni.Text = "Izmeni";
             btnIzmeni.UseVisualStyleBackColor = true;
@@ -188,9 +221,15 @@
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location = new Point(547, 103);
+            btnSacuvaj.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSacuvaj.AutoSize = true;
+            btnSacuvaj.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSacuvaj.Location = new Point(544, 103);
+            btnSacuvaj.MaximumSize = new Size(160, 50);
+            btnSacuvaj.MinimumSize = new Size(40, 12);
             btnSacuvaj.Name = "btnSacuvaj";
-            btnSacuvaj.Size = new Size(75, 23);
+            btnSacuvaj.Padding = new Padding(12, 0, 12, 0);
+            btnSacuvaj.Size = new Size(81, 25);
             btnSacuvaj.TabIndex = 20;
             btnSacuvaj.Text = "Sačuvaj";
             btnSacuvaj.UseVisualStyleBackColor = true;
@@ -198,9 +237,15 @@
             // 
             // btnObtisi
             // 
-            btnObtisi.Location = new Point(547, 132);
+            btnObtisi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnObtisi.AutoSize = true;
+            btnObtisi.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnObtisi.Location = new Point(544, 132);
+            btnObtisi.MaximumSize = new Size(160, 50);
+            btnObtisi.MinimumSize = new Size(40, 12);
             btnObtisi.Name = "btnObtisi";
-            btnObtisi.Size = new Size(75, 23);
+            btnObtisi.Padding = new Padding(16, 0, 16, 0);
+            btnObtisi.Size = new Size(80, 25);
             btnObtisi.TabIndex = 21;
             btnObtisi.Text = "Obriši";
             btnObtisi.UseVisualStyleBackColor = true;

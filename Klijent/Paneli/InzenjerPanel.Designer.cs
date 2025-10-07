@@ -59,9 +59,11 @@
             // 
             btnObtisi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnObtisi.AutoSize = true;
+            btnObtisi.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnObtisi.Location = new Point(586, 124);
             btnObtisi.Name = "btnObtisi";
-            btnObtisi.Size = new Size(57, 25);
+            btnObtisi.Padding = new Padding(2, 0, 2, 0);
+            btnObtisi.Size = new Size(52, 25);
             btnObtisi.TabIndex = 32;
             btnObtisi.Text = "Obriši";
             btnObtisi.UseVisualStyleBackColor = true;
@@ -71,9 +73,11 @@
             // 
             btnSacuvaj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSacuvaj.AutoSize = true;
+            btnSacuvaj.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSacuvaj.Location = new Point(516, 124);
             btnSacuvaj.Name = "btnSacuvaj";
-            btnSacuvaj.Size = new Size(57, 25);
+            btnSacuvaj.Padding = new Padding(2, 0, 2, 0);
+            btnSacuvaj.Size = new Size(61, 25);
             btnSacuvaj.TabIndex = 31;
             btnSacuvaj.Text = "Sačuvaj";
             btnSacuvaj.UseVisualStyleBackColor = true;
@@ -83,9 +87,11 @@
             // 
             btnIzmeni.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnIzmeni.AutoSize = true;
+            btnIzmeni.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnIzmeni.Location = new Point(446, 124);
             btnIzmeni.Name = "btnIzmeni";
-            btnIzmeni.Size = new Size(57, 25);
+            btnIzmeni.Padding = new Padding(2, 0, 2, 0);
+            btnIzmeni.Size = new Size(56, 25);
             btnIzmeni.TabIndex = 30;
             btnIzmeni.Text = "Izmeni";
             btnIzmeni.UseVisualStyleBackColor = true;
@@ -95,9 +101,11 @@
             // 
             btnPretrazi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnPretrazi.AutoSize = true;
+            btnPretrazi.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnPretrazi.Location = new Point(376, 124);
             btnPretrazi.Name = "btnPretrazi";
-            btnPretrazi.Size = new Size(57, 25);
+            btnPretrazi.Padding = new Padding(2, 0, 2, 0);
+            btnPretrazi.Size = new Size(60, 25);
             btnPretrazi.TabIndex = 29;
             btnPretrazi.Text = "Pretraži";
             btnPretrazi.UseVisualStyleBackColor = true;
@@ -107,9 +115,11 @@
             // 
             btnKreiraj.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnKreiraj.AutoSize = true;
+            btnKreiraj.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnKreiraj.Location = new Point(306, 124);
             btnKreiraj.Name = "btnKreiraj";
-            btnKreiraj.Size = new Size(57, 25);
+            btnKreiraj.Padding = new Padding(2, 0, 2, 0);
+            btnKreiraj.Size = new Size(54, 25);
             btnKreiraj.TabIndex = 28;
             btnKreiraj.Text = "Kreiraj";
             btnKreiraj.UseVisualStyleBackColor = true;
@@ -117,7 +127,7 @@
             // 
             // label6
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Location = new Point(304, 13);
             label6.Name = "label6";
@@ -127,7 +137,6 @@
             // 
             // label5
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Location = new Point(15, 129);
             label5.Name = "label5";
@@ -137,7 +146,6 @@
             // 
             // label4
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Location = new Point(15, 71);
             label4.Name = "label4";
@@ -147,7 +155,6 @@
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Location = new Point(15, 42);
             label3.Name = "label3";
@@ -157,7 +164,6 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(15, 13);
             label2.Name = "label2";
@@ -167,7 +173,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Location = new Point(15, 100);
             label1.Name = "label1";
@@ -177,7 +182,6 @@
             // 
             // txtIdInzenjera
             // 
-            txtIdInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtIdInzenjera.Enabled = false;
             txtIdInzenjera.Location = new Point(137, 10);
             txtIdInzenjera.Name = "txtIdInzenjera";
@@ -186,7 +190,6 @@
             // 
             // txtIme
             // 
-            txtIme.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtIme.Location = new Point(137, 39);
             txtIme.Name = "txtIme";
             txtIme.Size = new Size(128, 23);
@@ -194,7 +197,6 @@
             // 
             // txtPrezime
             // 
-            txtPrezime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPrezime.Location = new Point(137, 68);
             txtPrezime.Name = "txtPrezime";
             txtPrezime.Size = new Size(128, 23);
@@ -202,7 +204,6 @@
             // 
             // txtUsername
             // 
-            txtUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtUsername.Location = new Point(137, 97);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(128, 23);
@@ -210,7 +211,6 @@
             // 
             // txtPassword
             // 
-            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPassword.Location = new Point(137, 126);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(128, 23);
@@ -218,7 +218,7 @@
             // 
             // txtLicenca
             // 
-            txtLicenca.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtLicenca.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtLicenca.Location = new Point(426, 10);
             txtLicenca.Name = "txtLicenca";
             txtLicenca.Size = new Size(128, 23);
@@ -226,7 +226,7 @@
             // 
             // label7
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Location = new Point(304, 42);
             label7.Name = "label7";
@@ -236,7 +236,7 @@
             // 
             // cmbTipInzenjera
             // 
-            cmbTipInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbTipInzenjera.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cmbTipInzenjera.FormattingEnabled = true;
             cmbTipInzenjera.Location = new Point(426, 39);
             cmbTipInzenjera.Name = "cmbTipInzenjera";
@@ -245,16 +245,19 @@
             // 
             // dgvInzenjer
             // 
-            dgvInzenjer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvInzenjer.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvInzenjer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInzenjer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInzenjer.Location = new Point(19, 155);
+            dgvInzenjer.Location = new Point(20, 155);
+            dgvInzenjer.MaximumSize = new Size(2000, 540);
+            dgvInzenjer.MinimumSize = new Size(300, 90);
             dgvInzenjer.Name = "dgvInzenjer";
             dgvInzenjer.Size = new Size(642, 209);
             dgvInzenjer.TabIndex = 41;
             // 
             // txtOpis
             // 
-            txtOpis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtOpis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtOpis.Location = new Point(426, 68);
             txtOpis.Name = "txtOpis";
             txtOpis.Size = new Size(128, 23);
@@ -262,7 +265,7 @@
             // 
             // txtGodIskustva
             // 
-            txtGodIskustva.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtGodIskustva.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtGodIskustva.Location = new Point(426, 97);
             txtGodIskustva.Name = "txtGodIskustva";
             txtGodIskustva.Size = new Size(128, 23);
@@ -270,7 +273,7 @@
             // 
             // label8
             // 
-            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Location = new Point(304, 100);
             label8.Name = "label8";
@@ -280,7 +283,7 @@
             // 
             // label9
             // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Location = new Point(304, 71);
             label9.Name = "label9";
