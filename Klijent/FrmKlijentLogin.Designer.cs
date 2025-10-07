@@ -37,47 +37,60 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(235, 117);
+            label1.Location = new Point(269, 156);
             label1.Name = "label1";
-            label1.Size = new Size(84, 21);
+            label1.Size = new Size(103, 28);
             label1.TabIndex = 0;
             label1.Text = "Username:";
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(235, 196);
+            label2.Location = new Point(269, 261);
             label2.Name = "label2";
-            label2.Size = new Size(79, 21);
+            label2.Size = new Size(97, 28);
             label2.TabIndex = 1;
             label2.Text = "Password:";
             // 
             // txtUsername
             // 
+            txtUsername.Anchor = AnchorStyles.None;
             txtUsername.Font = new Font("Segoe UI", 12F);
-            txtUsername.Location = new Point(339, 115);
+            txtUsername.Location = new Point(387, 153);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.MaxLength = 40000;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(158, 29);
+            txtUsername.Size = new Size(180, 34);
             txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
+            txtPassword.Anchor = AnchorStyles.None;
             txtPassword.Font = new Font("Segoe UI", 12F);
-            txtPassword.Location = new Point(339, 193);
+            txtPassword.Location = new Point(387, 257);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(158, 29);
+            txtPassword.Size = new Size(180, 34);
             txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            btnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLogin.Anchor = AnchorStyles.None;
+            btnLogin.AutoSize = true;
+            btnLogin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnLogin.Font = new Font("Segoe UI", 15F);
-            btnLogin.Location = new Point(365, 309);
+            btnLogin.Location = new Point(417, 412);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.MaximumSize = new Size(180, 120);
+            btnLogin.MinimumSize = new Size(45, 30);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(76, 41);
+            btnLogin.Padding = new Padding(3, 2, 3, 2);
+            btnLogin.Size = new Size(100, 49);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Log in";
             btnLogin.UseVisualStyleBackColor = true;
@@ -85,14 +98,15 @@
             // 
             // FrmKlijentLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmKlijentLogin";
             Text = "Log in";
             ResumeLayout(false);
