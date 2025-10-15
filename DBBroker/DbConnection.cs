@@ -1,9 +1,7 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Protocols;
-using System;
+﻿using Microsoft.Data.SqlClient;
 using System.Configuration;
+using System.Data;
+using System;
 
 namespace DBBroker
 {
@@ -13,7 +11,7 @@ namespace DBBroker
         private SqlTransaction transaction;
         public DbConnection()
         {
-            connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TehDocDB_Dev;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            connection = new SqlConnection(ConfigurationManager.ConnectionStrings["TehDocDB_Dev"].ConnectionString);
         }
 
         public void OpenConnection()

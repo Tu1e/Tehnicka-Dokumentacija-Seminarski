@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nk6aPqTfYLo=",
+  "dgSpecHash": "XqTsfYIuE08=",
   "success": true,
   "projectFilePath": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Client.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vukan\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.10\\system.configuration.configurationmanager.9.0.10.nupkg.sha512",
+    "C:\\Users\\vukan\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.10\\system.diagnostics.eventlog.9.0.10.nupkg.sha512",
+    "C:\\Users\\vukan\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.10\\system.security.cryptography.protecteddata.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

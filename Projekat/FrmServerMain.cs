@@ -1,10 +1,9 @@
-using Serverr;
 
 namespace Projekat
 {
     public partial class FrmServerMain : Form
     {
-        private Server server;
+        private Serverr.Server server;
         public FrmServerMain()
         {
             InitializeComponent();
@@ -12,7 +11,7 @@ namespace Projekat
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            server = new Server();
+            server = new Serverr.Server();
             btnStart.Enabled = false;
             btnStop.Enabled = true;
             lblServerInfo.Text = "Server je pokrenut!";
