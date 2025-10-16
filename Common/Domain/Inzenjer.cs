@@ -27,7 +27,8 @@ namespace Common.Domain
         public string ImePrezime => $"{Ime} {Prezime}";
 
         public string TableName => "Inzenjer";
-        public string Values => $"'{Ime}', '{Prezime}', '{Username}', '{Password}', '{Licenca}'";
+        public string Values => $"{IdInzenjer}, '{Ime}', '{Prezime}', '{Username}', '{Password}', '{Licenca}'";
+
 
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {

@@ -35,20 +35,10 @@ namespace Serverr
         public Inzenjer? Login(Inzenjer inz)
         {
             Inzenjer? inzenjer = null;
-            /*try
-            {
-                broker.OpenConnection();
-                inzenjer = broker.GetInzenjerByKorisnickoIme(inz.Username, inz.Password);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
-            return inzenjer;
-            */
 
             LoginSO so = new LoginSO(inz);
             so.ExecuteTemplate();
+
             inzenjer = so.Result;
             return inzenjer;
         }
@@ -138,31 +128,5 @@ namespace Serverr
             throw new NotImplementedException();
         }
 
-        /*private ManufacturerRepository manufacturerRepository = new ManufacturerRepository();
-        public List<Manufacturer> GetAllManufacturers()
-        {
-            return manufacturerRepository.GetManufacturers();
-        }
-
-        private ProductRepository productRepository = new ProductRepository();
-        public void AddProduct(Product newProduct)
-        {
-            productRepository.Add(newProduct);
-        }
-
-        public List<Product> GetAllProducts()
-        {
-            return productRepository.GetProducts();
-        }
-
-        public Array GetAllMesurementUnits()
-        {
-            return Enum.GetValues(typeof(MesurementUnit));
-        }
-
-        public void AddProducts(List<Product> products)
-        {
-            productRepository.AddAllProducts(products);
-        }*/
     }
 }

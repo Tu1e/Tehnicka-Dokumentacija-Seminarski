@@ -54,6 +54,28 @@ namespace DBBroker
             return list;
         }
 
+        public List<IEntity> GetAll(IEntity entity)
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT * FROM {entity.TableName}";
+            using SqlDataReader reader = command.ExecuteReader();
+            return entity.GetReaderList(reader);
+        }
+
+        public void Insert(IEntity entity)
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText = $"INSERT INTO {entity.TableName} VALUES ({entity.Values})";
+            command.ExecuteNonQuery();
+        }
+
+        public void Delete(IEntity entity, string condition)
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText = $"DELETE FROM {entity.TableName} WHERE {condition}";
+            command.ExecuteNonQuery();
+        }
+
         public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
             using (SqlCommand command = connection.CreateCommand())
@@ -99,6 +121,7 @@ namespace DBBroker
                 return Convert.ToInt32(result);
             }
         }
+
 
         public TableDataBundle GetTableData(TableName tableName)
         {

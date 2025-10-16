@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Common.Domain
 {
-    public class Klijent
+    public class Klijent : IEntity
     {
         [DisplayName("ID klijenta")]
         public int IdKlijent { get; set; }
@@ -25,5 +26,26 @@ namespace Common.Domain
         public int IdMesto { get; set; }
 
         public string ImePrezime => $"{Ime} {Prezime}";
+
+        public string TableName => "Klijent";
+        public string Values => $"{IdKlijent}, '{Ime}', '{Prezime}', '{(Stranac ? 1 : 0)}', {IdMesto}";
+
+        public List<IEntity> GetReaderList(SqlDataReader reader)
+        {
+            var list = new List<IEntity>();
+            while (reader.Read())
+            {
+                list.Add(new Klijent
+                {
+                    IdKlijent = (int)reader["IdKlijent"],
+                    Ime = reader["Ime"].ToString(),
+                    Prezime = reader["Prezime"].ToString(),
+                    Stranac = (bool)reader["Stranac"],
+                    IdMesto = (int)reader["IdMesto"]
+                });
+            }
+            return list;
+        }
+
     }
 }

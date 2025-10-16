@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Common.Domain
 {
-    public class TehnickaDokumentacija
+    public class TehnickaDokumentacija : IEntity
     {
         [DisplayName("ID Dokumenta")]
         public int IdTehnickaDokumentacija { get; set; }
@@ -26,6 +27,26 @@ namespace Common.Domain
 
         [DisplayName("Klijent")]
         public int IdKlijent { get; set; }
+
+        public string TableName => "TehnickaDokumentacija";
+        public string Values => $"{IdTehnickaDokumentacija}, '{DatumPotpisivanja:yyyy-MM-dd}', '{DatumZavrsetka:yyyy-MM-dd}', {UkupanIznos}, {IdInzenjer}, {IdKlijent}";
+        public List<IEntity> GetReaderList(SqlDataReader reader)
+        {
+            var list = new List<IEntity>();
+            while (reader.Read())
+            {
+                list.Add(new TehnickaDokumentacija
+                {
+                    IdTehnickaDokumentacija = (int)reader["IdTD"],
+                    DatumPotpisivanja = Convert.ToDateTime(reader["DatumPotpisivanja"]),
+                    DatumZavrsetka = Convert.ToDateTime(reader["DatumZavrsetka"]),
+                    UkupanIznos = Convert.ToDecimal(reader["UkupanIznos"]),
+                    IdInzenjer = (int)reader["IdInzenjer"],
+                    IdKlijent = (int)reader["IdKlijent"]
+                });
+            }
+            return list;
+        }
 
     }
 }
