@@ -1,14 +1,15 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Common;
+using Common.Domain;
+using DBBroker;
+using Microsoft.VisualBasic.ApplicationServices;
 using Microsoft.Win32;
+using Server.SystemOperations;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Common.Domain;
-using DBBroker;
-using Common;
-using System.Diagnostics;
 
 namespace Serverr
 {
@@ -34,7 +35,7 @@ namespace Serverr
         public Inzenjer? Login(Inzenjer inz)
         {
             Inzenjer? inzenjer = null;
-            try
+            /*try
             {
                 broker.OpenConnection();
                 inzenjer = broker.GetInzenjerByKorisnickoIme(inz.Username, inz.Password);
@@ -43,7 +44,12 @@ namespace Serverr
             {
                 broker.CloseConnection();
             }
+            return inzenjer;
+            */
 
+            LoginSO so = new LoginSO(inz);
+            so.ExecuteTemplate();
+            inzenjer = so.Result;
             return inzenjer;
         }
 

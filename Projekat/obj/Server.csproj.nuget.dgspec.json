@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -127,7 +131,7 @@
           "dependencies": {
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.1.1, )"
+              "version": "[6.1.2, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
@@ -207,6 +211,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.1.2, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[9.0.10, )"

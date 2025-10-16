@@ -44,6 +44,16 @@ namespace DBBroker
            connection.OpenConnection();
         }
 
+        public List<IEntity> GetByCondition(IEntity entity, string condition)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"SELECT * FROM {entity.TableName} WHERE {condition}";
+            using SqlDataReader reader = command.ExecuteReader();
+            List<IEntity> list = entity.GetReaderList(reader);
+            command.Dispose();
+            return list;
+        }
+
         public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
             using (SqlCommand command = connection.CreateCommand())
