@@ -75,7 +75,82 @@ namespace Client.Paneli
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
+            if (dgvDokumentacija.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Morate selektovati dokumentaciju koju želite da izmenite.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (dtpDatumPotpisivanja.Value >= dtpDatumZavrsetka.Value)
+            {
+                MessageBox.Show("Datum završetka mora biti nakon datuma potpisivanja.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtUkupanIznos.Text, out decimal ukupanIznos) || ukupanIznos <= 0)
+            {
+                MessageBox.Show("Ukupan iznos mora biti broj veći od 0.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbInzenjer.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati inženjera koji je odgovoran za dokumentaciju.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbKlijent.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati klijenta koji naručuje dokumentaciju.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(txtIdDokumentacije.Text, out int id) || id <= 0)
+            {
+                MessageBox.Show("ID dokumentacije nije ispravan. Pokušajte ponovo učitati tabelu.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DomainTD selektovana = dgvDokumentacija.SelectedRows[0].DataBoundItem as DomainTD;
+            if (selektovana == null)
+            {
+                MessageBox.Show("Nije moguće prepoznati selektovanu dokumentaciju.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            selektovana.DatumPotpisivanja = dtpDatumPotpisivanja.Value;
+            selektovana.DatumZavrsetka = dtpDatumZavrsetka.Value;
+            selektovana.UkupanIznos = ukupanIznos;
+            selektovana.IdInzenjer = ((Inzenjer)cmbInzenjer.SelectedItem).IdInzenjer;
+            selektovana.IdKlijent = ((Common.Domain.Klijent)cmbKlijent.SelectedItem).IdKlijent;
+
+            TableDataMember tdm = new TableDataMember
+            {
+                TehnickaDokumentacija = selektovana,
+                TableName = currentPanel
+            };
+
+            try
+            {
+                TableDataBundle updated = ClientCommunication.Instance.ChangeTableMember(tdm);
+                LoadTable(updated);
+                MessageBox.Show("Dokumentacija je uspešno izmenjena!",
+                                "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do greške prilikom izmene dokumentacije: " + ex.Message,
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Kreiraj();
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)

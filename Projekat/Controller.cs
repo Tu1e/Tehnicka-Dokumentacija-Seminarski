@@ -119,6 +119,17 @@ namespace Serverr
             return so.Result;
         }
 
+        internal TableDataBundle GetTableSupportDataKlijent()
+        {
+            TableDataBundle tdb = new TableDataBundle();
+
+            var so1 = new GetAllMestaSO();
+            so1.ExecuteTemplate();
+            tdb.Mesta = so1.Result.Mesta;
+
+            return tdb;
+        }
+
         public object AddTableMemberKlijent(TableDataMember tdm)
         {
             // TODO: Implement AddKlijentSO
@@ -130,16 +141,9 @@ namespace Serverr
             // TODO: Implement DeleteKlijentSO
             return null;
         }
-
-        internal TableDataBundle GetTableSupportDataKlijent()
+        internal object ChangeTableMemberKlijent(TableDataMember tableDataMember)
         {
-            TableDataBundle tdb = new TableDataBundle();
-
-            var so1 = new GetAllMestaSO();
-            so1.ExecuteTemplate();
-            tdb.Mesta = so1.Result.Mesta;
-
-            return tdb;
+            throw new NotImplementedException();
         }
 
         // ------------------- MESTO -------------------
@@ -161,7 +165,10 @@ namespace Serverr
             // TODO: Implement DeleteMestoSO
             return null;
         }
-
+        internal object ChangeTableMemberMesto(TableDataMember tableDataMember)
+        {
+            throw new NotImplementedException();
+        }
         // ------------------- ZADATAK -------------------
         public object GetTableDataZadatak()
         {
@@ -190,6 +197,17 @@ namespace Serverr
             return so.Result;
         }
 
+        internal TableDataBundle GetTableSupportDataInzenjer()
+        {
+            TableDataBundle tdb = new TableDataBundle();
+
+            var so1 = new GetAllTipoviInzenjeraSO();
+            so1.ExecuteTemplate();
+            tdb.Inzenjeri = so1.Result.Inzenjeri;
+
+            return tdb;
+        }
+
         public object AddTableMemberTipInzenjera(TableDataMember tdm)
         {
             // TODO: Implement AddTipInzenjeraSO
@@ -201,16 +219,9 @@ namespace Serverr
             // TODO: Implement DeleteTipInzenjeraSO
             return null;
         }
-
-        internal TableDataBundle GetTableSupportDataInzenjer()
+        internal object ChangeTableMemberInzenjer(TableDataMember tableDataMember)
         {
-            TableDataBundle tdb = new TableDataBundle();
-
-            var so1 = new GetAllTipoviInzenjeraSO();
-            so1.ExecuteTemplate();
-            tdb.Inzenjeri = so1.Result.Inzenjeri;
-
-            return tdb;
+            throw new NotImplementedException();
         }
 
         // ------------------- TEHNICKA DOKUMENTACIJA -------------------
@@ -249,7 +260,7 @@ namespace Serverr
             return GetTableDataTD();
         }
 
-        public object AlterTableMemberTD(TableDataMember tdm)
+        public object ChangeTableMemberTD(TableDataMember tdm)
         {
             var so = new AlterTDMemberSO(tdm.TehnickaDokumentacija);
             so.ExecuteTemplate();
@@ -273,6 +284,11 @@ namespace Serverr
         {
             // TODO: Implement DeleteStavkaTDSO
             return null;
+        }
+
+        internal object ChangeTableMemberSTD(TableDataMember tableDataMember)
+        {
+            throw new NotImplementedException();
         }
 
     }

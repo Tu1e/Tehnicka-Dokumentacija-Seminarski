@@ -54,7 +54,6 @@
             txtIdDokumentacije.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtIdDokumentacije.Location = new Point(155, 13);
             txtIdDokumentacije.Name = "txtIdDokumentacije";
-            txtIdDokumentacije.ReadOnly = true;
             txtIdDokumentacije.Size = new Size(200, 23);
             txtIdDokumentacije.TabIndex = 0;
             // 

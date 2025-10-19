@@ -258,5 +258,58 @@ namespace Client
 
             return serializer.ReadType<TableDataBundle>(response.Result);
         }
+
+        internal TableDataBundle ChangeTableMember(TableDataMember tdm)
+        {
+            Request req = new Request
+            {
+                Argument = tdm,
+                Operation = Operation.ChangeTableMember
+            };
+
+            switch (tdm.TableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.ChangeTableMemberTD;
+                    break;
+                case TableName.Inzenjer:
+                    req.Operation = Operation.ChangeTableMemberInzenjer;
+                    break;
+                case TableName.Klijent:
+                    req.Operation = Operation.ChangeTableMemberKlijent;
+                    break;
+                case TableName.Mesto:
+                    req.Operation = Operation.ChangeTableMemberMesto;
+                    break;
+                case TableName.StavkaTehnickaDokumentacija:
+                    req.Operation = Operation.ChangeTableMemberSTD;
+                    break;
+            }
+
+            try
+            {
+                serializer.Send(req);
+
+                Response response = serializer.Receive<Response>();
+
+                if (!string.IsNullOrEmpty(response.ExceptionMessage))
+                {
+                    throw new Exception(response.ExceptionMessage);
+                }
+
+                TableDataBundle result = serializer.ReadType<TableDataBundle>(response.Result);
+                return result ?? new TableDataBundle { OperationSucceeded = false };
+            }
+            catch (SocketException ex)
+            {
+                Debug.WriteLine("[CLIENT] SocketException u AlterTableMember: " + ex.Message);
+                throw new Exception("Greška u komunikaciji sa serverom: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[CLIENT] Greška u AlterTableMember: " + ex.Message);
+                throw;
+            }
+        }
     }
 }

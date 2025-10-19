@@ -61,9 +61,12 @@ namespace Serverr
             {
                 switch (req.Operation)
                 {
+                    // ---------------- LOGIN ----------------
                     case Operation.Login:
                         r.Result = Controller.Instance.Login(serializer.ReadType<Inzenjer>(req.Argument));
                         break;
+
+                    // ---------------- GENERIC ----------------
                     case Operation.GetTableData:
                         r.Result = Controller.Instance.GetTableData(serializer.ReadType<TableName>(req.Argument));
                         break;
@@ -79,9 +82,7 @@ namespace Serverr
                     case Operation.DeleteTableMember:
                         r.Result = Controller.Instance.DeleteTableMember(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
-                    case Operation.ChangeTableMember:
-                        r.Result = Controller.Instance.ChangeTableMember(serializer.ReadType<TableName>(req.Argument));
-                        break;
+
                     // ---------------- INZENJER ----------------
                     case Operation.GetTableDataInzenjer:
                         r.Result = Controller.Instance.GetTableDataInzenjer();
@@ -94,6 +95,9 @@ namespace Serverr
                         break;
                     case Operation.DeleteTableMemberInzenjer:
                         r.Result = Controller.Instance.DeleteTableMemberInzenjer(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.ChangeTableMemberInzenjer:
+                        r.Result = Controller.Instance.ChangeTableMemberInzenjer(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
 
                     // ---------------- KLIJENT ----------------
@@ -109,6 +113,9 @@ namespace Serverr
                     case Operation.DeleteTableMemberKlijent:
                         r.Result = Controller.Instance.DeleteTableMemberKlijent(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
+                    case Operation.ChangeTableMemberKlijent:
+                        r.Result = Controller.Instance.ChangeTableMemberKlijent(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
 
                     // ---------------- MESTO ----------------
                     case Operation.GetTableDataMesto:
@@ -120,8 +127,11 @@ namespace Serverr
                     case Operation.DeleteTableMemberMesto:
                         r.Result = Controller.Instance.DeleteTableMemberMesto(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
+                    case Operation.ChangeTableMemberMesto:
+                        r.Result = Controller.Instance.ChangeTableMemberMesto(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
 
-                    // ---------------- TEHNIČKA DOK ----------------
+                    // ---------------- TEHNIČKA DOKUMENTACIJA ----------------
                     case Operation.GetTableDataTD:
                         r.Result = Controller.Instance.GetTableDataTD();
                         break;
@@ -134,9 +144,12 @@ namespace Serverr
                     case Operation.DeleteTableMemberTD:
                         r.Result = Controller.Instance.DeleteTableMemberTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
+                    case Operation.ChangeTableMemberTD:
+                        r.Result = Controller.Instance.ChangeTableMemberTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
 
-                    // ---------------- STAVKA TD ----------------
-                    case Operation.GetTableDataMestoSTD:
+                    // ---------------- STAVKA TEHNIČKE DOK ----------------
+                    case Operation.GetTableDataSTD:
                         r.Result = Controller.Instance.GetTableDataSTD();
                         break;
                     case Operation.AddTableMemberSTD:
@@ -144,6 +157,9 @@ namespace Serverr
                         break;
                     case Operation.DeleteTableMemberSTD:
                         r.Result = Controller.Instance.DeleteTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.ChangeTableMemberSTD:
+                        r.Result = Controller.Instance.ChangeTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
 
                     default:
