@@ -36,6 +36,7 @@
         GetTableDataMestoSTD,
         GetTableSupportDataSTD,
         GetNextFreeIdSTD,
+        GetTableDataSTD,
         AddTableMemberSTD,
         DeleteTableMemberSTD,
         ChangeTableMemberSTD,

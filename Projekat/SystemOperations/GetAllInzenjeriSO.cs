@@ -6,12 +6,12 @@ namespace Server.SystemOperations
 {
     public class GetAllInzenjeriSO : SystemOperationBase
     {
-        public List<Inzenjer> Result { get; private set; }
+        public TableDataBundle Result { get; private set; } = new TableDataBundle();
 
         public override void ExecuteOperation()
         {
             var lista = broker.GetAll(new Inzenjer());
-            Result = lista.Cast<Inzenjer>().ToList();
+            Result.Inzenjeri = lista.Cast<Inzenjer>().ToList();
         }
     }
 }

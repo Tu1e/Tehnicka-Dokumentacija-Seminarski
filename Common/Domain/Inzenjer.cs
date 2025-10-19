@@ -28,7 +28,14 @@ namespace Common.Domain
 
         public string TableName => "Inzenjer";
         public string Values => $"{IdInzenjer}, '{Ime}', '{Prezime}', '{Username}', '{Password}', '{Licenca}'";
+        public string UpdateValues =>
+            $"Ime = '{Ime}', " +
+            $"Prezime = '{Prezime}', " +
+            $"Username = {Username}, " +
+            $"Password = {Password}, " +
+            $"Licenca = {Licenca}";
 
+        public string PrimaryKeyCondition => $"IdInzenjer = {IdInzenjer}";
 
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {

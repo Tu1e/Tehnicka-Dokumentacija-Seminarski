@@ -76,6 +76,32 @@ namespace DBBroker
             command.ExecuteNonQuery();
         }
 
+        public void Update(IEntity entity)
+        {
+            using var command = connection.CreateCommand();
+            try
+            {
+                command.CommandText = $"UPDATE {entity.TableName} SET {entity.UpdateValues} WHERE {entity.PrimaryKeyCondition}";
+                Debug.WriteLine($">>> SQL UPDATE: {command.CommandText}");
+                int affectedRows = command.ExecuteNonQuery();
+
+                if (affectedRows == 0)
+                {
+                    Debug.WriteLine(">>> Upozorenje: Nije izmenjen nijedan red (možda ID ne postoji).");
+                }
+                else
+                {
+                    Debug.WriteLine($">>> Uspešno izmenjeno {affectedRows} redova.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine(">>> Greška u Broker.Update: " + ex.Message);
+                throw;
+            }
+        }
+
+
         public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
             using (SqlCommand command = connection.CreateCommand())

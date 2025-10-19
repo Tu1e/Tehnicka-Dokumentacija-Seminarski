@@ -21,7 +21,11 @@ namespace Common.Domain
 
         public string TableName => "Mesto";
         public string Values => $"{IdMesto}, '{NazivMesta}', '{NazivDrzave}'";
+        public string UpdateValues =>
+            $"NazivMesta = '{NazivMesta}', " +
+            $"NazivDrzave = '{NazivDrzave}'";
 
+        public string PrimaryKeyCondition => $"IdMesto = {IdMesto}";
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             var list = new List<IEntity>();

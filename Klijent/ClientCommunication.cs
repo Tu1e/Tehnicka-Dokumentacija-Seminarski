@@ -131,9 +131,29 @@ namespace Client
                 Argument = tableName,
                 Operation = Operation.GetTableSupportData,
             };
+
+            switch (tableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.GetTableSupportDataTD;
+                    break;
+                case TableName.Inzenjer:
+                    req.Operation = Operation.GetTableSupportDataInzenjer;
+                    break;
+                case TableName.Klijent:
+                    req.Operation = Operation.GetTableSupportDataKlijent;
+                    break;
+                case TableName.Mesto:
+                    req.Operation = Operation.GetTableSupportDataMesto;
+                    break;
+                case TableName.StavkaTehnickaDokumentacija:
+                    req.Operation = Operation.GetTableSupportDataSTD;
+                    break;
+
+            }
             serializer.Send(req);
             Response response = serializer.Receive<Response>();
-            response.Result = serializer.ReadType<TableDataBundle>(response.Result);
+            response.Result = serializer.ReadType<TableDataBundle>(response.Result);///!!!!ovde ili tavleDataBundle ili promeni da u SO bude dataBUndele
 
             TableDataBundle tdcd = (TableDataBundle)response.Result;
             return tdcd;
@@ -143,8 +163,28 @@ namespace Client
             Request req = new Request
             {
                 Argument = tableName,
-                Operation = Operation.GetTableData
+                Operation = Operation.GetTableDataTD
             };
+
+            switch (tableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.GetTableDataTD;
+                    break;
+                case TableName.Inzenjer:
+                    req.Operation = Operation.GetTableDataInzenjer;
+                    break;
+                case TableName.Klijent:
+                    req.Operation = Operation.GetTableDataKlijent;
+                    break;
+                case TableName.Mesto:
+                    req.Operation = Operation.GetTableDataMesto;
+                    break;
+                case TableName.StavkaTehnickaDokumentacija:
+                    req.Operation = Operation.GetTableDataSTD;
+                    break;
+
+            }
             serializer.Send(req);
 
             Response response = serializer.Receive<Response>();
@@ -159,6 +199,25 @@ namespace Client
                 Argument = tdm,
                 Operation = Operation.AddTableMember
             };
+            switch (tdm.TableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.AddTableMemberTD;
+                    break;
+                case TableName.Inzenjer:
+                    req.Operation = Operation.AddTableMemberInzenjer;
+                    break;
+                case TableName.Klijent:
+                    req.Operation = Operation.AddTableMemberKlijent;
+                    break;
+                case TableName.Mesto:
+                    req.Operation = Operation.AddTableMemberMesto;
+                    break;
+                case TableName.StavkaTehnickaDokumentacija:
+                    req.Operation = Operation.AddTableMemberSTD;
+                    break;
+
+            }
             serializer.Send(req);
 
             Response response = serializer.Receive<Response>();
@@ -173,6 +232,26 @@ namespace Client
                 Argument = tdm,
                 Operation = Operation.DeleteTableMember
             };
+
+            switch (tdm.TableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.DeleteTableMemberTD;
+                    break;
+                case TableName.Inzenjer:
+                    req.Operation = Operation.DeleteTableMemberInzenjer;
+                    break;
+                case TableName.Klijent:
+                    req.Operation = Operation.DeleteTableMemberKlijent;
+                    break;
+                case TableName.Mesto:
+                    req.Operation = Operation.DeleteTableMemberMesto;
+                    break;
+                case TableName.StavkaTehnickaDokumentacija:
+                    req.Operation = Operation.DeleteTableMemberSTD;
+                    break;
+
+            }
             serializer.Send(req);
 
             Response response = serializer.Receive<Response>();

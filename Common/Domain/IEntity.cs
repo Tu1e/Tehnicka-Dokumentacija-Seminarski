@@ -12,8 +12,9 @@ namespace Common.Domain
     {
         string TableName { get; }
         string Values { get; }
-
+        string UpdateValues { get; }
+        string PrimaryKeyCondition { get; }
         List<IEntity> GetReaderList(SqlDataReader reader);
-
     }
+
 }

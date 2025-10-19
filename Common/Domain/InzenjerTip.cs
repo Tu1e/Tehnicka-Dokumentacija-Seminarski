@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Domain
 {
@@ -26,7 +23,17 @@ namespace Common.Domain
         public TipInzenjera TipInzenjera { get; set; } = null!;
 
         public string TableName => "InzenjerTip";
-        public string Values => $"{IdInzenjer}, {IdStrucnaSprema}, '{Opis}', {GodineIskustva}";
+
+        public string Values =>
+            $"{IdInzenjer}, {IdStrucnaSprema}, '{Opis}', {GodineIskustva}";
+
+        public string UpdateValues =>
+            $"Opis = '{Opis}', " +
+            $"GodineIskustva = {GodineIskustva}";
+
+        public string PrimaryKeyCondition =>
+            $"IdInzenjer = {IdInzenjer} AND IdStrucnaSprema = {IdStrucnaSprema}";
+
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             var list = new List<IEntity>();
@@ -36,12 +43,11 @@ namespace Common.Domain
                 {
                     IdInzenjer = (int)reader["IdInzenjer"],
                     IdStrucnaSprema = (int)reader["IdStrucnaSprema"],
-                    Opis = reader["Opis"].ToString(),
+                    Opis = reader["Opis"] == DBNull.Value ? null : reader["Opis"].ToString(),
                     GodineIskustva = Convert.ToInt32(reader["GodineIskustva"])
                 });
             }
             return list;
         }
-
     }
 }

@@ -6,12 +6,12 @@ namespace Server.SystemOperations
 {
     public class GetAllMestaSO : SystemOperationBase
     {
-        public List<Mesto> Result { get; private set; }
+        public TableDataBundle Result { get; private set; } = new TableDataBundle();
 
         public override void ExecuteOperation()
         {
-            var data = broker.GetTableData(Common.TableName.Mesto);
-            Result = data.Mesta;
+            var lista = broker.GetAll(new Mesto());
+            Result.Mesta = lista.Cast<Mesto>().ToList();
         }
     }
 }

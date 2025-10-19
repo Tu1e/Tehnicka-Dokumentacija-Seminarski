@@ -17,6 +17,8 @@ namespace Common.Domain
         public string Naziv { get; set; } = null!;
         public string TableName => "TipInzenjera";
         public string Values => $"{IdStrucnaSprema}, '{Naziv}'";
+        public string UpdateValues => $"Naziv = '{Naziv}'";
+        public string PrimaryKeyCondition => $"IdStrucnaSprema = {IdStrucnaSprema}";
 
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {

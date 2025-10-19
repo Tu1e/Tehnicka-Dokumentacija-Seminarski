@@ -5,12 +5,12 @@ namespace Server.SystemOperations
 {
     public class GetAllKlijentiSO : SystemOperationBase
     {
-        public List<Klijent> Result { get; private set; }
+        public TableDataBundle Result { get; private set; } = new TableDataBundle();
 
         public override void ExecuteOperation()
         {
-            var data = broker.GetTableData(Common.TableName.Klijent);
-            Result = data.Klijenti;
+            var lista = broker.GetAll(new Klijent());
+            Result.Klijenti = lista.Cast<Klijent>().ToList();
         }
     }
 }

@@ -24,6 +24,13 @@ namespace Common.Domain
 
         public string TableName => "Zadatak";
         public string Values => $"{IdZadatak}, '{Naziv}', {Trajanje}, {Cena}";
+        public string UpdateValues =>
+            $"Naziv = '{Naziv}', " +
+            $"Trajanje = '{Trajanje}', " +
+            $"Cena = {Cena}, ";
+
+        public string PrimaryKeyCondition => $"IdZadatak = {IdZadatak}";
+
 
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {

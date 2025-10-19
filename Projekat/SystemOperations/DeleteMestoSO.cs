@@ -12,7 +12,7 @@ namespace Server.SystemOperations
 
         public override void ExecuteOperation()
         {
-            var mesto = new Mesto();
+            var mesto = new TehnickaDokumentacija();
             broker.Delete(mesto, $"IdMesto = {idMesto}");
         }
     }

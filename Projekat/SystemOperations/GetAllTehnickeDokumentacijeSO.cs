@@ -5,12 +5,12 @@ namespace Server.SystemOperations
 {
     public class GetAllTehnickeDokumentacijeSO : SystemOperationBase
     {
-        public List<TehnickaDokumentacija> Result { get; private set; }
+        public TableDataBundle Result { get; private set; } = new TableDataBundle();
 
         public override void ExecuteOperation()
         {
-            var data = broker.GetTableData(Common.TableName.TehnickaDokumentacija);
-            Result = data.TehnickeDokumentacije;
+            var lista = broker.GetAll(new TehnickaDokumentacija());
+            Result.TehnickeDokumentacije = lista.Cast<TehnickaDokumentacija>().ToList();
         }
     }
 }

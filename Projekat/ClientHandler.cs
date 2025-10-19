@@ -82,6 +82,73 @@ namespace Serverr
                     case Operation.ChangeTableMember:
                         r.Result = Controller.Instance.ChangeTableMember(serializer.ReadType<TableName>(req.Argument));
                         break;
+                    // ---------------- INZENJER ----------------
+                    case Operation.GetTableDataInzenjer:
+                        r.Result = Controller.Instance.GetTableDataInzenjer();
+                        break;
+                    case Operation.GetTableSupportDataInzenjer:
+                        r.Result = Controller.Instance.GetTableSupportDataInzenjer();
+                        break;
+                    case Operation.AddTableMemberInzenjer:
+                        r.Result = Controller.Instance.AddTableMemberInzenjer(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMemberInzenjer:
+                        r.Result = Controller.Instance.DeleteTableMemberInzenjer(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+
+                    // ---------------- KLIJENT ----------------
+                    case Operation.GetTableDataKlijent:
+                        r.Result = Controller.Instance.GetTableDataKlijent();
+                        break;
+                    case Operation.GetTableSupportDataKlijent:
+                        r.Result = Controller.Instance.GetTableSupportDataKlijent();
+                        break;
+                    case Operation.AddTableMemberKlijent:
+                        r.Result = Controller.Instance.AddTableMemberKlijent(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMemberKlijent:
+                        r.Result = Controller.Instance.DeleteTableMemberKlijent(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+
+                    // ---------------- MESTO ----------------
+                    case Operation.GetTableDataMesto:
+                        r.Result = Controller.Instance.GetTableDataMesto();
+                        break;
+                    case Operation.AddTableMemberMesto:
+                        r.Result = Controller.Instance.AddTableMemberMesto(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMemberMesto:
+                        r.Result = Controller.Instance.DeleteTableMemberMesto(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+
+                    // ---------------- TEHNIČKA DOK ----------------
+                    case Operation.GetTableDataTD:
+                        r.Result = Controller.Instance.GetTableDataTD();
+                        break;
+                    case Operation.GetTableSupportDataTD:
+                        r.Result = Controller.Instance.GetTableSupportDataTD();
+                        break;
+                    case Operation.AddTableMemberTD:
+                        r.Result = Controller.Instance.AddTableMemberTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMemberTD:
+                        r.Result = Controller.Instance.DeleteTableMemberTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+
+                    // ---------------- STAVKA TD ----------------
+                    case Operation.GetTableDataMestoSTD:
+                        r.Result = Controller.Instance.GetTableDataSTD();
+                        break;
+                    case Operation.AddTableMemberSTD:
+                        r.Result = Controller.Instance.AddTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+                    case Operation.DeleteTableMemberSTD:
+                        r.Result = Controller.Instance.DeleteTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
+                        break;
+
+                    default:
+                        r.ExceptionMessage = $"Nepoznata operacija: {req.Operation}";
+                        break;
                 }
             }
             catch (Exception ex)

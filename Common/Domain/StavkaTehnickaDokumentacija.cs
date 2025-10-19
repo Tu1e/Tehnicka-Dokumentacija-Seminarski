@@ -40,6 +40,17 @@ namespace Common.Domain
 
         public string TableName => "StavkaTehnickaDokumentacija";
         public string Values => $"{IdTD}, {Rb}, '{Sadrzaj}', '{DatumKreiranja:yyyy-MM-dd}', {CenaZadataka}, {Kolicina}, {UkupanIznosStavke}, {IdZadatak}";
+        public string UpdateValues =>
+            $"Sadrzaj = '{Sadrzaj}', " +
+            $"DatumKreiranja = '{DatumKreiranja:yyyy-MM-dd}', " +
+            $"CenaZadataka = {CenaZadataka}, " +
+            $"Kolicina = {Kolicina}, " +
+            $"UkupanIznosStavke = {UkupanIznosStavke}, " +
+            $"IdZadatak = {IdZadatak}";
+
+        public string PrimaryKeyCondition =>
+            $"IdTD = {IdTD} AND Rb = {Rb}";
+
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             var list = new List<IEntity>();
