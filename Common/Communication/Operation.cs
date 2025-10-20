@@ -21,6 +21,7 @@
         AddTableMemberTD,
         DeleteTableMemberTD,
         ChangeTableMemberTD,
+        GetAdditionalTableDataForTD,
         GetTableDataKlijent,
         GetTableSupportDataKlijent,
         GetNextFreeIdKlijent,

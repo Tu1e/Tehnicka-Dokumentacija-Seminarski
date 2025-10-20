@@ -5,6 +5,7 @@ using Server.SystemOperations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Serverr
 {
@@ -267,6 +268,13 @@ namespace Serverr
             return GetTableDataTD();
         }
 
+        internal object GetAdditionalDataTD(int IdTD)
+        {
+            var so = new GetAdditionalDataTDSO(IdTD);
+            so.ExecuteTemplate();
+            return so.Result;
+        }
+
         // ------------------- STAVKA TD -------------------
         public object GetTableDataSTD()
         {
@@ -290,6 +298,7 @@ namespace Serverr
         {
             throw new NotImplementedException();
         }
+
 
     }
 }

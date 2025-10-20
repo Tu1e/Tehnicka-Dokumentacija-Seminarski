@@ -147,7 +147,9 @@ namespace Serverr
                     case Operation.ChangeTableMemberTD:
                         r.Result = Controller.Instance.ChangeTableMemberTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
-
+                    case Operation.GetAdditionalTableDataForTD:
+                        r.Result = Controller.Instance.GetAdditionalDataTD(serializer.ReadType<int>(req.Argument));
+                        break;
                     // ---------------- STAVKA TEHNIČKE DOK ----------------
                     case Operation.GetTableDataSTD:
                         r.Result = Controller.Instance.GetTableDataSTD();

@@ -246,5 +246,55 @@ namespace Client.Paneli
             }
             Kreiraj();
         }
+
+        private void dgvDokumentacija_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvDokumentacija_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DomainTD selektovana = dgvDokumentacija.Rows[e.RowIndex].DataBoundItem as DomainTD;
+
+            if (selektovana == null)
+            {
+                MessageBox.Show("Greška pri učitavanju selektovane dokumentacije.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                TableDataBundle tdb = ClientCommunication.Instance.GetAdditionalMemberData(currentPanel, selektovana.IdTehnickaDokumentacija);
+
+                Debug.WriteLine($">>> [CLIENT] Broj stavki primljenih sa servera: {tdb.STehnickeDokumentacije.Count}");
+
+                if (tdb.STehnickeDokumentacije.Count == 0)
+                {
+                    MessageBox.Show("Ova tehnička dokumentacija nema stavke.",
+                                    "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                dgvDokumentacija.DataSource = null;
+                dgvDokumentacija.DataSource = tdb.STehnickeDokumentacije;
+
+                dgvDokumentacija.Columns["IdTD"].HeaderText = "ID dokumenta";
+                dgvDokumentacija.Columns["Rb"].HeaderText = "Redni broj";
+                dgvDokumentacija.Columns["Sadrzaj"].HeaderText = "Sadržaj";
+                dgvDokumentacija.Columns["DatumKreiranja"].HeaderText = "Datum kreiranja";
+                dgvDokumentacija.Columns["CenaZadataka"].HeaderText = "Cena zadatka";
+                dgvDokumentacija.Columns["Kolicina"].HeaderText = "Količina";
+                dgvDokumentacija.Columns["UkupanIznosStavke"].HeaderText = "Ukupan iznos";
+                dgvDokumentacija.Columns["IdZadatak"].HeaderText = "ID zadatka";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri učitavanju stavki: " + ex.Message,
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

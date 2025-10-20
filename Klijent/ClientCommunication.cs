@@ -192,6 +192,30 @@ namespace Client
             return serializer.ReadType<TableDataBundle>(response.Result);
         }
 
+        public TableDataBundle GetAdditionalMemberData(TableName tableName, int memberID)
+        {
+            Request req = new Request
+            {
+                Argument = memberID,
+                Operation = Operation.GetTableDataTD
+            };
+
+            switch (tableName)
+            {
+                case TableName.TehnickaDokumentacija:
+                    req.Operation = Operation.GetAdditionalTableDataForTD;
+                    break;
+
+                default:
+                    throw new NotSupportedException();
+            }
+            serializer.Send(req);
+
+            Response response = serializer.Receive<Response>();
+
+            return serializer.ReadType<TableDataBundle>(response.Result);
+        }
+
         public TableDataBundle AddTableMember(TableDataMember tdm)
         {
             Request req = new Request

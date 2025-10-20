@@ -133,8 +133,10 @@
             dgvDokumentacija.MaximumSize = new Size(1800, 540);
             dgvDokumentacija.MinimumSize = new Size(300, 90);
             dgvDokumentacija.Name = "dgvDokumentacija";
+            dgvDokumentacija.ReadOnly = true;
             dgvDokumentacija.Size = new Size(600, 180);
             dgvDokumentacija.TabIndex = 12;
+            dgvDokumentacija.CellDoubleClick += dgvDokumentacija_CellDoubleClick_1;
             // 
             // dtpDatumPotpisivanja
             // 
