@@ -100,6 +100,7 @@ namespace Serverr
                         r.Result = Controller.Instance.ChangeTableMemberInzenjer(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
 
+
                     // ---------------- KLIJENT ----------------
                     case Operation.GetTableDataKlijent:
                         r.Result = Controller.Instance.GetTableDataKlijent();

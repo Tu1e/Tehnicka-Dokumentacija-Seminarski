@@ -155,6 +155,13 @@ namespace Client.Paneli
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(txtIdDokumentacije.Text, out int idDokumentacije) || idDokumentacije <= 0)
+            {
+                MessageBox.Show("ID tehničke dokumentacije mora biti ceo broj veći od 0.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (dtpDatumPotpisivanja.Value >= dtpDatumZavrsetka.Value)
             {
                 MessageBox.Show("Datum završetka mora biti nakon datuma potpisivanja.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);

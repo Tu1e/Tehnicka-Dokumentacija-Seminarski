@@ -5,7 +5,6 @@ using Server.SystemOperations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.Intrinsics.Arm;
 
 namespace Serverr
 {
@@ -94,22 +93,28 @@ namespace Serverr
         {
             var so = new GetAllInzenjeriSO();
             so.ExecuteTemplate();
-            return so.Result.Inzenjeri;
+            return so.Result;
         }
 
         public object AddTableMemberInzenjer(TableDataMember tdm)
         {
-            // TODO: Implement AddInzenjerSO
-            // var so = new AddInzenjerSO(tdm.Inzenjer);
-            // so.ExecuteTemplate();
-            // return so.Result;
-            return null;
+            var so = new AddInzenjerSO(tdm.Inzenjer);
+            so.ExecuteTemplate();
+            return GetTableDataInzenjer();
         }
 
         public object DeleteTableMemberInzenjer(TableDataMember tdm)
         {
-            // TODO: Implement DeleteInzenjerSO
-            return null;
+            var so = new DeleteInzenjerSO(tdm.Inzenjer.IdInzenjer);
+            so.ExecuteTemplate();
+            return GetTableDataInzenjer();
+        }
+
+        internal object ChangeTableMemberInzenjer(TableDataMember tdm)
+        {
+            var so = new AlterInzenjerSO(tdm.Inzenjer);
+            so.ExecuteTemplate();
+            return GetTableDataInzenjer();
         }
 
         // ------------------- KLIJENT -------------------
@@ -133,18 +138,23 @@ namespace Serverr
 
         public object AddTableMemberKlijent(TableDataMember tdm)
         {
-            // TODO: Implement AddKlijentSO
-            return null;
+            var so = new AddKlijentSO(tdm.Klijent);
+            so.ExecuteTemplate();
+            return GetTableDataKlijent();
         }
 
         public object DeleteTableMemberKlijent(TableDataMember tdm)
         {
-            // TODO: Implement DeleteKlijentSO
-            return null;
+            var so = new DeleteKlijentSO(tdm.Klijent.IdKlijent);
+            so.ExecuteTemplate();
+            return GetTableDataKlijent();
         }
-        internal object ChangeTableMemberKlijent(TableDataMember tableDataMember)
+
+        internal object ChangeTableMemberKlijent(TableDataMember tdm)
         {
-            throw new NotImplementedException();
+            var so = new AlterKlijentSO(tdm.Klijent);
+            so.ExecuteTemplate();
+            return GetTableDataKlijent();
         }
 
         // ------------------- MESTO -------------------
@@ -157,19 +167,25 @@ namespace Serverr
 
         public object AddTableMemberMesto(TableDataMember tdm)
         {
-            // TODO: Implement AddMestoSO
-            return null;
+            var so = new AddMestoSO(tdm.Mesto);
+            so.ExecuteTemplate();
+            return GetTableDataMesto();
         }
 
         public object DeleteTableMemberMesto(TableDataMember tdm)
         {
-            // TODO: Implement DeleteMestoSO
-            return null;
+            var so = new DeleteMestoSO(tdm.Mesto.IdMesto);
+            so.ExecuteTemplate();
+            return GetTableDataMesto();
         }
-        internal object ChangeTableMemberMesto(TableDataMember tableDataMember)
+
+        internal object ChangeTableMemberMesto(TableDataMember tdm)
         {
-            throw new NotImplementedException();
+            var so = new AlterMestoSO(tdm.Mesto);
+            so.ExecuteTemplate();
+            return GetTableDataMesto();
         }
+
         // ------------------- ZADATAK -------------------
         public object GetTableDataZadatak()
         {
@@ -180,14 +196,23 @@ namespace Serverr
 
         public object AddTableMemberZadatak(TableDataMember tdm)
         {
-            // TODO: Implement AddZadatakSO
-            return null;
+            var so = new AddZadatakSO(tdm.Zadatak);
+            so.ExecuteTemplate();
+            return GetTableDataZadatak();
         }
 
         public object DeleteTableMemberZadatak(TableDataMember tdm)
         {
-            // TODO: Implement DeleteZadatakSO
-            return null;
+            var so = new DeleteZadatakSO(tdm.Zadatak.IdZadatak);
+            so.ExecuteTemplate();
+            return GetTableDataZadatak();
+        }
+
+        internal object ChangeTableMemberZadatak(TableDataMember tdm)
+        {
+            var so = new AlterZadatakSO(tdm.Zadatak);
+            so.ExecuteTemplate();
+            return GetTableDataZadatak();
         }
 
         // ------------------- TIP INZENJERA -------------------
@@ -200,29 +225,30 @@ namespace Serverr
 
         internal TableDataBundle GetTableSupportDataInzenjer()
         {
-            TableDataBundle tdb = new TableDataBundle();
-
-            var so1 = new GetAllTipoviInzenjeraSO();
-            so1.ExecuteTemplate();
-            tdb.Inzenjeri = so1.Result.Inzenjeri;
-
-            return tdb;
+            var so = new GetAllTipoviInzenjeraSO();
+            so.ExecuteTemplate();
+            return so.Result;
         }
 
         public object AddTableMemberTipInzenjera(TableDataMember tdm)
         {
-            // TODO: Implement AddTipInzenjeraSO
-            return null;
+            var so = new AddTipInzenjeraSO(tdm.TipInzenjera);
+            so.ExecuteTemplate();
+            return GetTableDataTipInzenjera();
         }
 
         public object DeleteTableMemberTipInzenjera(TableDataMember tdm)
         {
-            // TODO: Implement DeleteTipInzenjeraSO
-            return null;
+            var so = new DeleteTipInzenjeraSO(tdm.TipInzenjera.IdStrucnaSprema);
+            so.ExecuteTemplate();
+            return GetTableDataTipInzenjera();
         }
-        internal object ChangeTableMemberInzenjer(TableDataMember tableDataMember)
+
+        internal object ChangeTableMemberTipInzenjera(TableDataMember tdm)
         {
-            throw new NotImplementedException();
+            var so = new AlterTipInzenjeraSO(tdm.TipInzenjera);
+            so.ExecuteTemplate();
+            return GetTableDataTipInzenjera();
         }
 
         // ------------------- TEHNICKA DOKUMENTACIJA -------------------
@@ -232,6 +258,7 @@ namespace Serverr
             so.ExecuteTemplate();
             return so.Result;
         }
+
         internal TableDataBundle GetTableSupportDataTD()
         {
             TableDataBundle tdb = new TableDataBundle();
@@ -250,7 +277,6 @@ namespace Serverr
         {
             var so = new AddTehnickaDokumentacijaSO(tdm.TehnickaDokumentacija);
             so.ExecuteTemplate();
-
             return GetTableDataTD();
         }
 
@@ -278,27 +304,30 @@ namespace Serverr
         // ------------------- STAVKA TD -------------------
         public object GetTableDataSTD()
         {
-            // TODO: Implement GetAllStavkeTDSO
-            return null;
+            var so = new GetAllStavkeTDSO();
+            so.ExecuteTemplate();
+            return so.Result;
         }
 
         public object AddTableMemberSTD(TableDataMember tdm)
         {
-            // TODO: Implement AddStavkaTDSO
-            return null;
+            var so = new AddStavkaTDSO(tdm.STDokumentacija);
+            so.ExecuteTemplate();
+            return GetTableDataSTD();
         }
 
         public object DeleteTableMemberSTD(TableDataMember tdm)
         {
-            // TODO: Implement DeleteStavkaTDSO
-            return null;
+            var so = new DeleteStavkaTDSO(tdm.STDokumentacija.IdTD, tdm.STDokumentacija.Rb);
+            so.ExecuteTemplate();
+            return GetTableDataSTD();
         }
 
-        internal object ChangeTableMemberSTD(TableDataMember tableDataMember)
+        internal object ChangeTableMemberSTD(TableDataMember tdm)
         {
-            throw new NotImplementedException();
+            var so = new AlterStavkaTDSO(tdm.STDokumentacija);
+            so.ExecuteTemplate();
+            return GetTableDataSTD();
         }
-
-
     }
 }
