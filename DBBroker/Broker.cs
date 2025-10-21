@@ -7,7 +7,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Security.Principal;
 using System.Transactions;
-
+using System.Configuration;
 
 namespace DBBroker
 {
@@ -100,8 +100,47 @@ namespace DBBroker
                 throw;
             }
         }
+        public int GetNextId(TableName tableName)
+        {
+            string idColumn = GetTeableIdColumn(tableName);
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = $"SELECT ISNULL(MAX({idColumn}), 0) + 1 FROM {tableName.ToString()}";
+                object result = command.ExecuteScalar();
+                return Convert.ToInt32(result);
+            }
+        }
+        public void ExecuteNonQuery(string query)
+        {
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    Debug.WriteLine(">>> SQL greška: " + ex.Message);
+                    throw new Exception($"SQL greška ({ex.Number}): {ex.Message}");
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Debug.WriteLine(">>> InvalidOperation: " + ex.Message);
+                    throw new Exception("Greška pri izvršavanju SQL komande: " + ex.Message);
+                }
+            }
+        }
 
 
+        public string GetDatabaseNameFromConfig()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["TehDocDB_Dev"].ConnectionString;
+
+            var builder = new SqlConnectionStringBuilder(connStr);
+            return builder.InitialCatalog;
+        }
+        #region Deprecated
         public Inzenjer? GetInzenjerByKorisnickoIme(string username, string password)
         {
             using (SqlCommand command = connection.CreateCommand())
@@ -136,18 +175,6 @@ namespace DBBroker
                 }
             }
         }
-
-        public int GetNextId(TableName tableName)
-        {
-            string idColumn = GetTeableIdColumn(tableName);
-            using (SqlCommand command = connection.CreateCommand())
-            {
-                command.CommandText = $"SELECT ISNULL(MAX({idColumn}), 0) + 1 FROM {tableName.ToString()}";
-                object result = command.ExecuteScalar();
-                return Convert.ToInt32(result);
-            }
-        }
-
 
         public TableDataBundle GetTableData(TableName tableName)
         {
@@ -277,7 +304,6 @@ namespace DBBroker
 
             return data;
         }
-
 
         public TableDataBundle GetTableSupportData(TableName tableName)
         {
@@ -572,8 +598,7 @@ namespace DBBroker
 
             return updatedBundle;
         }
-
-
+        #endregion
 
     }
 }

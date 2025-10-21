@@ -77,6 +77,16 @@ namespace Client.Paneli
             {
                 if (prop.Name.Equals("Password", StringComparison.OrdinalIgnoreCase))
                     continue;
+                if (prop.Name.Equals("Values", StringComparison.OrdinalIgnoreCase))
+                    continue;
+                if (prop.Name.Equals("TableName", StringComparison.OrdinalIgnoreCase))
+                    continue;
+                if (prop.Name.Equals("UpdateValues", StringComparison.OrdinalIgnoreCase))
+                    continue;
+                if (prop.Name.Equals("PrimaryKeyCondition", StringComparison.OrdinalIgnoreCase))
+                    continue;
+                if (prop.Name.Equals("ImePrezime", StringComparison.OrdinalIgnoreCase))
+                    continue;
 
                 string header = prop.Name;
 
@@ -95,7 +105,6 @@ namespace Client.Paneli
             }
 
             dgvInzenjer.DataSource = tdcb.Inzenjeri;
-
             dgvInzenjer.AllowUserToAddRows = false;
             dgvInzenjer.AllowUserToDeleteRows = false;
             dgvInzenjer.ReadOnly = true;

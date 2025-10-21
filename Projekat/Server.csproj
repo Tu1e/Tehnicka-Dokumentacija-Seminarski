@@ -29,4 +29,8 @@
     <ProjectReference Include="..\DBBroker\DBBroker.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Backups\" />
+  </ItemGroup>
+
 </Project>

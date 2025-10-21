@@ -47,21 +47,83 @@ namespace Client.Paneli
             btnSacuvaj.Enabled = action;
         }
 
-        private void LoadTable(TableDataBundle tdcb)
+        // ------------------ PRIKAZ TEHNIČKIH DOKUMENTACIJA ------------------
+        private void LoadTableTD(TableDataBundle tdcb)
         {
             dgvDokumentacija.DataSource = null;
-            dgvDokumentacija.DataSource = tdcb.TehnickeDokumentacije;
+            dgvDokumentacija.AutoGenerateColumns = false;
+            dgvDokumentacija.Columns.Clear();
 
+            foreach (var prop in typeof(DomainTD).GetProperties())
+            {
+                if (prop.Name.Equals("TableName", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("Values", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("UpdateValues", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("PrimaryKeyCondition", StringComparison.OrdinalIgnoreCase)) continue;
+
+                string header = prop.Name;
+
+                var displayAttr = prop.GetCustomAttributes(typeof(DisplayNameAttribute), true)
+                                      .FirstOrDefault() as DisplayNameAttribute;
+
+                if (displayAttr != null)
+                    header = displayAttr.DisplayName;
+
+                dgvDokumentacija.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = prop.Name,
+                    HeaderText = header,
+                    ReadOnly = true,
+                });
+            }
+
+            dgvDokumentacija.DataSource = tdcb.TehnickeDokumentacije;
             dgvDokumentacija.AllowUserToAddRows = false;
             dgvDokumentacija.AllowUserToDeleteRows = false;
             dgvDokumentacija.ReadOnly = true;
         }
 
+        // ------------------ PRIKAZ STAVKI ZA ODABRANU TD ------------------
+        private void LoadTableStavke(List<StavkaTehnickaDokumentacija> stavke)
+        {
+            dgvDokumentacija.DataSource = null;
+            dgvDokumentacija.AutoGenerateColumns = false;
+            dgvDokumentacija.Columns.Clear();
+
+            foreach (var prop in typeof(StavkaTehnickaDokumentacija).GetProperties())
+            {
+                if (prop.Name.Equals("TableName", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("Values", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("UpdateValues", StringComparison.OrdinalIgnoreCase)) continue;
+                if (prop.Name.Equals("PrimaryKeyCondition", StringComparison.OrdinalIgnoreCase)) continue;
+
+                string header = prop.Name;
+
+                var displayAttr = prop.GetCustomAttributes(typeof(DisplayNameAttribute), true)
+                                      .FirstOrDefault() as DisplayNameAttribute;
+
+                if (displayAttr != null)
+                    header = displayAttr.DisplayName;
+
+                dgvDokumentacija.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    DataPropertyName = prop.Name,
+                    HeaderText = header,
+                    ReadOnly = true,
+                });
+            }
+
+            dgvDokumentacija.DataSource = stavke;
+            dgvDokumentacija.AllowUserToAddRows = false;
+            dgvDokumentacija.AllowUserToDeleteRows = false;
+            dgvDokumentacija.ReadOnly = true;
+        }
+
+        // ------------------ FUNKCIJE ZA RAD SA DOKUMENTACIJOM ------------------
         private void Kreiraj()
         {
             int id = ClientCommunication.Instance.GetNextFreeId(currentPanel);
             txtIdDokumentacije.Text = id.ToString();
-
             EnableDisableFields(true);
         }
 
@@ -70,7 +132,7 @@ namespace Client.Paneli
         private void btnPretrazi_Click(object sender, EventArgs e)
         {
             TableDataBundle tdcb = ClientCommunication.Instance.GetTableData(currentPanel);
-            LoadTable(tdcb);
+            LoadTableTD(tdcb);
         }
 
         private void btnIzmeni_Click(object sender, EventArgs e)
@@ -140,7 +202,7 @@ namespace Client.Paneli
             try
             {
                 TableDataBundle updated = ClientCommunication.Instance.ChangeTableMember(tdm);
-                LoadTable(updated);
+                LoadTableTD(updated);
                 MessageBox.Show("Dokumentacija je uspešno izmenjena!",
                                 "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -164,13 +226,15 @@ namespace Client.Paneli
 
             if (dtpDatumPotpisivanja.Value >= dtpDatumZavrsetka.Value)
             {
-                MessageBox.Show("Datum završetka mora biti nakon datuma potpisivanja.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Datum završetka mora biti nakon datuma potpisivanja.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!decimal.TryParse(txtUkupanIznos.Text, out decimal ukupanIznos) || ukupanIznos <= 0)
             {
-                MessageBox.Show("Ukupan iznos mora biti broj veći od 0.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ukupan iznos mora biti broj veći od 0.",
+                                "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -188,7 +252,6 @@ namespace Client.Paneli
 
             TableDataMember tdm = new TableDataMember();
 
-            Debug.WriteLine($">>> cmbInzenjer:{cmbInzenjer.TabIndex}, cmbKlijent:{cmbKlijent.TabIndex}");
             DomainTD tehnickaDokumentacija = new DomainTD
             {
                 IdTehnickaDokumentacija = int.Parse(txtIdDokumentacije.Text),
@@ -203,7 +266,7 @@ namespace Client.Paneli
             tdm.TableName = currentPanel;
 
             TableDataBundle tdcb = ClientCommunication.Instance.AddTableMember(tdm);
-            LoadTable(tdcb);
+            LoadTableTD(tdcb);
             Kreiraj();
         }
 
@@ -241,7 +304,7 @@ namespace Client.Paneli
                 }
 
                 TableDataBundle updated = ClientCommunication.Instance.GetTableData(currentPanel);
-                LoadTable(updated);
+                LoadTableTD(updated);
 
                 MessageBox.Show("Selektovane dokumentacije su uspešno obrisane.",
                                 "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -254,11 +317,7 @@ namespace Client.Paneli
             Kreiraj();
         }
 
-        private void dgvDokumentacija_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
+        // ------------------ DVOKLIK – UČITAVANJE STAVKI ------------------
         private void dgvDokumentacija_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -285,17 +344,7 @@ namespace Client.Paneli
                     return;
                 }
 
-                dgvDokumentacija.DataSource = null;
-                dgvDokumentacija.DataSource = tdb.STehnickeDokumentacije;
-
-                dgvDokumentacija.Columns["IdTD"].HeaderText = "ID dokumenta";
-                dgvDokumentacija.Columns["Rb"].HeaderText = "Redni broj";
-                dgvDokumentacija.Columns["Sadrzaj"].HeaderText = "Sadržaj";
-                dgvDokumentacija.Columns["DatumKreiranja"].HeaderText = "Datum kreiranja";
-                dgvDokumentacija.Columns["CenaZadataka"].HeaderText = "Cena zadatka";
-                dgvDokumentacija.Columns["Kolicina"].HeaderText = "Količina";
-                dgvDokumentacija.Columns["UkupanIznosStavke"].HeaderText = "Ukupan iznos";
-                dgvDokumentacija.Columns["IdZadatak"].HeaderText = "ID zadatka";
+                LoadTableStavke(tdb.STehnickeDokumentacije);
             }
             catch (Exception ex)
             {

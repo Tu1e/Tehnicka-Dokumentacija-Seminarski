@@ -164,6 +164,13 @@ namespace Serverr
                     case Operation.ChangeTableMemberSTD:
                         r.Result = Controller.Instance.ChangeTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
+                    case Operation.BackupDatabase:
+                        r.Result = Controller.Instance.BackupDatabase();
+                        break;
+                    case Operation.RestoreDatabase:
+                        r.Result = Controller.Instance.RestoreDatabase();
+                        break;
+
 
                     default:
                         r.ExceptionMessage = $"Nepoznata operacija: {req.Operation}";

@@ -623,6 +623,40 @@
         "runtime": {
           "bin/placeholder/Common.dll": {}
         }
+      },
+      "DBBroker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Common": "1.0.0",
+          "Microsoft.Data.SqlClient": "6.1.2",
+          "System.Configuration.ConfigurationManager": "9.0.10"
+        },
+        "compile": {
+          "bin/placeholder/DBBroker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DBBroker.dll": {}
+        }
+      },
+      "Server/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Common": "1.0.0",
+          "DBBroker": "1.0.0",
+          "Microsoft.Data.SqlClient": "6.1.2",
+          "System.Configuration.ConfigurationManager": "9.0.10"
+        },
+        "compile": {
+          "bin/placeholder/Server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Server.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -1600,12 +1634,23 @@
       "type": "project",
       "path": "../Common/Common.csproj",
       "msbuildProject": "../Common/Common.csproj"
+    },
+    "DBBroker/1.0.0": {
+      "type": "project",
+      "path": "../DBBroker/DBBroker.csproj",
+      "msbuildProject": "../DBBroker/DBBroker.csproj"
+    },
+    "Server/1.0.0": {
+      "type": "project",
+      "path": "../Projekat/Server.csproj",
+      "msbuildProject": "../Projekat/Server.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "Common >= 1.0.0",
       "Microsoft.Data.SqlClient >= 6.1.2",
+      "Server >= 1.0.0",
       "System.Configuration.ConfigurationManager >= 9.0.10"
     ]
   },
@@ -1643,6 +1688,9 @@
           "projectReferences": {
             "D:\\Fax\\PS\\Moj projekat\\Common\\Common.csproj": {
               "projectPath": "D:\\Fax\\PS\\Moj projekat\\Common\\Common.csproj"
+            },
+            "D:\\Fax\\PS\\Moj projekat\\Projekat\\Server.csproj": {
+              "projectPath": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Server.csproj"
             }
           }
         }

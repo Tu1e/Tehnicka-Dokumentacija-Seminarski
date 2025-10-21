@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Communication;
 using Common.Domain;
 using DBBroker;
 using Server.SystemOperations;
@@ -329,5 +330,40 @@ namespace Serverr
             so.ExecuteTemplate();
             return GetTableDataSTD();
         }
+
+        public Response BackupDatabase()
+        {
+            try
+            {
+                var so = new BackupDatabaseSO();
+                so.ExecuteTemplate();
+                return new Response
+                {
+                    Result = true,
+                    ExceptionMessage = $"Backup uspešno napravljen u:\n{so.BackupFilePath}"
+                };
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(">>> Greška u Controller.BackupDatabase: " + ex.Message);
+                return new Response { Result = false, ExceptionMessage = ex.Message };
+            }
+        }
+
+
+        public Response RestoreDatabase()
+        {
+            try
+            {
+                var so = new RestoreDatabaseSO();
+                so.ExecuteTemplate();
+                return new Response { Result = true, ExceptionMessage = null };
+            }
+            catch (Exception ex)
+            {
+                return new Response { Result = false, ExceptionMessage = ex.Message };
+            }
+        }
+
     }
 }

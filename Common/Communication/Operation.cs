@@ -41,5 +41,7 @@
         AddTableMemberSTD,
         DeleteTableMemberSTD,
         ChangeTableMemberSTD,
+        BackupDatabase,
+        RestoreDatabase
     }
 }

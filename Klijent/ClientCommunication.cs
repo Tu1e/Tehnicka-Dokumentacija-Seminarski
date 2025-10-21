@@ -183,7 +183,6 @@ namespace Client
                 case TableName.StavkaTehnickaDokumentacija:
                     req.Operation = Operation.GetTableDataSTD;
                     break;
-
             }
             serializer.Send(req);
 
@@ -335,5 +334,28 @@ namespace Client
                 throw;
             }
         }
+
+        public Response BackupDatabase()
+        {
+            Request req = new Request
+            {
+                Operation = Operation.BackupDatabase
+            };
+            EnsureConnectedOrConnect();
+            serializer.Send(req);
+            return serializer.Receive<Response>();
+        }
+
+        public Response RestoreDatabase()
+        {
+            Request req = new Request
+            {
+                Operation = Operation.RestoreDatabase
+            };
+            EnsureConnectedOrConnect();
+            serializer.Send(req);
+            return serializer.Receive<Response>();
+        }
+
     }
 }

@@ -57,14 +57,14 @@
             // promenaLozinkeToolStripMenuItem
             // 
             promenaLozinkeToolStripMenuItem.Name = "promenaLozinkeToolStripMenuItem";
-            promenaLozinkeToolStripMenuItem.Size = new Size(180, 22);
+            promenaLozinkeToolStripMenuItem.Size = new Size(185, 22);
             promenaLozinkeToolStripMenuItem.Text = "Promena lozinke";
             // 
             // upravljanjeBazomToolStripMenuItem
             // 
             upravljanjeBazomToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { backupToolStripMenuItem, restoreToolStripMenuItem });
             upravljanjeBazomToolStripMenuItem.Name = "upravljanjeBazomToolStripMenuItem";
-            upravljanjeBazomToolStripMenuItem.Size = new Size(180, 22);
+            upravljanjeBazomToolStripMenuItem.Size = new Size(185, 22);
             upravljanjeBazomToolStripMenuItem.Text = "Upravljanje bazom";
             // 
             // backupToolStripMenuItem
@@ -72,18 +72,21 @@
             backupToolStripMenuItem.Name = "backupToolStripMenuItem";
             backupToolStripMenuItem.Size = new Size(180, 22);
             backupToolStripMenuItem.Text = "Backup";
+            backupToolStripMenuItem.Click += backupToolStripMenuItem_Click;
             // 
             // restoreToolStripMenuItem
             // 
             restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
             restoreToolStripMenuItem.Size = new Size(180, 22);
             restoreToolStripMenuItem.Text = "Restore";
+            restoreToolStripMenuItem.Click += restoreToolStripMenuItem_Click_1;
             // 
             // promenaTemeToolStripMenuItem
             // 
             promenaTemeToolStripMenuItem.Name = "promenaTemeToolStripMenuItem";
             promenaTemeToolStripMenuItem.Size = new Size(185, 22);
             promenaTemeToolStripMenuItem.Text = "Promena izgleda app";
+            promenaTemeToolStripMenuItem.Click += promenaTemeToolStripMenuItem_Click;
             // 
             // PodesavanjaSistema
             // 
@@ -92,7 +95,6 @@
             Controls.Add(menuStrip1);
             Name = "PodesavanjaSistema";
             Size = new Size(584, 372);
-            Load += PodesavanjaSistema_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

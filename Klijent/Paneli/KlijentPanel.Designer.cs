@@ -63,7 +63,6 @@
             // 
             // txtIdKlijenta
             // 
-            txtIdKlijenta.Enabled = false;
             txtIdKlijenta.Location = new Point(139, 14);
             txtIdKlijenta.Name = "txtIdKlijenta";
             txtIdKlijenta.Size = new Size(137, 23);
