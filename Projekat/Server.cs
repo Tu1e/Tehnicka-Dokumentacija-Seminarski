@@ -25,8 +25,6 @@ namespace Serverr
         public void Start()
         {
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
-            //IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ConfigurationManager.AppSettings["ip"]), int.Parse(ConfigurationManager.AppSettings["port"]));
-            //moze se uraditi i na druge nacine prikazane u datoteke i konfiguracija.dib
 
             socket.Bind(endPoint);
             socket.Listen(5);
@@ -57,8 +55,7 @@ namespace Serverr
 
         public void Stop()
         {
-            List<ClientHandler> copy = new List<ClientHandler>(handlers); // pravi se kopija jer ne smemo da prolazimo kroz listu i izbacujemo iz nje
-            //kada pozovemo CloseSocket() desice se exception u HandleRequest(), tu ce u finally bloku da izbaci sam sebe iz serverske liste
+            List<ClientHandler> copy = new List<ClientHandler>(handlers); 
             foreach (ClientHandler handler in copy)
             {
                 handler.CloseSocket();

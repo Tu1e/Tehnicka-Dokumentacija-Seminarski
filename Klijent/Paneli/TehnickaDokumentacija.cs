@@ -21,6 +21,7 @@ namespace Client.Paneli
         public TehnickaDokumentacija()
         {
             InitializeComponent();
+            dgvDokumentacija.DataBindingComplete += DgvDokumentacija_DataBindingComplete;
             TableDataBundle tdcb = ClientCommunication.Instance.LoadOtherTableData(currentPanel);
             cmbInzenjer.DataSource = tdcb.Inzenjeri;
             cmbKlijent.DataSource = tdcb.Klijenti;
@@ -335,8 +336,6 @@ namespace Client.Paneli
             {
                 TableDataBundle tdb = ClientCommunication.Instance.GetAdditionalMemberData(currentPanel, selektovana.IdTehnickaDokumentacija);
 
-                Debug.WriteLine($">>> [CLIENT] Broj stavki primljenih sa servera: {tdb.STehnickeDokumentacije.Count}");
-
                 if (tdb.STehnickeDokumentacije.Count == 0)
                 {
                     MessageBox.Show("Ova tehnička dokumentacija nema stavke.",
@@ -344,7 +343,93 @@ namespace Client.Paneli
                     return;
                 }
 
-                LoadTableStavke(tdb.STehnickeDokumentacije);
+                string inzenjerIme = "";
+                string klijentIme = "";
+
+                try
+                {
+                    var tdcb = ClientCommunication.Instance.LoadOtherTableData(currentPanel);
+                    var inzenjer = tdcb.Inzenjeri.FirstOrDefault(i => i.IdInzenjer == selektovana.IdInzenjer);
+                    var klijent = tdcb.Klijenti.FirstOrDefault(k => k.IdKlijent == selektovana.IdKlijent);
+
+                    inzenjerIme = inzenjer != null ? inzenjer.ImePrezime : $"ID {selektovana.IdInzenjer}";
+                    klijentIme = klijent != null ? klijent.ImePrezime : $"ID {selektovana.IdKlijent}";
+                }
+                catch { }
+
+                var combinedList = new List<object>();
+
+                combinedList.Add(new
+                {
+                    Tip = "TEHNIČKA DOKUMENTACIJA",
+                    DatumPotpisivanja = selektovana.DatumPotpisivanja.ToShortDateString(),
+                    DatumZavrsetka = selektovana.DatumZavrsetka.ToShortDateString(),
+                    UkupanIznos = selektovana.UkupanIznos.ToString("0.00"),
+                    Inzenjer = inzenjerIme,
+                    Klijent = klijentIme
+                });
+
+                // Stavke dokumentacije
+                foreach (var stavka in tdb.STehnickeDokumentacije)
+                {
+                    combinedList.Add(new
+                    {
+                        Tip = "Stavka",
+                        DatumPotpisivanja = stavka.DatumKreiranja.ToShortDateString(),
+                        DatumZavrsetka = "",
+                        UkupanIznos = stavka.UkupanIznosStavke.ToString("0.00"),
+                        Inzenjer = "",
+                        Klijent = ""
+                    });
+                }
+
+                // ✅ Podesi DataGridView
+                dgvDokumentacija.DataSource = null;
+                dgvDokumentacija.AutoGenerateColumns = true;
+                dgvDokumentacija.DataSource = combinedList;
+
+                dgvDokumentacija.DataBindingComplete += (s, ev) =>
+                {
+                    if (dgvDokumentacija.Columns.Contains("Tip"))
+                        dgvDokumentacija.Columns["Tip"].HeaderText = "Tip zapisa";
+                    if (dgvDokumentacija.Columns.Contains("DatumPotpisivanja"))
+                        dgvDokumentacija.Columns["DatumPotpisivanja"].HeaderText = "Datum kreiranja / potpisivanja";
+                    if (dgvDokumentacija.Columns.Contains("DatumZavrsetka"))
+                        dgvDokumentacija.Columns["DatumZavrsetka"].HeaderText = "Datum završetka";
+                    if (dgvDokumentacija.Columns.Contains("UkupanIznos"))
+                        dgvDokumentacija.Columns["UkupanIznos"].HeaderText = "Iznos";
+                    if (dgvDokumentacija.Columns.Contains("Inzenjer"))
+                        dgvDokumentacija.Columns["Inzenjer"].HeaderText = "Inženjer";
+                    if (dgvDokumentacija.Columns.Contains("Klijent"))
+                        dgvDokumentacija.Columns["Klijent"].HeaderText = "Klijent";
+
+                    foreach (DataGridViewColumn col in dgvDokumentacija.Columns)
+                        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                    foreach (DataGridViewColumn col in dgvDokumentacija.Columns)
+                    {
+                        bool isEmpty = true;
+                        foreach (DataGridViewRow row in dgvDokumentacija.Rows)
+                        {
+                            var value = row.Cells[col.Index].Value;
+                            if (value != null && !string.IsNullOrWhiteSpace(value.ToString()))
+                            {
+                                isEmpty = false;
+                                break;
+                            }
+                        }
+
+                        if (isEmpty)
+                        {
+                            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                            col.Width = 1; 
+                        }
+                    }
+
+                    dgvDokumentacija.ReadOnly = true;
+                };
+
+                dgvDokumentacija.Refresh();
             }
             catch (Exception ex)
             {
@@ -352,5 +437,52 @@ namespace Client.Paneli
                                 "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DgvDokumentacija_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            if (grid == null || grid.Rows.Count == 0)
+                return;
+
+            var map = new Dictionary<string, string>
+            {
+                { "Tip", "Tip zapisa" },
+                { "DatumPotpisivanja", "Datum kreiranja / potpisivanja" },
+                { "DatumZavrsetka", "Datum završetka" },
+                { "UkupanIznos", "Iznos" },
+                { "Inzenjer", "Inženjer" },
+                { "Klijent", "Klijent" }
+            };
+
+            foreach (DataGridViewColumn col in grid.Columns)
+            {
+                if (map.ContainsKey(col.Name))
+                    col.HeaderText = map[col.Name];
+
+                bool isEmpty = true;
+                foreach (DataGridViewRow row in grid.Rows)
+                {
+                    var value = row.Cells[col.Index].Value;
+                    if (value != null && !string.IsNullOrWhiteSpace(value.ToString().Trim()))
+                    {
+                        isEmpty = false;
+                        break;
+                    }
+                }
+
+                if (isEmpty)
+                {
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    col.Width = 1;
+                }
+                else
+                {
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+            }
+
+            grid.ReadOnly = true;
+        }
+
     }
 }

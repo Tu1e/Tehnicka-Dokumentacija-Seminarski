@@ -3,8 +3,26 @@
   "WorkspaceRootPath": "D:\\Fax\\PS\\Moj projekat\\Projekat\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\paneli\\tehnickadokumentacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\paneli\\tehnickadokumentacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\deletestavkatdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\deletestavkatdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\getallstavketdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\getallstavketdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\systemoperationbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\systemoperationbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\addstavkatdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,15 +59,8 @@
       "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\addmestoso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\getallinzenjeriso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\getallinzenjeriso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\paneli\\tehnickadokumentacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\getallzadaciso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -80,13 +91,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\addtehnickadokumentacijaso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\addtehnickadokumentacijaso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\systemoperationbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\systemoperationbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\paneli\\tehnickadokumentacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BF5E4CA-4CAC-4067-B87F-E2BF2CAEC48A}|..\\Common\\Common.csproj|d:\\fax\\ps\\moj projekat\\common\\domain\\tehnickadokumentacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -129,10 +133,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|d:\\fax\\ps\\moj projekat\\projekat\\systemoperations\\getallstavketdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6932E9D0-E139-4831-8090-24D3F0428D71}|Server.csproj|solutionrelative:systemoperations\\getallstavketdso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FE8122F-9208-440B-B8A2-79C7D1C23C06}|..\\Klijent\\Client.csproj|d:\\fax\\ps\\moj projekat\\klijent\\paneli\\podesavanjasistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
@@ -333,7 +333,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -364,72 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Mesto.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\Mesto.cs",
-              "RelativeDocumentMoniker": "..\\Common\\Domain\\Mesto.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\Mesto.cs",
-              "RelativeToolTip": "..\\Common\\Domain\\Mesto.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAmwBkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T21:27:16.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StavkaTehnickaDokumentacija.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
-              "RelativeDocumentMoniker": "..\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
-              "RelativeToolTip": "..\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T14:12:44.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StavkeTDPanel.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.cs",
-              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\StavkeTDPanel.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.cs",
-              "RelativeToolTip": "..\\Klijent\\Paneli\\StavkeTDPanel.cs",
-              "ViewState": "AgIAANYAAAAAAAAAAAAuwOcAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T10:41:24.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClientCommunication.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\ClientCommunication.cs",
-              "RelativeDocumentMoniker": "..\\Klijent\\ClientCommunication.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\ClientCommunication.cs",
-              "RelativeToolTip": "..\\Klijent\\ClientCommunication.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAYwPoAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T10:40:09.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DeleteStavkaTDSO.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\DeleteStavkaTDSO.cs",
-              "RelativeDocumentMoniker": "SystemOperations\\DeleteStavkaTDSO.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\DeleteStavkaTDSO.cs",
-              "RelativeToolTip": "SystemOperations\\DeleteStavkaTDSO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T19:53:35.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Broker.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\DBBroker\\Broker.cs",
               "RelativeDocumentMoniker": "..\\DBBroker\\Broker.cs",
@@ -442,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AddStavkaTDSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AddStavkaTDSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AddStavkaTDSO.cs",
@@ -455,7 +390,136 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
+              "Title": "SystemOperationBase.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\SystemOperationBase.cs",
+              "RelativeDocumentMoniker": "SystemOperations\\SystemOperationBase.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\SystemOperationBase.cs",
+              "RelativeToolTip": "SystemOperations\\SystemOperationBase.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAlwCoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T18:04:56.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Controller.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Controller.cs",
+              "RelativeDocumentMoniker": "Controller.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Controller.cs",
+              "RelativeToolTip": "Controller.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAkwEoBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T12:35:17.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetAllStavkeTDSO.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllStavkeTDSO.cs",
+              "RelativeDocumentMoniker": "SystemOperations\\GetAllStavkeTDSO.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllStavkeTDSO.cs",
+              "RelativeToolTip": "SystemOperations\\GetAllStavkeTDSO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T19:53:03.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TehnickaDokumentacija.cs [Design]",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs [Design]",
+              "RelativeToolTip": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T14:39:51.068Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TehnickaDokumentacija.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "RelativeToolTip": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFABAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T14:48:33.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeleteStavkaTDSO.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\DeleteStavkaTDSO.cs",
+              "RelativeDocumentMoniker": "SystemOperations\\DeleteStavkaTDSO.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\DeleteStavkaTDSO.cs",
+              "RelativeToolTip": "SystemOperations\\DeleteStavkaTDSO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T19:53:35.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClientCommunication.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\ClientCommunication.cs",
+              "RelativeDocumentMoniker": "..\\Klijent\\ClientCommunication.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\ClientCommunication.cs",
+              "RelativeToolTip": "..\\Klijent\\ClientCommunication.cs",
+              "ViewState": "AgIAAP0AAAAAAAAAAAAYwPoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T10:40:09.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StavkeTDPanel.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.cs",
+              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\StavkeTDPanel.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.cs",
+              "RelativeToolTip": "..\\Klijent\\Paneli\\StavkeTDPanel.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAuwOcAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T10:41:24.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StavkaTehnickaDokumentacija.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
+              "RelativeDocumentMoniker": "..\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
+              "RelativeToolTip": "..\\Common\\Domain\\StavkaTehnickaDokumentacija.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T14:12:44.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Mesto.cs",
+              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\Mesto.cs",
+              "RelativeDocumentMoniker": "..\\Common\\Domain\\Mesto.cs",
+              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\Mesto.cs",
+              "RelativeToolTip": "..\\Common\\Domain\\Mesto.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAmwBkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T21:27:16.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "GetAllTehnickeDokumentacijeSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllTehnickeDokumentacijeSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\GetAllTehnickeDokumentacijeSO.cs",
@@ -468,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "AddMestoSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AddMestoSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AddMestoSO.cs",
@@ -481,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "AlterMestoSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AlterMestoSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AlterMestoSO.cs",
@@ -494,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "GetAllZadaciSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllZadaciSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\GetAllZadaciSO.cs",
@@ -507,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "GetAllInzenjeriSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllInzenjeriSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\GetAllInzenjeriSO.cs",
@@ -520,20 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Controller.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Controller.cs",
-              "RelativeDocumentMoniker": "Controller.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Controller.cs",
-              "RelativeToolTip": "Controller.cs",
-              "ViewState": "AgIAAGEBAAAAAAAAAAAewEIBAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T12:35:17.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "StavkeTDPanel.cs [Design]",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\StavkeTDPanel.cs",
@@ -545,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Operation.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Communication\\Operation.cs",
               "RelativeDocumentMoniker": "..\\Common\\Communication\\Operation.cs",
@@ -558,7 +609,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "TableDataBundle.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\TableDataBundle.cs",
               "RelativeDocumentMoniker": "..\\Common\\Domain\\TableDataBundle.cs",
@@ -571,7 +622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "AddZadatakSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AddZadatakSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AddZadatakSO.cs",
@@ -584,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "GetAllMestaSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllMestaSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\GetAllMestaSO.cs",
@@ -597,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "AlterStavkaTDSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AlterStavkaTDSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AlterStavkaTDSO.cs",
@@ -610,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "ClientHandler.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\ClientHandler.cs",
               "RelativeDocumentMoniker": "ClientHandler.cs",
@@ -623,7 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "AddTehnickaDokumentacijaSO.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\AddTehnickaDokumentacijaSO.cs",
               "RelativeDocumentMoniker": "SystemOperations\\AddTehnickaDokumentacijaSO.cs",
@@ -636,32 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "SystemOperationBase.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\SystemOperationBase.cs",
-              "RelativeDocumentMoniker": "SystemOperations\\SystemOperationBase.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\SystemOperationBase.cs",
-              "RelativeToolTip": "SystemOperations\\SystemOperationBase.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAYwBMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T18:04:56.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "TehnickaDokumentacija.cs [Design]",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs [Design]",
-              "RelativeToolTip": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T14:39:51.068Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "TehnickaDokumentacija.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\TehnickaDokumentacija.cs",
               "RelativeDocumentMoniker": "..\\Common\\Domain\\TehnickaDokumentacija.cs",
@@ -674,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "TableDataMember.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\TableDataMember.cs",
               "RelativeDocumentMoniker": "..\\Common\\Domain\\TableDataMember.cs",
@@ -687,7 +713,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "StavkeTDPanel.Designer.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\StavkeTDPanel.Designer.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\StavkeTDPanel.Designer.cs",
@@ -700,7 +726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "MestoPanel.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\MestoPanel.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\MestoPanel.cs",
@@ -712,7 +738,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "MestoPanel.cs [Design]",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\MestoPanel.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\MestoPanel.cs",
@@ -723,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "FrmKlijentMain.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\FrmKlijentMain.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\FrmKlijentMain.cs",
@@ -735,7 +761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "FrmKlijentMain.cs [Design]",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\FrmKlijentMain.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\FrmKlijentMain.cs",
@@ -746,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "TipInzenjera.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Common\\Domain\\TipInzenjera.cs",
               "RelativeDocumentMoniker": "..\\Common\\Domain\\TipInzenjera.cs",
@@ -758,7 +784,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "PodesavanjaSistema.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\PodesavanjaSistema.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\PodesavanjaSistema.cs",
@@ -782,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "FrmServerMain.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\FrmServerMain.cs",
               "RelativeDocumentMoniker": "FrmServerMain.cs",
@@ -806,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "FrmServerMain.cs [Design]",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\FrmServerMain.cs",
               "RelativeDocumentMoniker": "FrmServerMain.cs",
@@ -828,7 +854,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -841,18 +867,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 37,
-              "Title": "GetAllStavkeTDSO.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllStavkeTDSO.cs",
-              "RelativeDocumentMoniker": "SystemOperations\\GetAllStavkeTDSO.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Projekat\\SystemOperations\\GetAllStavkeTDSO.cs",
-              "RelativeToolTip": "SystemOperations\\GetAllStavkeTDSO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T19:53:03.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Program.cs",
               "RelativeDocumentMoniker": "..\\Klijent\\Program.cs",
@@ -1470,40 +1484,6 @@
               "RelativeToolTip": "..\\Klijent\\FrmKlijentLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-29T16:06:49.011Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "24433d29-80f5-4ad9-83ac-f742a226eb0d",
-        "Display": 0,
-        "X": -8,
-        "Y": 280,
-        "Width": 1535,
-        "Height": 767,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TehnickaDokumentacija.cs",
-              "DocumentMoniker": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "RelativeDocumentMoniker": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "ToolTip": "D:\\Fax\\PS\\Moj projekat\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "RelativeToolTip": "..\\Klijent\\Paneli\\TehnickaDokumentacija.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAYwDIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T14:48:33.858Z",
-              "EditorCaption": ""
             }
           ]
         }
