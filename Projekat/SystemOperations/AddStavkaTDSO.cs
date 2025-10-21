@@ -5,6 +5,7 @@ namespace Server.SystemOperations
     public class AddStavkaTDSO : SystemOperationBase
     {
         private readonly StavkaTehnickaDokumentacija stavka;
+        public TableDataBundle Result { get; set; } = new TableDataBundle();
 
         public AddStavkaTDSO(StavkaTehnickaDokumentacija stavka)
         {
@@ -13,7 +14,7 @@ namespace Server.SystemOperations
 
         public override void ExecuteOperation()
         {
-            broker.Insert(stavka);
+            Result.OperationSucceeded = broker.Insert(stavka);
         }
     }
 }

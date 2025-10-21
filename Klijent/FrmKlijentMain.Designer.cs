@@ -43,6 +43,7 @@
             podešavanjaSistemaTSMItem = new ToolStripMenuItem();
             oProgramuTSMItem = new ToolStripMenuItem();
             pnlMain = new Panel();
+            stavkaTDToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,7 +87,7 @@
             // inzenjerTSMItem
             // 
             inzenjerTSMItem.Name = "inzenjerTSMItem";
-            inzenjerTSMItem.Size = new Size(180, 22);
+            inzenjerTSMItem.Size = new Size(115, 22);
             inzenjerTSMItem.Text = "Inženjer";
             inzenjerTSMItem.Click += inzenjerTSMItem_Click;
             // 
@@ -100,13 +101,13 @@
             // klijentTSMItem
             // 
             klijentTSMItem.Name = "klijentTSMItem";
-            klijentTSMItem.Size = new Size(180, 22);
+            klijentTSMItem.Size = new Size(107, 22);
             klijentTSMItem.Text = "Klijent";
             klijentTSMItem.Click += klijentTSMItem_Click;
             // 
             // šifarniciToolStripMenuItem
             // 
-            šifarniciToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mestoTSMItem, zadatakTSMItem, tipInzenjeraTSMItem });
+            šifarniciToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mestoTSMItem, zadatakTSMItem, tipInzenjeraTSMItem, stavkaTDToolStripMenuItem });
             šifarniciToolStripMenuItem.Name = "šifarniciToolStripMenuItem";
             šifarniciToolStripMenuItem.Size = new Size(183, 22);
             šifarniciToolStripMenuItem.Text = "Šifarnici";
@@ -154,6 +155,13 @@
             pnlMain.Size = new Size(654, 404);
             pnlMain.TabIndex = 1;
             // 
+            // stavkaTDToolStripMenuItem
+            // 
+            stavkaTDToolStripMenuItem.Name = "stavkaTDToolStripMenuItem";
+            stavkaTDToolStripMenuItem.Size = new Size(180, 22);
+            stavkaTDToolStripMenuItem.Text = "Stavka TD";
+            stavkaTDToolStripMenuItem.Click += stavkaTDToolStripMenuItem_Click;
+            // 
             // FrmKlijentMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -187,5 +195,6 @@
         private ToolStripMenuItem podešavanjaSistemaTSMItem;
         private ToolStripMenuItem oProgramuTSMItem;
         private Panel pnlMain;
+        private ToolStripMenuItem stavkaTDToolStripMenuItem;
     }
 }

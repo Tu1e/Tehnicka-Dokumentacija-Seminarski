@@ -310,18 +310,34 @@ namespace Serverr
             return so.Result;
         }
 
+        public object GetTableSupportDataSTD()
+        {
+            TableDataBundle tdb = new TableDataBundle();
+
+            var so1 = new GetAllTehnickeDokumentacijeSO();
+            so1.ExecuteTemplate();
+            tdb.TehnickeDokumentacije = so1.Result.TehnickeDokumentacije;
+
+            var so2 = new GetAllZadaciSO();
+            so2.ExecuteTemplate();
+            tdb.Zadaci = so2.Result.Zadaci;
+            return tdb;
+        }
+
         public object AddTableMemberSTD(TableDataMember tdm)
         {
             var so = new AddStavkaTDSO(tdm.STDokumentacija);
             so.ExecuteTemplate();
-            return GetTableDataSTD();
+            return so.Result;
         }
 
         public object DeleteTableMemberSTD(TableDataMember tdm)
         {
             var so = new DeleteStavkaTDSO(tdm.STDokumentacija.IdTD, tdm.STDokumentacija.Rb);
             so.ExecuteTemplate();
-            return GetTableDataSTD();
+            TableDataBundle so2 = (TableDataBundle)GetTableDataSTD();
+            so2.OperationSucceeded = so.Result.OperationSucceeded;
+            return so2;
         }
 
         internal object ChangeTableMemberSTD(TableDataMember tdm)

@@ -5,7 +5,7 @@ namespace Server.SystemOperations
     public class AddZadatakSO : SystemOperationBase
     {
         private readonly Zadatak zadatak;
-
+        public TableDataBundle Result { get; set; }
         public AddZadatakSO(Zadatak zadatak)
         {
             this.zadatak = zadatak;
@@ -13,7 +13,7 @@ namespace Server.SystemOperations
 
         public override void ExecuteOperation()
         {
-            broker.Insert(zadatak);
+            Result.OperationSucceeded = broker.Insert(zadatak);
         }
     }
 }

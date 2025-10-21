@@ -22,6 +22,9 @@
     <Compile Update="Paneli\PodesavanjaSistema.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Paneli\StavkeTDPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Paneli\TehnickaDokumentacija.cs">
       <SubType>UserControl</SubType>
     </Compile>

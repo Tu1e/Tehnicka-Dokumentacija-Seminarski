@@ -155,6 +155,9 @@ namespace Serverr
                     case Operation.GetTableDataSTD:
                         r.Result = Controller.Instance.GetTableDataSTD();
                         break;
+                    case Operation.GetTableSupportDataSTD:
+                        r.Result = Controller.Instance.GetTableSupportDataSTD();
+                        break;
                     case Operation.AddTableMemberSTD:
                         r.Result = Controller.Instance.AddTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
@@ -164,6 +167,7 @@ namespace Serverr
                     case Operation.ChangeTableMemberSTD:
                         r.Result = Controller.Instance.ChangeTableMemberSTD(serializer.ReadType<TableDataMember>(req.Argument));
                         break;
+                    // --------------------- NON QUERY ---------------------
                     case Operation.BackupDatabase:
                         r.Result = Controller.Instance.BackupDatabase();
                         break;

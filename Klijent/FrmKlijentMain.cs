@@ -68,5 +68,10 @@ namespace Client
         {
             LoadUserControl(new OProgramu());
         }
+
+        private void stavkaTDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new StavkeTDPanel());
+        }
     }
 }

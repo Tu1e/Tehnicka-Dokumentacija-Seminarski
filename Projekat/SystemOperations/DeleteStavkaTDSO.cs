@@ -6,7 +6,7 @@ namespace Server.SystemOperations
     {
         private readonly int idTD;
         private readonly int rb;
-
+        public TableDataBundle Result { get; set; } = new TableDataBundle();
         public DeleteStavkaTDSO(int idTD, int rb)
         {
             this.idTD = idTD;
@@ -15,7 +15,7 @@ namespace Server.SystemOperations
 
         public override void ExecuteOperation()
         {
-            broker.Delete(new StavkaTehnickaDokumentacija(), $"IdTD = {idTD} AND Rb = {rb}");
+            Result.OperationSucceeded = broker.Delete(new StavkaTehnickaDokumentacija(), $"IdTD = {idTD} AND Rb = {rb}");
         }
     }
 }

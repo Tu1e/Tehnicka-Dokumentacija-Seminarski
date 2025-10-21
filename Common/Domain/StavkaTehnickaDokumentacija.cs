@@ -14,7 +14,7 @@ namespace Common.Domain
         public int IdTD { get; set; }
 
         [DisplayName("Redni broj")]
-        public int Rb { get; set; }           // deo ključa
+        public int Rb { get; set; }
 
         [DisplayName("Sadržaj")]
         public string Sadrzaj { get; set; } = null!;
@@ -29,9 +29,9 @@ namespace Common.Domain
         public int Kolicina { get; set; }
 
         [DisplayName("Ukupan iznos stavke")]
-        public decimal UkupanIznosStavke { get; set; } // može COMPUTED
+        public decimal UkupanIznosStavke { get; set; }
 
-        public int IdZadatak { get; set; }//vrv da se izbaci i da se koristi Zadatak ceo
+        public int IdZadatak { get; set; }
 
         public TehnickaDokumentacija TehnickaDokumentacija { get; set; } = null!;
 

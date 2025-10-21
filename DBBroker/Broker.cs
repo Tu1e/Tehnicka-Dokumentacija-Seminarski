@@ -62,19 +62,41 @@ namespace DBBroker
             return entity.GetReaderList(reader);
         }
 
-        public void Insert(IEntity entity)
+        public bool Insert(IEntity entity)
         {
             using var command = connection.CreateCommand();
-            command.CommandText = $"INSERT INTO {entity.TableName} VALUES ({entity.Values})";
-            command.ExecuteNonQuery();
+            try
+            {
+                command.CommandText = $"INSERT INTO {entity.TableName} VALUES ({entity.Values})";
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine($">>> SQL greška u Broker.Insert: {ex.Message}");
+                throw; 
+            }
         }
 
-        public void Delete(IEntity entity, string condition)
+
+        public bool Delete(IEntity entity, string condition)
         {
             using var command = connection.CreateCommand();
-            command.CommandText = $"DELETE FROM {entity.TableName} WHERE {condition}";
-            command.ExecuteNonQuery();
+            try
+            {
+                command.CommandText = $"DELETE FROM {entity.TableName} WHERE {condition}";
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine($">>> SQL greška u Broker.Delete: {ex.Message}");
+                throw;
+            }
         }
+
 
         public void Update(IEntity entity)
         {
