@@ -41,6 +41,5 @@ namespace Common.Domain
             return list;
         }
 
-
     }
 }

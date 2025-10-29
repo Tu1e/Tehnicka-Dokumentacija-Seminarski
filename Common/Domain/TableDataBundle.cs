@@ -15,7 +15,6 @@ namespace Common.Domain
         public List<TipInzenjera> TipoviI { get; set; } = new();
         public List<TehnickaDokumentacija> TehnickeDokumentacije { get; set; } = new();
         public List<StavkaTehnickaDokumentacija> STehnickeDokumentacije { get; set; } = new();
-
         public List<InzenjerTip> ITipovi { get; set; } = new();
         public bool OperationSucceeded { get; set; }
     }

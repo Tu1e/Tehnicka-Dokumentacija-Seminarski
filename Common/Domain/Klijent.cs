@@ -22,7 +22,7 @@ namespace Common.Domain
         [DisplayName("Stranac")]
         public bool Stranac { get; set; }
 
-        [DisplayName("ID Mesta")]//Mozda naziv mesta umesto ID
+        [DisplayName("ID Mesta")]
         public int IdMesto { get; set; }
 
         public string ImePrezime => $"{Ime} {Prezime}";

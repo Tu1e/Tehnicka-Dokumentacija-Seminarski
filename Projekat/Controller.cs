@@ -111,7 +111,7 @@ namespace Serverr
             return GetTableDataInzenjer();
         }
 
-        internal object ChangeTableMemberInzenjer(TableDataMember tdm)
+        public object ChangeTableMemberInzenjer(TableDataMember tdm)
         {
             var so = new AlterInzenjerSO(tdm.Inzenjer);
             so.ExecuteTemplate();
@@ -126,7 +126,7 @@ namespace Serverr
             return so.Result;
         }
 
-        internal TableDataBundle GetTableSupportDataKlijent()
+        public TableDataBundle GetTableSupportDataKlijent()
         {
             TableDataBundle tdb = new TableDataBundle();
 
@@ -151,7 +151,7 @@ namespace Serverr
             return GetTableDataKlijent();
         }
 
-        internal object ChangeTableMemberKlijent(TableDataMember tdm)
+        public object ChangeTableMemberKlijent(TableDataMember tdm)
         {
             var so = new AlterKlijentSO(tdm.Klijent);
             so.ExecuteTemplate();
@@ -180,7 +180,7 @@ namespace Serverr
             return GetTableDataMesto();
         }
 
-        internal object ChangeTableMemberMesto(TableDataMember tdm)
+        public object ChangeTableMemberMesto(TableDataMember tdm)
         {
             var so = new AlterMestoSO(tdm.Mesto);
             so.ExecuteTemplate();
@@ -209,7 +209,7 @@ namespace Serverr
             return GetTableDataZadatak();
         }
 
-        internal object ChangeTableMemberZadatak(TableDataMember tdm)
+        public object ChangeTableMemberZadatak(TableDataMember tdm)
         {
             var so = new AlterZadatakSO(tdm.Zadatak);
             so.ExecuteTemplate();
@@ -224,7 +224,7 @@ namespace Serverr
             return so.Result;
         }
 
-        internal TableDataBundle GetTableSupportDataInzenjer()
+        public TableDataBundle GetTableSupportDataInzenjer()
         {
             var so = new GetAllTipoviInzenjeraSO();
             so.ExecuteTemplate();
@@ -245,7 +245,7 @@ namespace Serverr
             return GetTableDataTipInzenjera();
         }
 
-        internal object ChangeTableMemberTipInzenjera(TableDataMember tdm)
+        public object ChangeTableMemberTipInzenjera(TableDataMember tdm)
         {
             var so = new AlterTipInzenjeraSO(tdm.TipInzenjera);
             so.ExecuteTemplate();
@@ -260,7 +260,7 @@ namespace Serverr
             return so.Result;
         }
 
-        internal TableDataBundle GetTableSupportDataTD()
+        public TableDataBundle GetTableSupportDataTD()
         {
             TableDataBundle tdb = new TableDataBundle();
 
@@ -285,6 +285,8 @@ namespace Serverr
         {
             var so = new DeleteTehnickaDokumentacijaSO(tdm.TehnickaDokumentacija.IdTehnickaDokumentacija);
             so.ExecuteTemplate();
+            var so2 = (TableDataBundle)GetTableDataTD();
+            so2.OperationSucceeded = so.Result.OperationSucceeded;
             return GetTableDataTD();
         }
 
@@ -295,7 +297,7 @@ namespace Serverr
             return GetTableDataTD();
         }
 
-        internal object GetAdditionalDataTD(int IdTD)
+        public object GetAdditionalDataTD(int IdTD)
         {
             var so = new GetAdditionalDataTDSO(IdTD);
             so.ExecuteTemplate();
@@ -340,7 +342,7 @@ namespace Serverr
             return so2;
         }
 
-        internal object ChangeTableMemberSTD(TableDataMember tdm)
+        public object ChangeTableMemberSTD(TableDataMember tdm)
         {
             var so = new AlterStavkaTDSO(tdm.STDokumentacija);
             so.ExecuteTemplate();

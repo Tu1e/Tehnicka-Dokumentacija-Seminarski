@@ -12,6 +12,7 @@ namespace Server.SystemOperations
     public class DeleteTehnickaDokumentacijaSO : SystemOperationBase
     {
         private readonly int idTD;
+        public TableDataBundle Result { get; set; } = new TableDataBundle();
         public DeleteTehnickaDokumentacijaSO(int id)
         {
             idTD = id;
@@ -19,8 +20,7 @@ namespace Server.SystemOperations
 
         public override void ExecuteOperation()
         {
-            var tehDok = new TehnickaDokumentacija();
-            broker.Delete(tehDok, $"IdTD = {idTD}");
+            Result.OperationSucceeded = broker.Delete(new TehnickaDokumentacija(), $"IdTD = {idTD}");
         }
     }
 }

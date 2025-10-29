@@ -269,6 +269,8 @@ namespace Client.Paneli
             TableDataBundle tdcb = ClientCommunication.Instance.AddTableMember(tdm);
             LoadTableTD(tdcb);
             Kreiraj();
+            MessageBox.Show("Sistem je zapamtion tehničku dokumentaciju.",
+                    "Кreiranje tehničke dokumentacije", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnObtisi_Click(object sender, EventArgs e)

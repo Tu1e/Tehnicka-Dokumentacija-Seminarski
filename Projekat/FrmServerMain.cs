@@ -1,4 +1,4 @@
-
+﻿
 namespace Projekat
 {
     public partial class FrmServerMain : Form
@@ -7,6 +7,8 @@ namespace Projekat
         public FrmServerMain()
         {
             InitializeComponent();
+            MessageBox.Show("Sistem je zapamtio inženjera.", "Ubacivanje inženjera", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Sistem ne može da zapamti inženjera.", "Ubacivanje inženjera", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnStart_Click(object sender, EventArgs e)

@@ -31,7 +31,6 @@ namespace Common.Domain
 
         public string PrimaryKeyCondition => $"IdZadatak = {IdZadatak}";
 
-
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             var list = new List<IEntity>();
@@ -47,8 +46,6 @@ namespace Common.Domain
             }
             return list;
         }
-
-
 
     }
 }
